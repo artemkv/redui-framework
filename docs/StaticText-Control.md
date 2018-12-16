@@ -18,13 +18,13 @@
 
 ### Example
 
-{code:javascript}
+```javascript
 {
 	"name": "generalInfoStaticText",
 	"type": "statictext",
 	"text": "General Info"
 }
-{code:javascript}
+```
 
 ## Control
 
@@ -47,5 +47,3 @@
 **getElement(): JQuery** - returns the HTML element that represents the control.
 
 **bind(dataObject: any): void** - binds the control to the data model.
-
-[StaticText Control Example](StaticText-Control-Example.md)

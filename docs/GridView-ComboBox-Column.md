@@ -28,7 +28,7 @@
 
 ### Example
 
-{code:javascript}
+```javascript
 {
 	"type": "gridviewcomboboxcolumn",
 	"name": "country",
@@ -39,7 +39,7 @@
 	"optionIdProperty": "optid",
 	"optionValueProperty": "optvalue"
 }
-{code:javascript}
+```
 
 ## Control
 

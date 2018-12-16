@@ -22,7 +22,7 @@
 
 ### Example
 
-{code:javascript}
+```javascript
 {
 	"type": "gridviewcheckboxcolumn",
 	"name": "isSelected",
@@ -30,7 +30,7 @@
 	"width": 60,
 	"bindsTo": "isSelected"
 }
-{code:javascript}
+```
 
 ## Control
 

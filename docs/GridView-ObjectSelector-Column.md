@@ -28,7 +28,7 @@
 
 ### Example
 
-{code:javascript}
+```javascript
 {
 	"type": "gridviewobjectselectorcolumn",
 	"name": "manager",
@@ -38,7 +38,7 @@
 	"getObjectFunction": "getManager",
 	"objectValueProperty": "name"
 }
-{code:javascript}
+```
 
 ## Control
 

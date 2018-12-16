@@ -24,7 +24,7 @@
 
 ### Example
 
-{code:javascript}
+```
 {
 	"name": "userImage",
 	"type": "image",
@@ -33,7 +33,7 @@
 	"height": 64,
 	"source": "/resources/user.png"
 }
-{code:javascript}
+```javascript
 
 ## Control
 
@@ -56,5 +56,3 @@
 **getElement(): JQuery** - returns the HTML element that represents the control.
 
 **bind(dataObject: any): void** - binds the control to the data model.
-
-[Image Control Example](Image-Control-Example.md)

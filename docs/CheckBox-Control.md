@@ -20,14 +20,14 @@
 
 ### Example
 
-{code:javascript}
+```javascript
 {
 	"name": "isSelectedCheckBox",
 	"type": "checkbox",
 	"label": "Selected",
 	"bindsTo": "isSelected"
 }
-{code:javascript}
+```
 
 ## Control
 
@@ -50,5 +50,3 @@
 **getElement(): JQuery** - returns the HTML element that represents the control.
 
 **bind(dataObject: any): void** - binds the control to the data model.
-
-[CheckBox Control Example](CheckBox-Control-Example.md)

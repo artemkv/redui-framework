@@ -22,7 +22,7 @@
 
 ### Example
 
-{code:javascript}
+```javascript
 {
 	"type": "gridviewtextboxcolumn",
 	"name": "title",
@@ -30,7 +30,7 @@
 	"width": 150,
 	"bindsTo": "title"
 }
-{code:javascript}
+```
 
 ## Control
 

@@ -22,7 +22,7 @@
 
 ### Example
 
-{code:javascript}
+```javascript
 {
 	"name": "addressGroupBox",
 	"type": "groupbox",
@@ -48,7 +48,7 @@
 		}
 	]
 }
-{code:javascript}
+```
 
 ## Control
 
@@ -73,5 +73,3 @@
 **getElement(): JQuery** - returns the HTML element that represents the control.
 
 **bind(dataObject: any): void** - binds the control to the data model.
-
-[GroupBox Control Example](GroupBox-Control-Example.md)

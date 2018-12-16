@@ -20,14 +20,14 @@
 
 ### Example
 
-{code:javascript}
+```javascript
 {
     "name": "firstNameTextBox",
     "type": "textbox",
     "label": "First Name",
     "bindsTo": "firstName"
 }
-{code:javascript}
+```
 
 ## Control
 
@@ -50,6 +50,3 @@
 **getElement(): JQuery** - returns the HTML element that represents the control.
 
 **bind(dataObject: any): void** - binds the control to the data model.
-
-[TextBox Control Example](TextBox-Control-Example.md)
-[TextBox Control, Override Input Type](TextBox-Control,-Override-Input-Type.md)

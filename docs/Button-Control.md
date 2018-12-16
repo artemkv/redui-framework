@@ -22,13 +22,13 @@
 
 ### Example
 
-{code:javascript}
+```javascript
 {
 	"name": "editButton",
 	"type": "button",
 	"text": "Edit"
 }
-{code:javascript}
+```
 
 ## Control
 
@@ -47,5 +47,3 @@
 **window: IWindow** - reference to the window that owns the control.
 
 **getElement(): JQuery** - returns the HTML element that represents the control.
-
-[Button Control Example](Button-Control-Example.md)

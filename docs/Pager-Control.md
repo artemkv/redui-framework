@@ -22,13 +22,13 @@
 
 ### Example
 
-{code:javascript}
+```javascript
 {
 	"name": "pager",
 	"type": "pager",
 	"bindsTo": "pagerInfo"
 }
-{code:javascript}
+```
 
 ## Control
 
@@ -51,5 +51,3 @@
 **getElement(): JQuery** - returns the HTML element that represents the control.
 
 **bind(dataObject: any): void** - binds the control to the data model.
-
-[Pager Control Example](Pager-Control-Example.md)

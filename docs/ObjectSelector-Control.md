@@ -26,7 +26,7 @@
 
 ### Example
 
-{code:javascript}
+```javascript
 {
 	"name": "managerObjectSelector",
 	"type": "objectselector",
@@ -35,7 +35,7 @@
 	"getObjectFunction": "getManager",
 	"objectValueProperty": "name"
 }
-{code:javascript}
+```
 
 ## Control
 
@@ -58,6 +58,3 @@
 **getElement(): JQuery** - returns the HTML element that represents the control.
 
 **bind(dataObject: any): void** - binds the control to the data model.
-
-[ObjectSelector Control Example With GridView](ObjectSelector-Control-Example.md)
-[ObjectSelector Control Example With TreeView](ObjectSelector-Control-Example-With-TreeView.md)

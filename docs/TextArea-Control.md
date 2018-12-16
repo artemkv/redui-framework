@@ -24,7 +24,7 @@
 
 ### Example
 
-{code:javascript}
+```javascript
 {
 	"name": "descriptionTextArea",
 	"type": "textarea",
@@ -33,7 +33,7 @@
 	"columns": 30,
 	"rows": 10
 }
-{code:javascript}
+```
 
 ## Control
 
@@ -56,5 +56,3 @@
 **getElement(): JQuery** - returns the HTML element that represents the control.
 
 **bind(dataObject: any): void** - binds the control to the data model.
-
-[TextArea Control Example](TextArea-Control-Example.md)
