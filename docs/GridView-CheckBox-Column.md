@@ -1,10 +1,10 @@
 # GridView CheckBox Column
 
-![](GridView-CheckBox Column_CheckBoxColumn.png)
+![](GridView-CheckBox-Column_CheckBoxColumn.png)
 
 ## Model
 
-![](GridView-CheckBox Column_IGridViewColumnModel.png)
+![](GridView-CheckBox-Column_IGridViewColumnModel.png)
 
 **type: string** - type of the control. Use _"gridviewcheckboxcolumn"_ to declare a CheckBox column.
 
@@ -34,7 +34,7 @@
 
 ## Control
 
-![](GridView-CheckBox Column_IGridViewColumn.png)
+![](GridView-CheckBox-Column_IGridViewColumn.png)
 
 **model: IControlModel** - reference to the model.
 
