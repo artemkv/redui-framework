@@ -33,7 +33,7 @@
 	"height": 64,
 	"source": "/resources/user.png"
 }
-```javascript
+```
 
 ## Control
 
