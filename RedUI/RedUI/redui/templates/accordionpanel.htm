@@ -1,0 +1,11 @@
+﻿<div id="{{id}}_template" class="redui-accordionpanel-outer{{#model.cssClass}} {{model.cssClass}}{{/model.cssClass}}{{#model.isHidden}} redui-hidden{{/model.isHidden}}">
+  <button id="{{id}}_header" class="redui-accordionpanel-header">
+    <div id="{{id}}_expander" class="redui-accordionpanel-expander"></div>
+    <span class="redui-accordionpanel-label">{{#_localize}}{{model.label}}{{/_localize}}</span>
+  </button>
+  <div id="{{id}}" data-name="{{name}}" class="redui-accordionpanel">
+    {{#controls}}
+    {{{_toHtml}}}
+    {{/controls}}
+  </div>
+{{#contextMenu}}{{{_toHtml}}}{{/contextMenu}}</div>

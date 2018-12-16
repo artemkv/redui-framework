@@ -1,0 +1,21 @@
+﻿<h1>Window Display Options Example</h1>
+This example explains how to use display options to control window position.<br>
+<button id="WindowDisplayOptionsExample" class="try-example-button">Try Example</button>
+<h2>UI Model</h2>
+<div style="color:Black;background-color:White;"><pre>{
+    <span style="color:#A31515;">"windows"</span>: [
+        {
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"SimpleWindowExample"</span>,
+            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"Simple Window Example"</span>,
+            <span style="color:#A31515;">"left"</span>: 500,
+            <span style="color:#A31515;">"top"</span>: 100,
+            <span style="color:#A31515;">"width"</span>: 400,
+            <span style="color:#A31515;">"height"</span>: 300
+        }
+    ]
+}
+</pre></div>
+<h2>Code</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> exampleWindow = redui.createNewWindow(<span style="color:#A31515;">"SimpleWindowExample"</span>);
+exampleWindow.show(<b>{ windowPosition: redui.windowPosition.center }</b>);
+</pre>

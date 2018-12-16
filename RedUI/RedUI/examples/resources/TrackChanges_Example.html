@@ -1,0 +1,131 @@
+﻿<h1>Store/Restore Window State</h1>
+This example explains how enable change tracking for the window.<br>When reopened, window keeps its size and position. GridView inside the window keeps the order, visibility and width of every column.<br><br>Set <i>trackChanges</i> window model property to true to force changes to be stored in the local storage.<br>Use the <i>version</i> window model property to avoid conflicts when changing the window model.<br>
+<button id="TrackChangesExample" class="try-example-button">Try Example</button>
+<h2>UI Model</h2>
+<div style="color:Black;background-color:White;"><pre>{
+    <span style="color:#A31515;">"windows"</span>: [
+        {
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"TrackChangesExample"</span>,
+            <b><span style="color:#A31515;">"trackChanges"</span>: <span style="color:Blue;">true</span>,
+            <span style="color:#A31515;">"version"</span>: 0,</b>
+            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"This Window Keeps User Changes"</span>,
+            <span style="color:#A31515;">"left"</span>: 500,
+            <span style="color:#A31515;">"top"</span>: 100,
+            <span style="color:#A31515;">"width"</span>: 800,
+            <span style="color:#A31515;">"height"</span>: 500,
+            <span style="color:#A31515;">"controls"</span>: [
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"customersGrid"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Customers"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridview"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"list"</span>,
+                    <span style="color:#A31515;">"canUserAddRows"</span>: <span style="color:Blue;">false</span>,
+                    <span style="color:#A31515;">"columns"</span>: [
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewcheckboxcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"isSelected"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Select"</span>,
+                            <span style="color:#A31515;">"width"</span>: 60,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"isSelected"</span>
+                        },
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewtextboxcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"firstName"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"First Name"</span>,
+                            <span style="color:#A31515;">"width"</span>: 120,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"firstName"</span>
+                        },
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewtextboxcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"lastName"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Last Name"</span>,
+                            <span style="color:#A31515;">"width"</span>: 120,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"lastName"</span>
+                        },
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewtextboxcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"age"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Age"</span>,
+                            <span style="color:#A31515;">"width"</span>: 60,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"age"</span>
+                        }
+                    ]
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"OKButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"OK"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"OK"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"CancelButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Cancel"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"Cancel"</span>
+                }
+            ]
+        }
+    ]
+}
+</pre></div>
+<h2>Data Model</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> customerData = {
+	list: [
+		{
+			id: 1,
+			firstName: <span style="color:#A31515;">"Mario"</span>,
+			lastName: <span style="color:#A31515;">"Pizzi"</span>,
+			isVip: <span style="color:Blue;">false</span>,
+			isSelected: <span style="color:Blue;">false</span>,
+			age: 0,
+			description: <span style="color:#A31515;">"Welcome Mario. Mario is italian who lives in Torino. He likes espresso and pizza. He doesn't like hamburgers and beer."</span>,
+			manager: { id: 7, name: <span style="color:#A31515;">"Fiorello Lombardi"</span> },
+			address: {
+				street: <span style="color:#A31515;">"Via Roma"</span>,
+				zip: 1000,
+				city: <span style="color:#A31515;">"Torino"</span>,
+				country: <span style="color:#A31515;">"it"</span>
+			}
+		},
+		{
+			id: 2,
+			firstName: <span style="color:#A31515;">"Jacques"</span>,
+			lastName: <span style="color:#A31515;">"Petit"</span>,
+			isVip: <span style="color:Blue;">true</span>,
+			isSelected: <span style="color:Blue;">true</span>,
+			age: 27,
+			description: <span style="color:#A31515;">""</span>,
+			manager: { id: 0, name: <span style="color:#A31515;">""</span> },
+			address: {
+				street: <span style="color:#A31515;">"Bld. Voltaire"</span>,
+				zip: 2345,
+				city: <span style="color:#A31515;">"Paris"</span>,
+				country: <span style="color:#A31515;">"fr"</span>
+			}
+		},
+		{
+			id: 3,
+			firstName: <span style="color:#A31515;">"Koen"</span>,
+			lastName: <span style="color:#A31515;">"Van Bommel"</span>,
+			isVip: <span style="color:Blue;">false</span>,
+			isSelected: <span style="color:Blue;">false</span>,
+			age: 54,
+			description: <span style="color:#A31515;">""</span>,
+			manager: { id: 0, name: <span style="color:#A31515;">""</span> },
+			address: {
+				street: <span style="color:#A31515;">"Strandstradt"</span>,
+				zip: 5434,
+				city: <span style="color:#A31515;">"Den Haag"</span>,
+				country: <span style="color:#A31515;">"nl"</span>
+			}
+		}
+	]
+};
+</pre></div>
+<h2>Code</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> exampleWindow = redui.createNewWindow(<span style="color:#A31515;">"TrackChangesExample"</span>);
+exampleWindow.bind(customerData);
+exampleWindow.show();
+</pre></div>

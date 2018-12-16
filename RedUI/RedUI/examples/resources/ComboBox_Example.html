@@ -1,0 +1,62 @@
+﻿<h1>ComboBox Control Example</h1>
+This example explains how to create a simple window with ComboBox control, bind to the data and show on the screen.<br>
+<button id="ComboBoxControlExample" class="try-example-button">Try Example</button>
+<h2>UI Model</h2>
+<div style="color:Black;background-color:White;"><pre>{
+    <span style="color:#A31515;">"windows"</span>: [
+        {
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"ComboBoxExample"</span>,
+            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"ComboBox Example"</span>,
+            <span style="color:#A31515;">"left"</span>: 500,
+            <span style="color:#A31515;">"top"</span>: 100,
+            <span style="color:#A31515;">"width"</span>: 400,
+            <span style="color:#A31515;">"height"</span>: 300,
+            <span style="color:#A31515;">"controls"</span>: [
+                <b>{
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"countryComboBox"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"combobox"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Country"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"country"</span>,
+                    <span style="color:#A31515;">"getOptionsFunction"</span>: <span style="color:#A31515;">"getcountries"</span>
+                }</b>,
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"OKButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"OK"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"OK"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"CancelButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Cancel"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"Cancel"</span>
+                }
+            ]
+        }
+    ]
+}
+</pre></div>
+<h2>Data Model</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> addressData = {
+	country: <span style="color:#A31515;">"fr"</span>
+};
+</pre></div>
+<h2>Code</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> countries = [
+	{ id: <span style="color:#A31515;">""</span>, value: <span style="color:#A31515;">""</span>, toString: <span style="color:Blue;">function</span> () { <span style="color:Blue;">return</span> <span style="color:Blue;">this</span>.value } },
+	{ id: <span style="color:#A31515;">"be"</span>, value: <span style="color:#A31515;">"Belgium"</span>, toString: <span style="color:Blue;">function</span> () { <span style="color:Blue;">return</span> <span style="color:Blue;">this</span>.value } },
+	{ id: <span style="color:#A31515;">"fr"</span>, value: <span style="color:#A31515;">"France"</span>, toString: <span style="color:Blue;">function</span> () { <span style="color:Blue;">return</span> <span style="color:Blue;">this</span>.value } },
+	{ id: <span style="color:#A31515;">"it"</span>, value: <span style="color:#A31515;">"Italy"</span>, toString: <span style="color:Blue;">function</span> () { <span style="color:Blue;">return</span> <span style="color:Blue;">this</span>.value } },
+	{ id: <span style="color:#A31515;">"nl"</span>, value: <span style="color:#A31515;">"Netherlands"</span>, toString: <span style="color:Blue;">function</span> () { <span style="color:Blue;">return</span> <span style="color:Blue;">this</span>.value } }
+];
+
+redui.optionsBag.getcountries = <span style="color:Blue;">function</span> () {
+	<span style="color:Blue;">return</span> countries;
+};
+
+<span style="color:Blue;">var</span> exampleWindow = redui.createNewWindow(<span style="color:#A31515;">"ComboBoxExample"</span>);
+exampleWindow.bind(addressData);
+exampleWindow.show();
+</pre>

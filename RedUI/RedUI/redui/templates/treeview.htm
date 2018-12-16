@@ -1,0 +1,6 @@
+﻿<div id="{{id}}_template" class="redui-treeview-outer{{#model.cssClass}} {{model.cssClass}}{{/model.cssClass}}{{#model.isHidden}} redui-hidden{{/model.isHidden}}">
+  {{#model.label}}<label for="{{id}}" class="redui-treeview-label">
+    <span>{{#_localize}}{{model.label}}{{/_localize}}:</span>
+  </label>{{/model.label}}
+  <div id="{{id}}" data-name="{{name}}" class="redui-treeview"></div>
+{{#contextMenu}}{{{_toHtml}}}{{/contextMenu}}</div>

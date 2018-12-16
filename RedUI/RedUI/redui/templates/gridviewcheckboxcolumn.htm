@@ -1,0 +1,6 @@
+﻿<th id="{{id}}" data-name="{{name}}" class="redui-gridview-column redui-gridview-column-{{name}}{{#model.cssClass}} {{model.cssClass}}{{/model.cssClass}}{{#model.isHidden}} redui-hidden{{/model.isHidden}}" style="width: {{model.width}}px;">
+    <div class="redui-gridview-column-td">
+        <div class="redui-gridview-column-label"><a class="redui-gridview-column-label-link redui-gridview-column-nonsorted">{{#_localize}}{{model.label}}{{/_localize}}</a></div>
+        <div class='redui-gridview-column-resizer'></div>
+    </div>
+{{#contextMenu}}{{{_toHtml}}}{{/contextMenu}}</th>

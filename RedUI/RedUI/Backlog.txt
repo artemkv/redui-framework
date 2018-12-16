@@ -1,0 +1,310 @@
+﻿V 1.0
+
+DONE:
+
+Controls:
+* Window
+* TextBox
+* TextArea
+* StaticText
+* CheckBox
+* ComboBox
+* ListBuilder
+* Image
+* GroupBox
+* ObjectSelector
+* Button
+* Ribbon
+* RibbonButton
+* GridView control (Column headers, rows, cells)
+	** GridView StaticTextCell
+	** GridView TextBoxCell
+	** GridView CheckBoxCell
+	** GridView ComboBoxCell
+	** GridView ObjectSelectorCell
+* TreeView (with any control inside the node)
+* Pager
+* Custom control
+* Ribbon
+	* RibbonButton
+* ContextMenu
+	* MenuItem
+* Tabs
+	* TabPage
+* ListView
+* AccordionPanel
+
+Features:
+* Window can be dragged to the new location
+* Window is scrollable when inner controls do not fit
+* Highlight GridView row on hover
+* GridView exposes event currentRowChanged
+* GridView allows inserting new rows
+* GridView selected row has a special class and is shown with the different style
+* Any control can be rendred as hidden if specified in the model
+* TreeView exposes event NodeExpanded
+* Image control is databound
+* Highlight TreeView node on hover
+* TreeView selected node has a special class and is shown with the different style
+* TreeView exposes event currentNodeChanged
+* Any window can be docked into any div
+* Performance: when rendering repeating elements (i.e. grid rows) insert them into the document all at once in the end
+* Use moustache to generate html from templates
+* Hidden elements do not occupy any space
+* CanUserAddRows property for the GridView controls whether it is possible to add new rows
+* If the GridVIew model property CanUserAddRows is set to true, CreateNewRowValueFunction property is required and refers to the function creating a data value for the new row
+* The object that the control is bound to is saved as a contextObject in the control itself. getDataObject returns a stored object with updated properties
+* ComboBox implements GetOptionsFunction property that refers to the function from redui.optionsBag that is used to retrieve the options
+* Colors are separated from the rest of css rules
+* Simplified binding to events like "redui_treeviewnode_expanded" using functions like nodeExpanded
+* Window.ShowModal with any level of modal windows on top of each other
+* Buttons are based on BUTTON element and re-styled
+* Dialog buttons (OK, Cancel or any other, driven by isDialogButton property) are shown in the footer of the window
+* Form layout: labels on top of fields, good margins, sizes and fonts, tab order
+* When window is shown as modal the first editable control inside the modal window gets focus
+* When window is shown as modal, it is positioned in the screen center, regardless of what was set in the model
+* Every control gets a reference to the window
+* Close button in the window title area closes (hides) the modal window
+* Pressing Esc closes (hides) the modal window (only works when focus stays inside the modal findow)
+* Pressing Enter closes (hides) the modal window (only works when focus stays inside the modal findow)
+* Window exposes "redui_window_closing" and "redui_window_closed" events returning a dialog result
+* Clicking a Cancel button (declared as "isDialogButton" with "dialogResult": "Cancel"), closing the window with the cross button or by pressing Esc closes the window and triggers "redui_window_closed" with dialogResult "Cancel"
+* Clicking OK button (declared as "isDialogButton" with "dialogResult": "OK") or pressing Enter closes the window and triggers "redui_window_closed" with dialogResult "OK"
+* Clicking any button declared as "isDialogButton" with non-empty "dialogResult" closes the window and triggers "redui_window_closed" with the specified dialogResult
+* When closed, window HTML is removed from the DOM, window is removed from the windows dictionary
+* Modal window doesn't allow focus to go outside of the modal window when tabbing
+* After the modal window is closed, the focus goes into the previous modal window, if any
+* Fixed: Clicking between 2 controls in the tree node doesn't select the node
+* Fixed: Grid row only gets selected when clicked inside the text box. Should work with any column type
+* Fixed: In the grid with 'canUserAddRows: true' newly added row does not generate redui_gridview_currentrowchanged
+* Fixed: In the grid with 'canUserAddRows: true' newly added row does not show as selected
+* Fixed: Check box label should be on the right
+* Every control updates the property of the contextObject when it's value changes, no need to call getDataObject explicitly
+* Potentially conflicting css classes (like "focusable", "hidden") prefixed with "redui_"
+* Label control renamed to StaticText
+* Panel control renamed to GroupBox
+* Every control has a property model to access the model instead of individual properties copied from the model. Model is used for rendering.
+* TreeView has label
+* Code relies on class for operations on multiple elements (like clear all grid view rows), and on id for operations on a single elements (broadcast expanding event of a specific node)
+* Fixed: Css selectors using the window element as a context do not work for docked windows
+* Fixed: Double-dock, then undock doesn't undock the window correctly
+* Fixed: Make special ids use postfix instead of prefix (like "{{id}}_clientareainner")
+* Css classes, ids and events standardized
+* Dialog buttons are no longer reversed
+* Grid view rows are appended in a non-blocking fashion. UI doesn't freeze while grid view rows are still being rendered
+* Template extension is changed to .htm, model extension is changed to .js. This avoids extra configuration in IIS to register new MIME types
+* Outer html element on the template always has an id (whether it is an id of a control, or an id of a control postfixed with _template, if inner element has an id of a control)
+* Css class defined in the model is put on the outer html element of the template, since you cannot reference the parent from css, but you can always reference a child
+* Fixed: Binding the gridview second time while first binding is still adding rows will add rows from 2 binding attempts
+* Pager control
+* Tree view node should is shown as expandable only when there are subnodes
+* GridView column width can be adjusted
+* Window can be resized
+* Controls supports validation
+* Validation errors should prevent modal dialog from closing by OK/Enter
+* Validation errors should not prevent modal dialog from closing by Cancel/Esc/Close
+* TextBox allows to override the type attribute of the rendered input element
+* Templates are loaded by version to force changes to be downloaded when deploying the new version
+* Support for custom databound controls
+* jQueryUI Datepicker is added as a custom 'customdatapicker' control
+* ListBuilder control
+* GridView is sortable
+* UI is localizable. Use "$label.<labelName>" to describe a localizable label, reference Globalize.js library and use Globalize.addCultureInfo to provide translations.
+* ObjectSelector, ObjectSelectorCell, ComboBox and ListBuilder rely on toString() method if the optionValueProperty/objectValueProperty is not provided
+* ObjectSelector and ObjectSelectorCell can be declared as editable
+* Ribbon control
+* RibbonButton control
+* Pressing Enter in TextArea doesn't close the window anymore
+* Node subnodes are accessed as "nodes" and not as "children"
+* Possibility to open the window (non-modal) center screen
+* IGridViewRow has GridView property that references the GridView it belongs to
+* Closing a docked window undocks it automatically
+* Application model allows to add window model created in code
+* Application model allows to retrieve window model by name
+* Application model allows to remove a window model by name
+* Window can be created by providing a model directly, not only by name
+* If view model property is observable (ko), subscribe to events and auto-update UI
+* Custom control is derived from IContainerControlModel
+* Css class 'redui-onchangeupdatesdata' is not required in the template anymore for the view model update. Instead control relies on activation to subscribe to element events
+* When re-binding GridView, window._allControls object was not cleaned up. Now _allControls is removed and replaced with the control activation mechanism
+* All script tags from templates moved to activate handlers. So templates do not contain any code anymore
+* Code updated to TypeScript 1.0RC
+* Application model contains description of menus in addition to windows
+* Every control model get the property 'contextMenu' that references the menu from the application model
+* ContextMenu control (now only text, no image, no shortcut, but keyboard is supported)
+* ContextMenu supports menu separators
+* Command pattern: ribbon buttons and context menu items are bound to commands that encapsulates the command logic
+* Command pattern: command canExecute method which is called automatically controls enabled/disabled state of the ribbon button/menu item
+* TreeView 'redui_treeview_nodeselected' event is renamed to 'redui_treeview_currentnodechanged'
+* GridView 'redui_gridview_rowselected' event is renamed to 'redui_gridview_currentrowchanged'
+* It is possible to programmatically set the current row in the grid view: makeCurrent method of the GridViewRow
+* It is possible to programmatically set the current node in the tree view: makeCurrent method of the TreeViewNode
+* It is possible to programmatically expand the node
+* Window model gets a property 'trackChanges'. When set to true, window model is stored in the local storage when window is closed. Any changes in the model are restored when the window is created from the same model
+* Window model gets a property 'version' that solves the potential issue with the stored model being incompatible with the new model. Model is only restored when version mathes
+* Window for which 'trackChanges' is set to 'true' keeps the size when re-opened
+* Functions createNewWindow and createNewWindowFromModel accept IWindowContext as a optional parameter that is stored in the window.context property, which solves dependency on "global" variables (defined on redui object)
+* When ComboBox/ListBuilder is initialized, getOptionsFunction model property is used to look up the function on the window context first, and only if not found, on the global context (redui.optionsBag)
+* When ObjectSelector select button is pressed, getObjectFunction model property is used to look up the function on the window context first, and only if not found, on the global context (redui.objectSources)
+* IGridViewColumnModel allows to specify the order (when not set, defaults to column model index in the model)
+* GridView allows to show/hide columns (Accessible through the context menu added by default for every column)
+* GridView allows changing column order (Accessible through the context menu added by default for every column)
+* GridView column order/visibility/width is saved in the localStorage (if is declared in the window with 'trackChanges' set to 'true')
+
+v1.0.0-beta002:
+* Breadcrumbs control
+* AnchoredContent control: Container allowing to anchor the controls inside it
+* Fixed: calling expand() on already expanded node doesn't collapse it
+* When databound control is bound to the property, and that property happens to be a function, this funciton is invoked as a method on the object it is defined to get to the value. Previously function was called as a function, so 'this' was undefined
+This change allows, for example, to bind to 'id' property of the following object:
+    var customerData = {
+        _id: 1,
+        id: function () { return this._id; },
+	}
+
+TODO:
+* ActionButton control is the button that upon click is calling the function with the control as a parameter
+* If event handler for window "redui_window_closing" returns false, closing should be cancelled
+* Allow to specify the column (in the model) that the GridView data will be sorted by from the beginning
+* Save model changes in localStorage
+	* window position
+* It is possible to programmatically collapse the node
+* It is possible to programmatically expand/collapse the accordion panel
+* Collapsing tree view node triggers the 'TreeNodeCollapsed' event
+* Collapsing tree accordion panel triggers the 'AccordionPanelCollapsed' event
+* User can change the current row in the GridView using up/down arrows
+* User can change the current node in the TreeView using up/down arrows
+* User can expand/collapse nodes in the TreeView using left/right arrows
+* Selector column allowing to select all rows
+* Active window should be shown differently and react on Esc/Enter
+* GridView shows the cell value in a tooltip when hovered over, if the value doesn't fit into the cell
+* Double-click on GridView column resizer auto-sizes the column
+* TreeView nodes can be moved by drag and drop
+* Pressing tab in a grid view moves focus to the next cell
+* Hyperlink
+* GridView Image column
+* GridView TextBoxColumn: open up the input type
+* CheckBoxGroup/ RadioButtonGroup
+* Menu
+* MenuButton
+* ProgressBar
+* ActivityIndicator
+* Tooltip
+* Vertical Splitter
+* Horisontal Splitter
+* Command pattern for regular buttons
+* Validation summary control
+
+Later versions:
+* Investigate merging menus from 2 controls (now bubbling of 'contextmenu' event is simply disabled)
+* Window can be rendered as a multi-column. Columns are defined in the model
+* AccordionPanel can contain any control in the header (currently it's only a label)
+* Accordion is expanded or collapsed from the beginning
+	** Either configured in the model
+	** Or the first one expands by default
+	** Or simply save expanded/collapsed state
+* ListView supports current item, and all that it means, including keyboard support
+* List view supports infinite scroll/ non-blocking rendering
+* Make sure deleting rows from the GridView is not a problem
+* ContextMenu supports submenus
+* ContextMenu supports icons
+* "The gridview is empty" message
+* When user starts typing in a GridView, selection goes to the row that has data that starts with the letter sequence typed by the user
+* Client-side sorting for GridView
+* Client-side pagination for GridView?
+* Client-side filtering for GridView (quick search)
+* User can copy all values in the selected column/row of the GridView
+* Keyboard shortcut support for commands
+* Investigate: ValueChanged event (workaround is to get to the element calling getElement and subscribe directly)
+* Ribbon control supports mutiple RibbonButton sizes
+* Ribbon control can have separator
+* Investigate: Control can be enabled or disabled
+* Investigate: Control can be made read-only
+* GridViewCell.value should update when user edits the cell. Otherwise should be named originalValue
+* GroupBox is scrollable when inner controls do not fit?
+* Investigate StatusBar (or it can be just header/footer?)
+* Investigate event bubbling (make sure that custom events bubble)
+* Window can be maximized
+* Window can be minimized
+* Investigate ComboBox styles: simple, dropdown, dropdown list?
+* Investigate: GridView can be configured to enable/disable editing
+* GridView exposes event RowAdded
+* GridView exposes event CellValueChanged
+* Docking several windows into the same div, shown as tabs
+* Rich text editor/ viewer
+* Deliver icons OOB?
+* Investigate layout
+
+OUTSCOPED:
+* Nice error view - the library should not enforce any kind of error handling policy
+* GridView allows removing rows - so far no plans to manage row removal from the grid itself (workaround: use checkbox column bound to isSelected property to know which rows have to be removed)
+* GridView exposes event RowRemoved - so far no plans to manage row removal from the grid itself (workaround: use checkbox column bound to isSelected property to know which rows have to be removed)
+* GridView allows multi-select - so far no plans to manage selection from the grid itself (workaround: use checkbox column bound to isSelected property to know which rows have to be removed)
+* TreeView supports multi-select - so far no plans to manage selection from the tree itself (workaround: use checkbox column bound to isSelected property to know which nodes have to be removed)
+* Investigate panel splitter - splitter is out of scope
+* Investigate panel layout options (grid, stack, dock, wrap) - doesn't seem feasible with current CSS capabilities
+* ContextMenu allows to show/hide items - only enable/disable
+* Menu allows to show/hide items - only enable/disable
+* ContextMenu generates an event before displaying to allow update the menu state - is not really needed, since menu items are bound to commands
+
+Control types in the order of importance:
++ Window
++ TexBox
++ TextArea
++ CheckBox
++ ComboBox
++ StaticText
+- Hyperlink
++ GroupBox
++ Button
++ Image
++ GridView
+	+ TexBox
+	+ CheckBox
+	+ ComboBox
+	+ StaticText
+	- Hyperlink
+	- Button
+	- Image
+	- TextArea
+	- DateTimePicker
+	- Specialized TextBox
+		- IntEditor
+		- RealEditor
+		- ...
+	+ ObjectSelector (DropdownChooser?)
++ TreeView
++ ObjectSelector (DropdownChooser?)
++ DateTimePicker
++ Ribbon
+	+ RibbonButton
++ ContextMenu
++ Tabs
+	+ TabPage
++ CustomControl
++ ListView (free-style container, similar to the tree view node)
++ ListBuilder
+- Multi-selection: check box group/ list box (with or w/o check boxes)?
++ Specialized TextBox
+- CheckBoxGroup
+- RadioButtonGroup
+- Menu
+- MenuButton
+- Breadcrumbs
+- ProgressBar
++ AccordionPanel
+- Tooltip
+- Vertical Splitter
+- Horisontal Splitter
+- SearchBox?
+- QuickSearch?
+- Slider?
+- Switch?
+- Calendar?
+- Canvas?
+- RichTextEditor?
+- ToolBar?
+- Indicators:
+	- Badge (number in the colored ellipsis shape)
+	- Label (text in the colored rounded-corner rectangle)
+	- Alert (text in the colored rounded-corner rectangle)

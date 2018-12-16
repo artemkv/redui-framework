@@ -1,0 +1,79 @@
+﻿<h1>TextBox Control, Override Input Type</h1>
+This example shows how to override the value of the type attribute of the input element that is rendered for the TextBox. This can be useful for date, date and time, password fields etc.<br>
+<button id="InputTypeExample" class="try-example-button">Try Example</button>
+<h2>UI Model</h2>
+<div style="color:Black;background-color:White;"><pre>{
+    <span style="color:#A31515;">"windows"</span>: [
+        {
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"InputTypeExample"</span>,
+            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"TextBox With Overriden Input Type Example"</span>,
+            <span style="color:#A31515;">"left"</span>: 500,
+            <span style="color:#A31515;">"top"</span>: 100,
+            <span style="color:#A31515;">"width"</span>: 400,
+            <span style="color:#A31515;">"height"</span>: 500,
+            <span style="color:#A31515;">"controls"</span>: [
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"standardTextBox"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"textbox"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Text, Default Option"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"text"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"fileTextBox"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"textbox"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"File"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"fileName"</span>,
+                    <b><span style="color:#A31515;">"inputType"</span>: <span style="color:#A31515;">"file"</span></b>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"passwordTextBox"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"textbox"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Password"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"password"</span>,
+                    <b><span style="color:#A31515;">"inputType"</span>: <span style="color:#A31515;">"password"</span></b>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"dateTextBox"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"textbox"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Date"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"date"</span>,
+                    <b><span style="color:#A31515;">"inputType"</span>: <span style="color:#A31515;">"date"</span></b>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"OKButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"OK"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"OK"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"CancelButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Cancel"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"Cancel"</span>
+                }
+            ]
+        }
+    ]
+}
+</pre></div>
+<h2>TextBox Control, Override Input Type</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> data = {
+	text: <span style="color:#A31515;">""</span>,
+	fileName: <span style="color:#A31515;">""</span>,
+	password: <span style="color:#A31515;">""</span>,
+	date: <span style="color:#A31515;">""</span>,
+};
+</pre></div>
+<h2>Code</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> exampleWindow = redui.createNewWindow(<span style="color:#A31515;">"InputTypeExample"</span>);
+exampleWindow.bind(data);
+exampleWindow.show();
+
+exampleWindow.closed(<span style="color:Blue;">function</span> (target, dialogResult) {
+	<span style="color:Blue;">if</span> (dialogResult === <span style="color:#A31515;">"OK"</span>) {
+		alert(<span style="color:#A31515;">"Model data: "</span> + JSON.stringify(data));
+	}
+});
+</pre>

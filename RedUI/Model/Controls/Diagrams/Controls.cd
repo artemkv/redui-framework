@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Interface Name="Model.Controls.IWindow">
+    <Position X="1.25" Y="9" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AQQAAIAAABAAABQAQAAEAAgAAAAIAAAABIAgAAAAAAA=</HashCode>
+      <FileName>Controls\IWindow.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Model.Controls.IControl">
+    <Position X="7.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAFAAAIAAgAAAAIAgA=</HashCode>
+      <FileName>Controls\IControl.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Model.Controls.IContainerControl">
+    <Position X="3.25" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\IContainerControl.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Model.Controls.ITextBox">
+    <Position X="8.75" Y="7.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\ITextBox.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Model.Controls.ICheckBox">
+    <Position X="8.75" Y="10.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\ICheckBox.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Model.Controls.IComboBox">
+    <Position X="8.75" Y="11.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\IComboBox.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Model.Controls.IButton">
+    <Position X="5.75" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\IButton.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Model.Controls.IDataBoundControl">
+    <Position X="8.75" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Controls\IDataBoundControl.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Model.Controls.IStaticText">
+    <Position X="8.75" Y="13.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\IStaticText.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Model.Controls.IImage">
+    <Position X="8.75" Y="15" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\IImage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Model.Controls.ITextArea">
+    <Position X="8.75" Y="8.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\ITextArea.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Model.Controls.IObjectSelector">
+    <Position X="8.75" Y="16.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\IObjectSelector.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Model.Controls.IGridViewColumn">
+    <Position X="11.75" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\IGridViewColumn.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Model.Controls.IGroupBox">
+    <Position X="5.25" Y="9" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\IGroupBox.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Model.Controls.IPager">
+    <Position X="8.75" Y="18" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\IPager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

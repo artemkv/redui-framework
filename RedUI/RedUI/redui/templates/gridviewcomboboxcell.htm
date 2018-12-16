@@ -1,0 +1,9 @@
+﻿<td id="{{id}}_template" class="redui-gridview-cell redui-gridview-column-{{model.name}} redui-valid{{#model.cssClass}} {{model.cssClass}}{{/model.cssClass}}{{#model.isHidden}} redui-hidden{{/model.isHidden}}" style="width: {{model.width}}px;">
+  <div class="redui-gridview-cell-wrapper">
+    <select id="{{id}}" class="redui-gridviewcomboboxcell redui-focusable">
+      {{#options}}
+        <option value="{{id}}">{{value}}</option>
+      {{/options}}
+    </select>
+  </div>
+{{#contextMenu}}{{{_toHtml}}}{{/contextMenu}}</td>

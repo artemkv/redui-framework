@@ -1,0 +1,30 @@
+﻿<div id="{{id}}_template" class="redui-listbuilder-outer redui-valid{{#model.cssClass}} {{model.cssClass}}{{/model.cssClass}}{{#model.isHidden}} redui-hidden{{/model.isHidden}}">
+  {{#model.label}}<label for="{{id}}" class="redui-listbuilder-label">
+    <span>{{#_localize}}{{model.label}}{{/_localize}}: {{#model.isRequired}}*{{/model.isRequired}}</span>
+  </label>{{/model.label}}
+  <div class="redui-listbuilder-panel">
+    <div class="redui-listbuilder-optionsspanel">
+      <select multiple id="{{id}}_availableoptions" class="redui-focusable">
+        {{#options}}
+          <option value="{{id}}">{{value}}</option>
+        {{/options}}
+      </select>
+    </div>
+    <div class="redui-listbuilder-buttonpanel">
+      <button id="{{id}}_addselectedbutton" class="redui-listbuilder-button" tabindex="0" type="button">▶</button>
+      <button id="{{id}}_removeselectedbutton" class="redui-listbuilder-button" tabindex="0" type="button">◀</button>
+      <br />
+      <button id="{{id}}_addallbutton" class="redui-listbuilder-button" tabindex="0" type="button">▶▶</button>
+      <button id="{{id}}_removeallbutton" class="redui-listbuilder-button" tabindex="0" type="button">◀◀</button>
+    </div>
+    <div class="redui-listbuilder-optionsspanel">
+      <select multiple id="{{id}}" name="{{name}}" data-name="{{name}}" class="redui-listbuilder">
+      </select>
+      <div class="redui-listbuilder-orderbuttonpanel">
+        <button id="{{id}}_moveupbutton" class="redui-listbuilder-orderbutton" tabindex="0" type="button">▲</button><!--
+        --><button id="{{id}}_movedownbutton" class="redui-listbuilder-orderbutton" tabindex="0" type="button">▼</button>
+      </div>
+    </div>
+  </div>
+  <div id="{{id}}_validationerrorbox" class="redui-validation-errorbox"></div>
+{{#contextMenu}}{{{_toHtml}}}{{/contextMenu}}</div>

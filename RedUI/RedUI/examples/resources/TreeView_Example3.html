@@ -1,0 +1,277 @@
+﻿<h1>Editable TreeView Control Example</h1>
+This example explains how to create a window with a TreeView with editable controls.<br>
+<button id="EditableTreeViewControlExample" class="try-example-button">Try Example</button>
+<h2>UI Model</h2>
+<div style="color:Black;background-color:White;"><pre>{
+    <span style="color:#A31515;">"windows"</span>: [
+        {
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"EditableTreeViewExample"</span>,
+            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"Editable TreeView Example"</span>,
+            <span style="color:#A31515;">"left"</span>: 500,
+            <span style="color:#A31515;">"top"</span>: 100,
+            <span style="color:#A31515;">"width"</span>: 900,
+            <span style="color:#A31515;">"height"</span>: 400,
+            <span style="color:#A31515;">"controls"</span>: [
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"managersTree"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"treeview"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"items"</span>,
+                    <span style="color:#A31515;">"nodeModel"</span>: {
+                        <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"managersTreeNode"</span>,
+                        <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"treeviewnode"</span>,
+                        <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"items"</span>,
+                        <span style="color:#A31515;">"controls"</span>: [
+                            {
+                                <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"nodeIcon"</span>,
+                                <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"image"</span>,
+                                <span style="color:#A31515;">"alternateText"</span>: <span style="color:#A31515;">"Icon"</span>,
+                                <span style="color:#A31515;">"width"</span>: 16,
+                                <span style="color:#A31515;">"height"</span>: 16,
+                                <span style="color:#A31515;">"source"</span>: <span style="color:#A31515;">"/examples/resources/user-admin.png"</span>
+                            },
+                            {
+                                <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"titleStaticText"</span>,
+                                <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"combobox"</span>,
+                                <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"title"</span>,
+                                <span style="color:#A31515;">"getOptionsFunction"</span>: <span style="color:#A31515;">"getTitles"</span>
+                            },
+                            {
+                                <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"nameStaticText"</span>,
+                                <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"textbox"</span>,
+                                <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"name"</span>
+                            },
+                            {
+                                <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"mentorObjectSelector"</span>,
+                                <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"objectselector"</span>,
+                                <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"mentor"</span>,
+                                <span style="color:#A31515;">"getObjectFunction"</span>: <span style="color:#A31515;">"getMentor"</span>,
+                                <span style="color:#A31515;">"objectValueProperty"</span>: <span style="color:#A31515;">"name"</span>
+                            }
+                        ]
+                    }
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"OKButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"OK"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"OK"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"CancelButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Cancel"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"Cancel"</span>
+                }
+            ]
+        },
+        {
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"ObjectSelectorGridSelector"</span>,
+            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"Select Manager"</span>,
+            <span style="color:#A31515;">"width"</span>: 500,
+            <span style="color:#A31515;">"height"</span>: 300,
+            <span style="color:#A31515;">"controls"</span>: [
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"managersGrid"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridview"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"list"</span>,
+                    <span style="color:#A31515;">"canUserAddRows"</span>: <span style="color:Blue;">false</span>,
+                    <span style="color:#A31515;">"columns"</span>: [
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewstatictextcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"title"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Title"</span>,
+                            <span style="color:#A31515;">"width"</span>: 150,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"title"</span>
+                        },
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewstatictextcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"name"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Name"</span>,
+                            <span style="color:#A31515;">"width"</span>: 250,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"name"</span>
+                        }
+                    ]
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"OKButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"OK"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"OK"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"CancelButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Cancel"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"Cancel"</span>
+                }
+            ]
+        }
+    ]
+}
+</pre></div>
+<h2>Data Model</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> corporateManagement = {
+	items: [
+		{
+			id: 1,
+			title: <span style="color:#A31515;">"chairman"</span>,
+			name: <span style="color:#A31515;">"Gerardo Marcelo"</span>,
+			mentor: {},
+			items: []
+		},
+		{
+			id: 2,
+			title: <span style="color:#A31515;">"cfo"</span>,
+			name: <span style="color:#A31515;">"Salvo Folliero"</span>,
+			mentor: {},
+			items: []
+		},
+		{
+			id: 3,
+			title: <span style="color:#A31515;">"general_manager"</span>,
+			name: <span style="color:#A31515;">"Arrigo Onio"</span>,
+			mentor: {},
+			items: [
+				{
+					id: 5,
+					title: <span style="color:#A31515;">"sports_director"</span>,
+					name: <span style="color:#A31515;">"Edoardo Manna"</span>,
+					mentor: {},
+					items: []
+				},
+				{
+					id: 6,
+					title: <span style="color:#A31515;">"team_manager"</span>,
+					name: <span style="color:#A31515;">"Giulio Bellucci"</span>,
+					mentor: {},
+					items: [
+						{
+							id: 7,
+							title: <span style="color:#A31515;">"manager"</span>,
+							name: <span style="color:#A31515;">"Fiorello Lombardi"</span>,
+							mentor: {},
+							items: []
+						},
+						{
+							id: 8,
+							title: <span style="color:#A31515;">"gk_coach"</span>,
+							name: <span style="color:#A31515;">"Armando Arcuri"</span>,
+							mentor: {},
+							items: []
+						},
+						{
+							id: 9,
+							title: <span style="color:#A31515;">"assist_manager"</span>,
+							name: <span style="color:#A31515;">"Alessio Ferri"</span>,
+							mentor: {},
+							items: []
+						},
+						{
+							id: 10,
+							title: <span style="color:#A31515;">"coach"</span>,
+							name: <span style="color:#A31515;">"Giuseppe Milani"</span>,
+							mentor: {},
+							items: []
+						}
+					]
+				}
+			]
+		},
+		{
+			id: 4,
+			title: <span style="color:#A31515;">"director"</span>,
+			name: <span style="color:#A31515;">"Manlio Ferrari"</span>,
+			mentor: {},
+			items: []
+		}
+	]
+};
+
+<span style="color:Blue;">var</span> titles = [
+	{ id: <span style="color:#A31515;">""</span>, value: <span style="color:#A31515;">""</span>, toString: <span style="color:Blue;">function</span> () { <span style="color:Blue;">return</span> <span style="color:Blue;">this</span>.value } },
+	{ id: <span style="color:#A31515;">"chairman"</span>, value: <span style="color:#A31515;">"Chairman"</span>, toString: <span style="color:Blue;">function</span> () { <span style="color:Blue;">return</span> <span style="color:Blue;">this</span>.value } },
+	{ id: <span style="color:#A31515;">"cfo"</span>, value: <span style="color:#A31515;">"CFO"</span>, toString: <span style="color:Blue;">function</span> () { <span style="color:Blue;">return</span> <span style="color:Blue;">this</span>.value } },
+	{ id: <span style="color:#A31515;">"general_manager"</span>, value: <span style="color:#A31515;">"General Manager"</span>, toString: <span style="color:Blue;">function</span> () { <span style="color:Blue;">return</span> <span style="color:Blue;">this</span>.value } },
+	{ id: <span style="color:#A31515;">"sports_director"</span>, value: <span style="color:#A31515;">"Sports Director"</span>, toString: <span style="color:Blue;">function</span> () { <span style="color:Blue;">return</span> <span style="color:Blue;">this</span>.value } },
+	{ id: <span style="color:#A31515;">"team_manager"</span>, value: <span style="color:#A31515;">"Team Manager"</span>, toString: <span style="color:Blue;">function</span> () { <span style="color:Blue;">return</span> <span style="color:Blue;">this</span>.value } },
+	{ id: <span style="color:#A31515;">"manager"</span>, value: <span style="color:#A31515;">"Manager"</span>, toString: <span style="color:Blue;">function</span> () { <span style="color:Blue;">return</span> <span style="color:Blue;">this</span>.value } },
+	{ id: <span style="color:#A31515;">"gk_coach"</span>, value: <span style="color:#A31515;">"Goalkeeping Coach"</span>, toString: <span style="color:Blue;">function</span> () { <span style="color:Blue;">return</span> <span style="color:Blue;">this</span>.value } },
+	{ id: <span style="color:#A31515;">"assist_manager"</span>, value: <span style="color:#A31515;">"Assistant Manager"</span>, toString: <span style="color:Blue;">function</span> () { <span style="color:Blue;">return</span> <span style="color:Blue;">this</span>.value } },
+	{ id: <span style="color:#A31515;">"coach"</span>, value: <span style="color:#A31515;">"First-team Coach"</span>, toString: <span style="color:Blue;">function</span> () { <span style="color:Blue;">return</span> <span style="color:Blue;">this</span>.value } },
+	{ id: <span style="color:#A31515;">"director"</span>, value: <span style="color:#A31515;">"Director"</span>, toString: <span style="color:Blue;">function</span> () { <span style="color:Blue;">return</span> <span style="color:Blue;">this</span>.value } }
+];
+
+redui.optionsBag.getTitles = <span style="color:Blue;">function</span> () {
+	<span style="color:Blue;">return</span> titles;
+};
+
+<span style="color:Green;">// Options for object selector</span>
+<span style="color:Blue;">var</span> teamManagement = {
+	list: [
+		{
+			id: 7,
+			title: <span style="color:#A31515;">"Manager"</span>,
+			name: <span style="color:#A31515;">"Fiorello Lombardi"</span>,
+		},
+		{
+			id: 8,
+			title: <span style="color:#A31515;">"Goalkeeping Coach"</span>,
+			name: <span style="color:#A31515;">"Armando Arcuri"</span>,
+		},
+		{
+			id: 9,
+			title: <span style="color:#A31515;">"Assistant Manager"</span>,
+			name: <span style="color:#A31515;">"Alessio Ferri"</span>,
+		},
+		{
+			id: 10,
+			title: <span style="color:#A31515;">"First-team Coach"</span>,
+			name: <span style="color:#A31515;">"Giuseppe Milani"</span>,
+		}
+	]
+};
+
+<span style="color:Green;">// This function will be called when user clicks lookup button of the object selector</span>
+redui.objectSources.getMentor = <span style="color:Blue;">function</span> (callback) {
+	<span style="color:Green;">// This window is used to select a mentor</span>
+	<span style="color:Blue;">var</span> mentorsWindow = redui.createNewWindow(<span style="color:#A31515;">"ObjectSelectorGridSelector"</span>);
+	mentorsWindow.bind(teamManagement);
+
+	mentorsWindow.closed(<span style="color:Blue;">function</span> (target, dialogResult) {
+		<span style="color:Blue;">if</span> (dialogResult === <span style="color:#A31515;">"OK"</span>) {
+			<span style="color:Green;">// If the row was selected,</span>
+			<span style="color:Green;">// Get the object bound to the current row</span>
+			<span style="color:Blue;">var</span> currentRow = mentorsWindow.managersGrid.currentRow;
+			<span style="color:Blue;">if</span> (currentRow) {
+				<span style="color:Blue;">var</span> object = currentRow.bindingContext;
+			}
+			<span style="color:Green;">// Return object to the object selector</span>
+			callback(object);
+		}
+	});
+
+	mentorsWindow.showModal();
+};
+</pre></div>
+<h2>Code</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> exampleWindow = redui.createNewWindow(<span style="color:#A31515;">"EditableTreeViewExample"</span>);
+exampleWindow.bind(corporateManagement);
+
+exampleWindow.closed(<span style="color:Blue;">function</span> (target, dialogResult) {
+	<span style="color:Blue;">if</span> (dialogResult === <span style="color:#A31515;">"OK"</span>) {
+		<span style="color:Blue;">var</span> currentNode = exampleWindow.managersTree.currentNode;
+		<span style="color:Blue;">if</span> (currentNode) {
+			<span style="color:Blue;">var</span> object = currentNode.bindingContext;
+			alert(<span style="color:#A31515;">"Selected node: "</span> + JSON.stringify(object));
+		} <span style="color:Blue;">else</span> {
+			alert(<span style="color:#A31515;">"Node was not selected."</span>);
+		}
+	}
+});
+
+exampleWindow.show();
+</pre></div>

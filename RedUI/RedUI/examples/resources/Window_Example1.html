@@ -1,0 +1,21 @@
+﻿<h1>Simple Window Example</h1>
+This example explains how to create a simple window and show on the screen.<br>
+<button id="SimpleWindowExample" class="try-example-button">Try Example</button>
+<h2>UI Model</h2>
+<div style="color:Black;background-color:White;"><pre>{
+    <span style="color:#A31515;">"windows"</span>: [
+        <b>{
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"SimpleWindowExample"</span>,
+            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"Simple Window Example"</span>,
+            <span style="color:#A31515;">"left"</span>: 500,
+            <span style="color:#A31515;">"top"</span>: 100,
+            <span style="color:#A31515;">"width"</span>: 400,
+            <span style="color:#A31515;">"height"</span>: 300
+        }</b>
+    ]
+}
+</pre></div>
+<h2>Code</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> exampleWindow = redui.createNewWindow(<span style="color:#A31515;">"SimpleWindowExample"</span>);
+exampleWindow.show();
+</pre>

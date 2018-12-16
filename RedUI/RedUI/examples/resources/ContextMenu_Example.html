@@ -1,0 +1,227 @@
+﻿<h1>Context Menu Control Example</h1>
+This example explains how to create a window with the GridView with the ContextMenu attached which trigger commands allowing to add and remove the items in the GridView.<br>
+<button id="ContextMenuControlExample" class="try-example-button">Try Example</button><br>
+<br>Every command has to be added to <i>redui.commands</i> object as a property and has to provide 2 functions:<br>
+<ul><li style="margin-left:32px;"><b>execute</b> - executes the command</li>
+<li style="margin-left:32px;"><b>canExecute</b> - determines whether the command can be executed.</li></ul>
+<br>When RibbonButton is bound to a command (property "command"):
+<ul><li style="margin-left:32px;">Click on the RibbonButton triggers the command (executes function 'execute')</li>
+<li style="margin-left:32px;">State of the command (result of 'canExecute' function) controls the state of the RibbonButton</li></ul>
+<br>'canExecute' function of every command is triggered automatically:
+<ul><li style="margin-left:32px;">Upon every event of the following types:
+<ul><li style="margin-left:32px;">redui_gridview_currentrowchanged</li>
+<li style="margin-left:32px;">redui_gridview_sortingchanged</li>
+<li style="margin-left:32px;">redui_treeview_currentnodechanged</li>
+<li style="margin-left:32px;">redui_treeviewnode_expanded</li>
+<li style="margin-left:32px;">redui_window_shown</li>
+<li style="margin-left:32px;">redui_window_closed</li>
+<li style="margin-left:32px;">redui_pager_pagechanged</li>
+<li style="margin-left:32px;">change</li>
+<li style="margin-left:32px;">select</li>
+<li style="margin-left:32px;">focusin</li>
+<li style="margin-left:32px;">focusout</li></ul></li>
+<li style="margin-left:32px;">After any of the command is executed</li></ul>
+<br><i>Don't put the complex long-running logic into 'canExecute' function!</i><br>
+<h2>UI Model</h2>
+<div style="color:Black;background-color:White;"><pre>{
+    <span style="color:#A31515;">"windows"</span>: [
+        {
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"ContextMenuExample"</span>,
+            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"Context Menu Example"</span>,
+            <span style="color:#A31515;">"left"</span>: 500,
+            <span style="color:#A31515;">"top"</span>: 100,
+            <span style="color:#A31515;">"width"</span>: 500,
+            <span style="color:#A31515;">"height"</span>: 500,
+            <span style="color:#A31515;">"controls"</span>: [
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"customersGrid"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Customers"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridview"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"list"</span>,
+                    <span style="color:#A31515;">"canUserAddRows"</span>: <span style="color:Blue;">false</span>,
+                    <b><span style="color:#A31515;">"contextMenu"</span>: <span style="color:#A31515;">"ContextMenuDemo"</span></b>,
+                    <span style="color:#A31515;">"columns"</span>: [
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewtextboxcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"firstName"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"First Name"</span>,
+                            <span style="color:#A31515;">"width"</span>: 200,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"firstName"</span>
+                        },
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewtextboxcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"lastName"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Last Name"</span>,
+                            <span style="color:#A31515;">"width"</span>: 200,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"lastName"</span>
+                        }
+                    ]
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"OKButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"OK"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"OK"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"CancelButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Cancel"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"Cancel"</span>
+                }
+            ]
+        },
+        {
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"NewCustomerWindow"</span>,
+            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"New Customer"</span>,
+            <span style="color:#A31515;">"width"</span>: 400,
+            <span style="color:#A31515;">"height"</span>: 300,
+            <span style="color:#A31515;">"controls"</span>: [
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"customerFirstNameTextBox"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"textbox"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"First Name"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"firstName"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"customerLastNameTextBox"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"textbox"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Last Name"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"lastName"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"OKButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"OK"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"OK"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"CancelButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Cancel"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"Cancel"</span>
+                }
+            ]
+        }
+    ],
+    <b><span style="color:#A31515;">"menus"</span>: [
+        {
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"ContextMenuDemo"</span>,
+            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"contextmenu"</span>,
+            <span style="color:#A31515;">"menuItems"</span>: [
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"addMenuItem"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"menuitem"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Add"</span>,
+                    <span style="color:#A31515;">"command"</span> : <span style="color:#A31515;">"context_menu_example_add"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"removeMenuItem"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"menuitem"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Remove"</span>,
+                    <span style="color:#A31515;">"command"</span> : <span style="color:#A31515;">"context_menu_example_remove"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"separator1"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"menuseparator"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"disabledMenuItem"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"menuitem"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Disabled"</span>,
+                    <span style="color:#A31515;">"command"</span> : <span style="color:#A31515;">"context_menu_example_disabled"</span>
+                }
+            ]
+        }
+    ]</b>
+}
+</pre></div>
+<h2>Data Model</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> customersData = {
+	list: [
+		{
+			id: 1,
+			firstName: <span style="color:#A31515;">"Mario"</span>,
+			lastName: <span style="color:#A31515;">"Pizzi"</span>
+		},
+		{
+			id: 2,
+			firstName: <span style="color:#A31515;">"Jacques"</span>,
+			lastName: <span style="color:#A31515;">"Petit"</span>
+		},
+		{
+			id: 3,
+			firstName: <span style="color:#A31515;">"Koen"</span>,
+			lastName: <span style="color:#A31515;">"Van Bommel"</span>
+		}
+	]
+};
+</pre></div>
+<h2>Code</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> nextCustomerId = 4;
+
+redui.commands.context_menu_example_add = {
+	execute: <span style="color:Blue;">function</span> () {
+		<span style="color:Blue;">var</span> newCustomer = {
+			id: nextCustomerId++,
+			firstName: <span style="color:#A31515;">""</span>,
+			lastName: <span style="color:#A31515;">""</span>
+		};
+
+		<span style="color:Blue;">var</span> newCustomerWindow = redui.createNewWindow(<span style="color:#A31515;">"NewCustomerWindow"</span>);
+		newCustomerWindow.bind(newCustomer);
+		newCustomerWindow.showModal();
+
+		newCustomerWindow.closed(<span style="color:Blue;">function</span> (target, dialogResult) {
+			<span style="color:Blue;">if</span> (dialogResult === <span style="color:#A31515;">"OK"</span>) {
+				customersData.list.push(newCustomer);
+				exampleWindow.customersGrid.bind(customersData);
+			}
+		});
+	},
+	canExecute: <span style="color:Blue;">function</span> () {
+		<span style="color:Blue;">return</span> <span style="color:Blue;">true</span>;
+	}
+};
+redui.commands.context_menu_example_remove = {
+	execute: <span style="color:Blue;">function</span> () {
+		<span style="color:Blue;">var</span> currentRow = exampleWindow.customersGrid.currentRow;
+		<span style="color:Blue;">if</span> (currentRow) {
+			<span style="color:Blue;">var</span> customer = currentRow.bindingContext;
+
+			<span style="color:Blue;">var</span> index = -1;
+			<span style="color:Blue;">for</span> (<span style="color:Blue;">var</span> i = 0, len = customersData.list.length; i &lt; len; i++) {
+				<span style="color:Blue;">if</span> (customersData.list[i].id == customer.id) {
+					index = i;
+					<span style="color:Blue;">break</span>;
+				}
+			}
+
+			customersData.list.splice(index, 1);
+			exampleWindow.customersGrid.bind(customersData);
+		}
+	},
+	canExecute: <span style="color:Blue;">function</span> () {
+		<span style="color:Blue;">var</span> currentRow = exampleWindow.customersGrid.currentRow;
+		<span style="color:Blue;">if</span> (currentRow) {
+			<span style="color:Blue;">return</span> <span style="color:Blue;">true</span>;
+		}
+		<span style="color:Blue;">return</span> <span style="color:Blue;">false</span>;
+	}
+};
+redui.commands.context_menu_example_disabled = {
+	execute: <span style="color:Blue;">function</span> () {
+	},
+	canExecute: <span style="color:Blue;">function</span> () {
+		<span style="color:Blue;">return</span> <span style="color:Blue;">false</span>;
+	}
+};
+
+<span style="color:Blue;">var</span> exampleWindow = redui.createNewWindow(<span style="color:#A31515;">"ContextMenuExample"</span>);
+exampleWindow.bind(customersData);
+exampleWindow.show();
+</pre></div>

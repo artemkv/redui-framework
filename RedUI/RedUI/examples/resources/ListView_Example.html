@@ -1,0 +1,104 @@
+﻿<h1>ListView Control Example</h1>
+This example explains how to create a window with a ListView control, bind to the data and show on the screen.<br>
+<button id="ListViewControlExample" class="try-example-button">Try Example</button>
+<h2>UI Model</h2>
+<div style="color:Black;background-color:White;"><pre>{
+    <span style="color:#A31515;">"windows"</span>: [
+        {
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"ListViewExample"</span>,
+            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"ListView Example"</span>,
+            <span style="color:#A31515;">"left"</span>: 500,
+            <span style="color:#A31515;">"top"</span>: 100,
+            <span style="color:#A31515;">"width"</span>: 500,
+            <span style="color:#A31515;">"height"</span>: 400,
+            <span style="color:#A31515;">"controls"</span>: [
+                {
+                    <b><span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"albumsListView"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"listview"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"items"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Albums"</span>,
+                    <span style="color:#A31515;">"itemModel"</span>: {
+                        <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"albumsListViewItem"</span>,
+                        <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"listviewitem"</span>,
+                        <span style="color:#A31515;">"controls"</span>:</b> [
+                            {
+                                <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"albumCoverImage"</span>,
+                                <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"image"</span>,
+                                <span style="color:#A31515;">"alternateText"</span>: <span style="color:#A31515;">"Image"</span>,
+                                <span style="color:#A31515;">"width"</span>: 55,
+                                <span style="color:#A31515;">"height"</span>: 55,
+                                <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"imageUri"</span>
+                            },
+                            {
+                                <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"yearStaticText"</span>,
+                                <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"statictext"</span>,
+                                <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"year"</span>
+                            },
+                            {
+                                <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"titleStaticText"</span>,
+                                <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"statictext"</span>,
+                                <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"title"</span>
+                            }
+                        ]
+                    }
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"OKButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"OK"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"OK"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"CancelButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Cancel"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"Cancel"</span>
+                }
+            ]
+        }
+    ]
+}
+</pre></div>
+<h2>Data Model</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> albumsData = {
+	items: [
+		{
+			title: <span style="color:#A31515;">"The Doors"</span>,
+			year: <span style="color:#A31515;">"1967"</span>,
+			imageUri: <span style="color:#A31515;">"/examples/resources/images/1967a.jpg"</span>
+		},
+		{
+			title: <span style="color:#A31515;">"Strange Days"</span>,
+			year: <span style="color:#A31515;">"1967"</span>,
+			imageUri: <span style="color:#A31515;">"/examples/resources/images/1967b.jpg"</span>
+		},
+		{
+			title: <span style="color:#A31515;">"Waiting for the Sun"</span>,
+			year: <span style="color:#A31515;">"1968"</span>,
+			imageUri: <span style="color:#A31515;">"/examples/resources/images/1968.jpg"</span>
+		},
+		{
+			title: <span style="color:#A31515;">"The Soft Parade"</span>,
+			year: <span style="color:#A31515;">"1969"</span>,
+			imageUri: <span style="color:#A31515;">"/examples/resources/images/1969.jpg"</span>
+		},
+		{
+			title: <span style="color:#A31515;">"Morrison Hotel"</span>,
+			year: <span style="color:#A31515;">"1970"</span>,
+			imageUri: <span style="color:#A31515;">"/examples/resources/images/1970.jpg"</span>
+		},
+		{
+			title: <span style="color:#A31515;">"L.A. Woman"</span>,
+			year: <span style="color:#A31515;">"1971"</span>,
+			imageUri: <span style="color:#A31515;">"/examples/resources/images/1971.jpg"</span>
+		},
+	]
+};
+</pre></div>
+<h2>Code</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> exampleWindow = redui.createNewWindow(<span style="color:#A31515;">"ListViewExample"</span>);
+exampleWindow.bind(albumsData);
+exampleWindow.show();
+</pre></div>

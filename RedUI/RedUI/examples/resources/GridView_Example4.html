@@ -1,0 +1,120 @@
+﻿<h1>GridView Pagination Example</h1>
+This example explains how to create a window with an editable GridView control, bind to the paged data and handle the pagination using Pager Control.<br>
+<button id="GridViewBigDataPagedExample" class="try-example-button">Try Example</button>
+<h2>UI Model</h2>
+<div style="color:Black;background-color:White;"><pre>{
+    <span style="color:#A31515;">"windows"</span>: [
+        {
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"PaginationExample"</span>,
+            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"Pagination"</span>,
+            <span style="color:#A31515;">"left"</span>: 500,
+            <span style="color:#A31515;">"top"</span>: 100,
+            <span style="color:#A31515;">"width"</span>: 550,
+            <span style="color:#A31515;">"height"</span>: 450,
+            <span style="color:#A31515;">"controls"</span>: [
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"customersGrid"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Customers"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridview"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"list"</span>,
+                    <span style="color:#A31515;">"canUserAddRows"</span>: <span style="color:Blue;">false</span>,
+                    <span style="color:#A31515;">"columns"</span>: [
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewcheckboxcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"isSelected"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Select"</span>,
+                            <span style="color:#A31515;">"width"</span>: 60,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"isSelected"</span>
+                        },
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewtextboxcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"id"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Id"</span>,
+                            <span style="color:#A31515;">"width"</span>: 60,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"id"</span>
+                        },
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewtextboxcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"firstName"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"First Name"</span>,
+                            <span style="color:#A31515;">"width"</span>: 180,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"firstName"</span>
+                        },
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewtextboxcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"lastName"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Last Name"</span>,
+                            <span style="color:#A31515;">"width"</span>: 180,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"lastName"</span>
+                        }
+                    ]
+                },
+                <b>{
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"pager"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"pager"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"pagerInfo"</span>
+                }</b>,
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"OKButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"OK"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"OK"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"CancelButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Cancel"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"Cancel"</span>
+                }
+            ]
+        }
+    ]
+}
+</pre></div>
+<h2>Data Model</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Green;">// Generate 3000 records</span>
+<span style="color:Blue;">var</span> bigCustomerData = { list: [] };
+<span style="color:Blue;">for</span> (<span style="color:Blue;">var</span> i = 0; i &lt; 3000; i++) {
+	<span style="color:Blue;">var</span> customer = {
+		isSelected: i % 2 &gt; 0,
+		id: i,
+		firstName: <span style="color:#A31515;">"First name "</span> + (i + 1).toString(),
+		lastName: <span style="color:#A31515;">"Last name "</span> + (i + 1).toString()
+	}
+	bigCustomerData.list.push(customer);
+}
+
+<span style="color:Green;">// Function that returns data in a paged fashion.</span>
+<span style="color:Green;">// In the real life this function would perform an ajax request to the server.</span>
+<span style="color:Blue;">function</span> getPagedData(pageNo) {
+	<span style="color:Blue;">var</span> pageSize = 10;
+	<span style="color:Blue;">var</span> pagedData = {
+		pagerInfo: {
+			pageNo: pageNo,
+			pagesTotal: Math.ceil(bigCustomerData.list.length / pageSize)
+		},
+		list: []
+	};
+	<span style="color:Blue;">for</span> (<span style="color:Blue;">var</span> i = 0; i &lt; pageSize; i++) {
+		<span style="color:Blue;">var</span> j = (pageNo - 1) * pageSize + i;
+		<span style="color:Blue;">if</span> (j &gt;= bigCustomerData.list.length)
+			<span style="color:Blue;">break</span>;
+
+		pagedData.list[i] = bigCustomerData.list[j];
+	}
+	<span style="color:Blue;">return</span> pagedData;
+}
+</pre></div>
+<h2>Code</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> exampleWindow = redui.createNewWindow(<span style="color:#A31515;">"PaginationExample"</span>);
+<span style="color:Blue;">var</span> pagedData = getPagedData(1);
+exampleWindow.bind(pagedData);
+exampleWindow.show();
+
+exampleWindow.pager.pageChanged(<span style="color:Blue;">function</span> (target, pageNo) {
+	<span style="color:Blue;">var</span> pagedData = getPagedData(pageNo);
+	exampleWindow.bind(pagedData);
+});
+</pre>

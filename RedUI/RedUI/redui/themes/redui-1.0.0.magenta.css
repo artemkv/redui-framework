@@ -1,0 +1,232 @@
+﻿#redui_application
+{
+    font-family: sans-serif;
+}
+
+/* Window */
+
+.redui-window
+{
+    border-color: #AAAAAA;
+    background-color: white;
+}
+
+.redui-resizable-helper
+{
+    border-color: lightgray;
+}
+
+.redui-window-title-inner
+{
+    background-color: whitesmoke;
+}
+
+.redui-window-dialogbuttonspanel-inner
+{
+    background: white;
+}
+
+/* Controls */
+ .redui-groupbox
+{
+    border-color: lightgray;
+}
+
+.redui-button, .redui-objectselector-lookupbutton, .redui-pager-button:not(.redui-pager-currentpage)
+{
+    background: whitesmoke;
+    border-color: lightgray;
+}
+
+.redui-button:hover, .redui-button:focus, 
+.redui-objectselector-lookupbutton:hover, .redui-objectselector-lookupbutton:focus, 
+.redui-pager-button:hover:not(.redui-pager-currentpage), .redui-pager-button:focus:not(.redui-pager-currentpage)
+{
+    background: white;
+}
+
+.redui-button:active, .redui-objectselector-lookupbutton:active, .redui-pager-button:active
+{
+    background: lightgray;
+}
+
+.redui-pager-currentpage
+{
+    background: darkgrey;
+    border-color: gray;
+}
+
+.redui-gridview
+{
+    background: white;
+    border-top-color: white;
+    border-left-color: white;
+    border-bottom: whitesmoke 1px solid;
+}
+
+.redui-gridview-header
+{
+    color: white;
+    background-color: #9f00a7;
+    border-top-color: white;
+    border-left-color: white;
+    height: 32px;
+}
+
+.redui-gridview-column
+{
+    border-bottom-color: white;
+    border-right-color: white;
+}
+
+.redui-gridview-cell, .redui-gridviewcomboboxcell
+{
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+}
+
+.redui-gridview-outer .redui-gridviewrow:nth-child(odd), 
+.redui-gridview-outer .redui-gridviewrow:nth-child(odd) .redui-gridviewstatictextcell,
+.redui-gridview-outer .redui-gridviewrow:nth-child(odd) .redui-gridviewtextboxcell,
+.redui-gridview-outer .redui-gridviewrow:nth-child(odd) .redui-gridviewcomboboxcell,
+.redui-gridview-outer .redui-gridviewrow:nth-child(odd) .redui-gridviewobjectselectorcell
+{
+    background-color: #fbfbfb;
+}
+
+.redui-gridviewrow-selected, 
+.redui-gridviewrow-selected .redui-gridviewstatictextcell, 
+.redui-gridviewrow-selected .redui-gridviewtextboxcell, 
+.redui-gridviewrow-selected .redui-gridviewcomboboxcell, 
+.redui-gridviewrow-selected .redui-gridviewobjectselectorcell
+{
+    background:#eeeeee !important;
+}
+
+.redui-gridview-column-resizer
+{
+    border-right-color: white;
+}
+
+.redui-treeviewnode-selected > .redui-treeviewnode
+{
+    background:#eeeeee;
+}
+
+.redui-treeviewnode:hover
+{
+    background:#eeeeee;
+}
+
+.redui-listbuilder-button:hover, .redui-listbuilder-button:focus,
+.redui-listbuilder-orderbutton:hover, .redui-listbuilder-orderbutton:focus
+{
+    background: white;
+}
+
+.redui-listbuilder-button:active, .redui-listbuilder-orderbutton:active
+{
+    background: lightgray;
+}	
+
+.redui-listbuilder-button, .redui-listbuilder-orderbutton
+{
+    background: whitesmoke;
+    border-color: lightgray;
+    color: gray;
+}
+
+.redui-gridview-column-sorter
+{
+    color: white;
+}
+
+/* Ribbon */
+
+.redui-ribbon-outer
+{
+	background: white;
+}
+
+.redui-ribbon
+{
+	background: white;
+}
+
+.redui-ribbonbutton-textpanel
+{
+    color: white;
+}
+
+.redui-ribbonbutton-iconpanel
+{
+    color: white;
+}
+
+.redui-ribbonbutton-outer.redui-disabled
+{
+	background: lightgray;
+}
+
+.redui-ribbonbutton-outer
+{
+	background: #9f00a7;
+}
+
+.redui-contextmenu
+{
+	border-color: #AAAAAA;
+	background: white;
+}
+
+.redui-menuitem
+{
+    background: white;
+}
+
+.redui-menuseparator
+{
+	background-color: #AAAAAA;
+}
+
+.redui-menuitem.redui-disabled
+{
+    color: lightgray;
+}
+
+.redui-menuitem:focus:not(.redui-disabled)
+{
+	background: lightgray;
+}
+
+.redui-tabbutton
+{
+	border: #9f00a7;
+	color: white;
+	background: #9f00a7;
+}
+
+.redui-tabheader-active .redui-tabbutton
+{
+    border-top: 1px solid #9f00a7;
+    border-left: 1px solid #9f00a7;
+    border-right: 1px solid #9f00a7;
+	border-bottom: white;
+	background: white;
+	color: #9f00a7;
+}
+
+.redui-accordionpanel-header
+{
+    background: white;
+}
+
+.redui-breadcrumb a {
+	color: black;
+}
+.redui-breadcrumb-currentlocation {
+	color: #9f00a7;
+}
+.redui-breadcrumb-separator {
+	color: #9f00a7;
+}

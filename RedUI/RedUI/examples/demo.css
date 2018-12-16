@@ -1,0 +1,200 @@
+﻿*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body, html
+{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#redui_application
+{
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+    background: white;
+
+    min-width:200px;
+    min-height:200px;
+}
+
+/* Layout */
+#header
+{
+    position:absolute;
+    background: #ee1111;
+}
+
+#ribbon
+{
+    position:absolute;
+    background: #F1F1F1;
+}
+
+#breadcrumbs
+{
+    position:absolute;
+    background: #F1F1F1;
+}
+
+#client_area
+{
+    position:absolute;
+    background: #F1F1F1;
+}
+
+#project_area
+{
+    position:absolute;
+    background: #F1F1F1;
+}
+
+#project_tree
+{
+    position:absolute;
+    background: white;
+}
+
+#project_tree_inner
+{
+    border-right: 1px solid #e3e3e3;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+#details_view
+{
+    position:absolute;
+    background: white;
+}
+
+#details_view_inner
+{
+    border-bottom: 1px solid #e3e3e3;
+}
+
+#details_view_inner .redui-window-clientarea-layoutpanel
+{
+    margin: 16px;
+}
+
+#info_panel
+{
+    position:absolute;
+    background: white;
+}
+
+#footer
+{
+    position:absolute;
+    background: #ee1111;
+}
+
+#header_inner, #ribbon_inner, #breadcrumbs_inner, #client_area_inner, #project_area_inner, #project_tree_inner, #details_view_inner, #info_panel_inner, #footer_inner
+{
+    position:absolute;
+
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    overflow: hidden;
+}
+
+.vertical_splitter
+{
+    position:absolute;
+    background: #F1F1F1;
+    cursor: e-resize;
+}
+
+.horizontal_splitter
+{
+    position:absolute;
+    background: #F1F1F1;
+    cursor: n-resize;
+}
+
+/* End of layout */
+
+.redui-window
+{
+}
+
+#nav
+{
+    width: 20%;
+    height: 100%;
+    float: left;
+    background: white;
+}
+
+#content
+{
+    width: 45%;
+    height: 100%;
+    float: left;
+    top: 0px;
+    background: white;
+}
+
+#properties
+{
+    width: 35%;
+    height: 100%;
+    float: left;
+    top: 0px;
+    background: white;
+}
+
+.eventLogTextArea
+{
+    height: 400px;
+}
+
+.redui-demo-bold
+{
+    font-weight: bold;
+}
+
+#header_inner
+{
+    font-size: medium;
+    color: white;
+    margin: 6px;
+}
+
+h1, h2, h3, h4, h5
+{
+    margin: 16px;
+}
+
+.try-example-button
+{
+    margin: 16px;
+    width: 200px;
+    height: 40px;
+}
+
+#footer_inner
+{
+    font-size:small;
+    color: white;
+    margin: 4px;
+}
+
+.redui-customslider-label
+{
+    display: block;
+}
+
+.vertical-slider
+{
+    float: left;
+    display: inline-block;
+    width: 80px;
+}

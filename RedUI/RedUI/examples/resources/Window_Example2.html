@@ -1,0 +1,51 @@
+﻿<h1>Dialog Window Example</h1>
+This example explains how to create a dialog window with "OK" and "Cancel" buttons, show on the screen and process the result.<br>
+<button id="DialogWindowExample" class="try-example-button">Try Example</button>
+<h2>UI Model</h2>
+<div style="color:Black;background-color:White;"><pre>{
+    <span style="color:#A31515;">"windows"</span>: [
+        <b>{
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"DialogWindowExample"</span>,
+            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"Dialog Window Example"</span>,
+            <span style="color:#A31515;">"left"</span>: 500,
+            <span style="color:#A31515;">"top"</span>: 100,
+            <span style="color:#A31515;">"width"</span>: 400,
+            <span style="color:#A31515;">"height"</span>: 300,
+            <span style="color:#A31515;">"controls"</span>: [
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"infoStaticText"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"statictext"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Confirm the action by clicking OK or Cancel"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"OKButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"OK"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"OK"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"CancelButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Cancel"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"Cancel"</span>
+                }
+            ]
+        }</b>
+    ]
+}
+</pre></div>
+<h2>Code</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> exampleWindow = redui.createNewWindow(<span style="color:#A31515;">"DialogWindowExample"</span>);
+exampleWindow.show();
+
+exampleWindow.closed(<span style="color:Blue;">function</span> (target, dialogResult) {
+	<span style="color:Blue;">if</span> (dialogResult === <span style="color:#A31515;">"OK"</span>) {
+		alert(<span style="color:#A31515;">"You clicked OK"</span>);
+	}
+	<span style="color:Blue;">if</span> (dialogResult === <span style="color:#A31515;">"Cancel"</span>) {
+		alert(<span style="color:#A31515;">"You clicked Cancel"</span>);
+	}
+});
+</pre>

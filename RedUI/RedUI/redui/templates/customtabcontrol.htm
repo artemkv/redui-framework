@@ -1,0 +1,13 @@
+﻿<div id="{{id}}_template" class="redui-customtabcontrol-outer{{#model.cssClass}} {{model.cssClass}}{{/model.cssClass}}{{#model.isHidden}} redui-hidden{{/model.isHidden}}">
+  <div id="{{id}}" data-name="{{name}}" class="redui-customtabcontrol">
+    <ul>
+    {{#controls}}
+      <li><a href="#{{id}}">{{#_localize}}{{model.label}}{{/_localize}}</a></li>
+    {{/controls}}
+    </ul>
+
+    {{#controls}}
+    {{{_toHtml}}}
+    {{/controls}}
+  </div>
+{{#contextMenu}}{{{_toHtml}}}{{/contextMenu}}</div>

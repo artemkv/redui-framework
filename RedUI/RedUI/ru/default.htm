@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>RedUI | Интерфейс одностраничных приложений</title>
+    <meta charset="utf-8" />
+
+    <meta name="keywords" content="клиет грид GridView модальный диалог одностраничный дерево treeview TypeScript UI пользовательский интерфейс">
+    <meta name="description" content="RedUI Библиотека javascript для создания пользовательского интерфейса одностраничных приложений">
+
+    <meta property="og:title" content="RedUI Библиотека javascript для создания пользовательского интерфейса одностраничных приложений" />
+    <meta property="og:site_name" content="RedUI" />
+    <meta property="og:image" content="http://redui.net/examples/resources/preview20140225.png" />
+
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css"/>
+    <link rel="stylesheet" type="text/css" href="/redui/redui-1.0.0.css" />
+    <link rel="stylesheet" type="text/css" href="/redui/redui-1.0.0.default.css" />
+
+    <link rel="stylesheet" type="text/css" href="/Content/mainpage.css" />
+</head>
+<body>
+    <!-- Facebook share tag -->
+    <div id="fb-root"></div>
+    <script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+    <div class="page">
+        <div class="header">
+            <div id="NavigationMenuContainer" class="navigationMenuContainer">
+                <div id="NavigationMenuInner" class="navigationMenuInner">
+                    <nav>
+                        <ul id="menu">
+                            <li><a href="/ru/"><b>Главная</b></a></li>
+                            <li><a href="/examples/" target="_blank">Интерактивные примеры</a></li>
+                            <li><a href="/mailclientdemo/" target="_blank">Демо</a></li>
+                            <li><a href="https://redui.codeplex.com/releases/" target="_blank">Скачать</a></li>
+                            <li><a href="http://www.youtube.com/channel/UCGCpl3DG0s3VbW2OFz9qwhQ/videos" target="_blank">Видео</a></li>
+                            <li><a href="https://redui.codeplex.com/" target="_blank">Проект на CodePlex</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <hr class="menuSeparator" />
+        </div>
+        <section id="main">
+            <div style="background: whitesmoke;">
+            <h1>RedUI</h1>
+            <h2>Интерфейс одностраничных приложений</h2>
+            </div>
+            <h4>Декларативная модель интерфейса</h4>
+
+            <div id="declarative_model_showcase"><span class="legend">Наведи указатель мыши на элементы, чтобы увидеть, как они взаимодействуют</span>
+            <div id="window_model">
+                <pre>{
+    <span style="color:#A31515;">"windows"</span>: [
+        {
+<span id="window_model_window" class="hoverable">            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"CustomerDataWindow"</span>,
+<span id="window_model_window_title">            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"Данные клиента"</span>,</span>
+            <span style="color:#A31515;">"width"</span>: 280,
+            <span style="color:#A31515;">"height"</span>: 250,</span>
+            <span style="color:#A31515;">"controls"</span>: [
+                {
+<span id="window_model_firstname" class="hoverable">                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"firstNameTextBox"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"textbox"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Имя"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"firstName"</span></span>
+                },
+                {
+<span id="window_model_lastname" class="hoverable">                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"lastNameTextBox"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"textbox"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Фамилия"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"lastName"</span></span>
+                },
+                {
+<span id="window_model_okbutton" class="hoverable">                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"OKButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"ОК"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"OK"</span></span>
+                },
+                {
+<span id="window_model_cancelbutton" class="hoverable">                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"CancelButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Отмена"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"Cancel"</span></span>
+                }
+            ]
+        }
+    ]
+}
+</pre>
+            </div>
+            <div id="window_from_model">
+                <div id="redui_window_1" data-name="CustomerDataWindow" class="redui-window ui-draggable ui-resizable">
+                    <div class="hoverable"><div id="redui_window_1_titleouter" class="redui-window-title-outer" style="width: 280px; height: 32px;">
+                        <div class="redui-window-title-inner">
+                            <span id="window_from_model_window_title" class="redui-window-title">Данные клиента</span>
+                        </div>
+                        <span class="redui-window-closebutton"></span>
+                    </div></div>
+                    <div id="redui_window_1_clientareaouter" class="redui-window-clientarea-outer" style="width: 280px; height: 218px;">
+                        <div id="redui_window_1_clientareainner" class="redui-window-clientarea-inner">
+                            <div class="redui-window-clientarea-layoutpanel">
+                                <div class="hoverable"><div id="redui_control_2_template" class="redui-textbox-outer redui-valid">
+                                    <label for="redui_control_2" class="redui-textbox-label">
+                                        <span>Имя: </span>
+                                    </label>
+                                    <input id="redui_control_2" name="firstNameTextBox" data-name="firstNameTextBox" class="redui-textbox redui-focusable" readonly type="text">
+                                    <div id="redui_control_2_validationerrorbox" class="redui-validation-errorbox"></div>
+                                </div></div>
+                                <div class="hoverable"><div id="redui_control_3_template" class="redui-textbox-outer redui-valid">
+                                    <label for="redui_control_3" class="redui-textbox-label">
+                                        <span>Фамилия: </span>
+                                    </label>
+                                    <input id="redui_control_3" name="lastNameTextBox" data-name="lastNameTextBox" class="redui-textbox redui-focusable" readonly type="text">
+                                    <div id="redui_control_3_validationerrorbox" class="redui-validation-errorbox"></div>
+                                </div></div>
+                                <div id="redui_control_4_template" class="redui-button-outer">
+                                </div>
+                                <div id="redui_control_5_template" class="redui-button-outer">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="redui_window_1_dialogbuttonspanelouter" class="redui-window-dialogbuttonspanel-outer" style="width: 280px">
+                        <div class="redui-window-dialogbuttonspanel-inner">
+                            <button id="redui_control_4" name="OKButton" data-name="OKButton" class="redui-button redui-focusable redui-dialogbutton" tabindex="0" type="button">ОК</button>
+                            <button id="redui_control_5" name="CancelButton" data-name="CancelButton" class="redui-button redui-focusable redui-dialogbutton" tabindex="0" type="button">Отмена</button>
+                        </div>
+                    </div>
+                    <div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div>
+                </div>
+            </div>
+            </div>
+
+            <h4>Готовый набор элементов управления</h4>
+
+            <div id="controltypes_showcase"><span class="legend">Кликни на картинке, чтобы перейти на страницу демо приложения и увидеть все в действии</span>
+                <a href="/mailclientdemo/" target="_blank"><img id="controltypes_image" src="/Content/controls_ru.png" width="800" height="542" /></a>
+            </div>
+
+            <h4>Простая и интуитивная программная модель</h4>
+
+            <div id="programming_model_showcase"><span class="legend">Кликни на подсвеченных блоках кода, чтобы увидеть иллюстрации</span>
+<div id="program_code"><pre>{
+<span style="color:#A31515;">"use strict"</span>;
+
+$(<span style="color:Blue;">function</span> () {
+<span id="programming_model_create_window" class="hoverable highlight">    <span style="color:Green;">// RedUI сгенерирует HTML по заданной модели</span>
+    <span style="color:Blue;">var</span> myWindow = redui.createNewWindow(<span style="color:#A31515;">"CustomerDataWindow"</span>);</span>
+
+<span id="programming_model_show_window" class="hoverable">    <span style="color:Green;">// Отобразить окно на экране</span>
+    myWindow.show();</span>
+
+<span id="programming_model_bind_window" class="hoverable">    <span style="color:Green;">// Для привязки к данным требуется лишь вызвать bind</span>
+    <span style="color:Blue;">var</span> customerData = {
+        firstName: <span style="color:#A31515;">"Claudio"</span>,
+        lastName: <span style="color:#A31515;">"Lucchesi"</span>,  
+    };
+    myWindow.bind(customerData);</span>
+
+<span id="programming_model_window_props" class="hoverable">    <span style="color:Green;">// Элементы управления доступны по именам...</span>
+    <span style="color:Blue;">var</span> firstNameControl = myWindow.firstNameTextBox;
+
+    <span style="color:Green;">// ...или по индексу</span>
+    <span style="color:Blue;">var</span> firstControl = myWindow.controls[0];</span>
+
+<span id="programming_model_control_props" class="hoverable">    <span style="color:Green;">// Получив элемент управления, можно...</span>
+
+    <span style="color:Green;">// ...получить HTML элемент</span>
+    <span style="color:Blue;">var</span> element = firstNameControl.getElement();
+    <span style="color:Green;">// ...свойства модели</span>
+    <span style="color:Blue;">var</span> label = firstNameControl.model.label;
+    <span style="color:Green;">// ...объект с данными, привязанный к элементу управления</span>
+    <span style="color:Blue;">var</span> dataObject = firstNameControl.bindingContext;</span>
+
+<span id="programming_model_events" class="hoverable">    <span style="color:Green;">// Элементы управления генерируют события</span>
+    myWindow.closed(<span style="color:Blue;">function</span> (target, dialogResult) {
+        <span style="color:Blue;">if</span> (dialogResult === <span style="color:#A31515;">"OK"</span>) {
+            <span style="color:Green;">// Отправить данные на сервер</span>
+        }
+    });
+});</span>
+</pre></div>
+            <div id="program_code_illustration" >
+                <img id="model2html" src="/Content/model2html.png" width="350" height="600" />
+                <img id="showwindow" src="/Content/showwindow.png" width="350" height="600" style="display: none" />
+                <img id="databind" src="/Content/databind.png" width="350" height="600" style="display: none" />
+                <img id="windowprops" src="/Content/windowprops.png" width="350" height="600" style="display: none" />
+                <img id="controlprops" src="/Content/controlprops.png" width="350" height="600" style="display: none" />
+                <img id="okclick" src="/Content/okclick.png" width="350" height="600" style="display: none" />
+            </div>
+            </div>
+
+            <h4>Привязка к данным работает в обе стороны</h4>
+            <p>Когда пользователь меняет значение на экране, привязанный объект данных обновляется автоматически.</p>
+            <h4>Встроенная валидация</h4>
+            <p>Поддерживаются обязательные поля, соответствие шаблону, ограничение максимальной длины, пользовательская валидация (если в привязанном объекте данных определена функция validate). См. <a href="/examples/" target="_blank">Интерактивные примеры</a> чтобы узнать, как задать правила валидации.</p>
+            <h4>Поддержка локализации</h4>
+            <p>Основано на возможностях библиотеки <b>globalize.js</b> (не требуется, если не нужно). См. <a href="/examples/" target="_blank">Интерактивные примеры</a> чтобы узнать, как локализовать элементы управления.</p>
+            <h4>Supports ko.observable</h4>
+            <p>Поддержка <b>knockout.js</b> (не требуется, если не нужно). См. <a href="/examples/" target="_blank">Интерактивные примеры</a> чтобы узнать, как использовать ko.observable.</p>
+            <h4>Открыта для добавления новых элементов управления</h4>
+            <p>Если готовых элементов управления недостаточно, всегда можно создать свои! См. <a href="/examples/" target="_blank">Интерактивные примеры</a> чтобы узнать, как создать собственный элемент управления.</p>
+            <h4>Бесплатно (открытый код)</h4>
+            <p><a href="https://redui.codeplex.com/license" target="_blank">По лицензии MIT (MIT).</a></p>
+        </section>
+        <div class="header">
+            <hr class="menuSeparator" />
+            <span id="footer">Copyright Artem Kondratyev 2014</span>
+        </div>
+    </div>
+</body>
+    <!-- Google+ share tag -->
+    <script type="text/javascript">
+        (function () {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/platform.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+    </script>
+    <!-- End of Google+ share tag -->
+
+    <script src="/Scripts/jquery-2.0.3.min.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
+    <script src="/Scripts/mustache.js" type="text/javascript"></script>
+
+    <!-- Optional -->    
+    <script src="/Scripts/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
+    <script src="/Scripts/knockout-3.0.0.js" type="text/javascript"></script>
+    
+    <script src="/Scripts/mainpage.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        window.onerror = function (error, url, line) {
+            alert('Error:' + error + ' Url:' + url + ' Line:' + line);
+        };
+    </script>
+</html>

@@ -1,0 +1,23 @@
+﻿<div id="{{id}}" data-name="{{name}}" class="redui-window{{#model.cssClass}} {{model.cssClass}}{{/model.cssClass}}{{#model.isHidden}} redui-hidden{{/model.isHidden}}" style="top: {{top}}px; left: {{left}}px;">
+  <div id="{{id}}_titleouter" class="redui-window-title-outer" style="width: {{titleWidth}}px; height: {{titleHeight}}px;">
+    <div class="redui-window-title-inner">
+      <span class="redui-window-title">{{#_localize}}{{model.title}}{{/_localize}}</span>
+    </div>
+    <span class="redui-window-closebutton" />
+  </div>
+  <div id="{{id}}_clientareaouter" class="redui-window-clientarea-outer" style="width: {{clientAreaWidth}}px; height: {{clientAreaHeight}}px;">
+    <div id="{{id}}_clientareainner" class="redui-window-clientarea-inner">
+      <div class="redui-window-clientarea-layoutpanel">
+        {{#controls}}
+        {{{_toHtml}}}
+        {{/controls}}
+      </div>
+{{#contextMenu}}{{{_toHtml}}}{{/contextMenu}}
+    </div>
+  </div>
+  <div id="{{id}}_dialogbuttonspanelouter" class="redui-window-dialogbuttonspanel-outer" style="width: {{clientAreaWidth}}px">
+    <div class="redui-window-dialogbuttonspanel-inner">
+    </div>
+  </div>
+</div>
+<div id="{{id}}_overlay" class="redui-overlay redui-hidden"></div>

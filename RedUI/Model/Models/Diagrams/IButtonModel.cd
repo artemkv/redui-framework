@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Interface Name="Model.Models.IButtonModel">
+    <Position X="6.75" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAABAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Models\IButtonModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Model.Models.IControlModel">
+    <Position X="6.75" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAFAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Models\IControlModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

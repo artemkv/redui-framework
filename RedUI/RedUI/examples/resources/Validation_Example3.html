@@ -1,0 +1,271 @@
+﻿<h1>Validation, GridView</h1>
+This example explains how to validate GridView cells.<br>
+<button id="GridViewValidationExample" class="try-example-button">Try Example</button>
+<h2>UI Model</h2>
+<div style="color:Black;background-color:White;"><pre>{
+    <span style="color:#A31515;">"windows"</span>: [
+        {
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"GridViewValidationExample"</span>,
+            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"GridView Validation Example"</span>,
+            <span style="color:#A31515;">"left"</span>: 500,
+            <span style="color:#A31515;">"top"</span>: 100,
+            <span style="color:#A31515;">"width"</span>: 800,
+            <span style="color:#A31515;">"height"</span>: 500,
+            <span style="color:#A31515;">"controls"</span>: [
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"customersGrid"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Customers"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridview"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"list"</span>,
+                    <span style="color:#A31515;">"canUserAddRows"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"createNewRowValueFunction"</span>: <span style="color:#A31515;">"createNewRowValue"</span>,
+                    <span style="color:#A31515;">"columns"</span>: [
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewcheckboxcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"isSelected"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Select"</span>,
+                            <span style="color:#A31515;">"width"</span>: 60,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"isSelected"</span>,
+                            <b><span style="color:#A31515;">"isRequired"</span>: <span style="color:Blue;">true</span></b>
+                        },
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewtextboxcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"firstName"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"First Name"</span>,
+                            <span style="color:#A31515;">"width"</span>: 120,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"firstName"</span>,
+                            <b><span style="color:#A31515;">"isRequired"</span>: <span style="color:Blue;">true</span></b>
+                        },
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewtextboxcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"lastName"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Last Name"</span>,
+                            <span style="color:#A31515;">"width"</span>: 120,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"lastName"</span>,
+                            <b><span style="color:#A31515;">"isRequired"</span>: <span style="color:Blue;">true</span></b>
+                        },
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewcomboboxcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"country"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Country"</span>,
+                            <span style="color:#A31515;">"width"</span>: 100,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"address.country"</span>,
+                            <span style="color:#A31515;">"getOptionsFunction"</span>: <span style="color:#A31515;">"getcountries"</span>,
+                            <span style="color:#A31515;">"optionIdProperty"</span>: <span style="color:#A31515;">"optid"</span>,
+                            <span style="color:#A31515;">"optionValueProperty"</span>: <span style="color:#A31515;">"optvalue"</span>,
+                            <b><span style="color:#A31515;">"isRequired"</span>: <span style="color:Blue;">true</span></b>
+                        },
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewobjectselectorcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"manager"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Manager"</span>,
+                            <span style="color:#A31515;">"width"</span>: 150,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"manager"</span>,
+                            <span style="color:#A31515;">"getObjectFunction"</span>: <span style="color:#A31515;">"getManager"</span>,
+                            <span style="color:#A31515;">"objectValueProperty"</span>: <span style="color:#A31515;">"name"</span>,
+                            <b><span style="color:#A31515;">"isRequired"</span>: <span style="color:Blue;">true</span></b>
+                        },
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewtextboxcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"age"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Age"</span>,
+                            <span style="color:#A31515;">"width"</span>: 60,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"age"</span>,
+                            <b><span style="color:#A31515;">"isRequired"</span>: <span style="color:Blue;">true</span></b>
+                        }
+                    ]
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"OKButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"OK"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"OK"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"CancelButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Cancel"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"Cancel"</span>
+                }
+            ]
+        }
+    ]
+}
+</pre></div>
+<h2>Data Model</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> customerData = {
+	createNewRowValue: <span style="color:Blue;">function</span> () {
+		<span style="color:Blue;">return</span> {
+			id: -1,
+			firstName: <span style="color:#A31515;">""</span>,
+			lastName: <span style="color:#A31515;">""</span>,
+			isVip: <span style="color:Blue;">false</span>,
+			isSelected: <span style="color:Blue;">false</span>,
+			age: 0,
+			description: <span style="color:#A31515;">""</span>,
+			manager: <span style="color:Blue;">null</span>,
+			address: {
+				street: <span style="color:#A31515;">""</span>,
+				zip: 0,
+				city: <span style="color:#A31515;">""</span>,
+				country: <span style="color:#A31515;">""</span>
+			}
+		};
+	},
+	list: [
+		{
+			id: 1,
+			firstName: <span style="color:#A31515;">""</span>,
+			lastName: <span style="color:#A31515;">"Pizzi"</span>,
+			isVip: <span style="color:Blue;">false</span>,
+			isSelected: <span style="color:Blue;">false</span>,
+			age: 0,
+			description: <span style="color:#A31515;">"Welcome Mario. Mario is italian who lives in Torino. He likes espresso and pizza. He doesn't like hamburgers and beer."</span>,
+			manager: { id: 7, name: <span style="color:#A31515;">"Fiorello Lombardi"</span> },
+			address: {
+				street: <span style="color:#A31515;">"Via Roma"</span>,
+				zip: 1000,
+				city: <span style="color:#A31515;">"Torino"</span>,
+				country: <span style="color:#A31515;">"it"</span>
+			}
+		},
+		{
+			id: 2,
+			firstName: <span style="color:#A31515;">"Jacques"</span>,
+			lastName: <span style="color:#A31515;">""</span>,
+			isVip: <span style="color:Blue;">true</span>,
+			isSelected: <span style="color:Blue;">true</span>,
+			age: 27,
+			description: <span style="color:#A31515;">""</span>,
+			manager: <span style="color:Blue;">null</span>,
+			address: {
+				street: <span style="color:#A31515;">"Bld. Voltaire"</span>,
+				zip: 2345,
+				city: <span style="color:#A31515;">"Paris"</span>,
+				country: <span style="color:#A31515;">"fr"</span>
+			}
+		},
+		{
+			id: 3,
+			firstName: <span style="color:#A31515;">"Koen"</span>,
+			lastName: <span style="color:#A31515;">"Van Bommel"</span>,
+			isVip: <span style="color:Blue;">false</span>,
+			isSelected: <span style="color:Blue;">false</span>,
+			age: 54,
+			description: <span style="color:#A31515;">""</span>,
+			manager: <span style="color:Blue;">null</span>,
+			address: {
+				street: <span style="color:#A31515;">"Strandstradt"</span>,
+				zip: 5434,
+				city: <span style="color:#A31515;">"Den Haag"</span>,
+				country: <span style="color:#A31515;">""</span>
+			}
+		}
+	]
+};
+
+<span style="color:Green;">// Countries to choose from</span>
+<span style="color:Blue;">var</span> countries = [
+	{ optid: <span style="color:#A31515;">""</span>, optvalue: <span style="color:#A31515;">""</span> },
+	{ optid: <span style="color:#A31515;">"be"</span>, optvalue: <span style="color:#A31515;">"Belgium"</span> },
+	{ optid: <span style="color:#A31515;">"fr"</span>, optvalue: <span style="color:#A31515;">"France"</span> },
+	{ optid: <span style="color:#A31515;">"it"</span>, optvalue: <span style="color:#A31515;">"Italy"</span> },
+	{ optid: <span style="color:#A31515;">"nl"</span>, optvalue: <span style="color:#A31515;">"Netherlands"</span> }
+];
+
+redui.optionsBag[<span style="color:#A31515;">"getcountries"</span>] = <span style="color:Blue;">function</span> () {
+	<span style="color:Blue;">return</span> countries;
+};
+
+<span style="color:Green;">// Managers to choose from</span>
+<span style="color:Blue;">var</span> corporateManagement = {
+	items: [
+		{
+			id: 1,
+			title: <span style="color:#A31515;">"Chairman"</span>,
+			name: <span style="color:#A31515;">"Gerardo Marcelo"</span>,
+			items: []
+		},
+		{
+			id: 2,
+			title: <span style="color:#A31515;">"CFO"</span>,
+			name: <span style="color:#A31515;">"Salvo Folliero"</span>,
+			items: []
+		},
+		{
+			id: 3,
+			title: <span style="color:#A31515;">"General Manager"</span>,
+			name: <span style="color:#A31515;">"Arrigo Onio"</span>,
+			items: [
+				{
+					id: 5,
+					title: <span style="color:#A31515;">"Sports Director"</span>,
+					name: <span style="color:#A31515;">"Edoardo Manna"</span>,
+					items: []
+				},
+				{
+					id: 6,
+					title: <span style="color:#A31515;">"Team Manager"</span>,
+					name: <span style="color:#A31515;">"Giulio Bellucci"</span>,
+					items: [
+						{
+							id: 7,
+							title: <span style="color:#A31515;">"Manager"</span>,
+							name: <span style="color:#A31515;">"Fiorello Lombardi"</span>,
+							items: []
+						},
+						{
+							id: 8,
+							title: <span style="color:#A31515;">"Goalkeeping Coach"</span>,
+							name: <span style="color:#A31515;">"Armando Arcuri"</span>,
+							items: []
+						},
+						{
+							id: 9,
+							title: <span style="color:#A31515;">"Assistant Manager"</span>,
+							name: <span style="color:#A31515;">"Alessio Ferri"</span>,
+							items: []
+						},
+						{
+							id: 10,
+							title: <span style="color:#A31515;">"First-team Coach"</span>,
+							name: <span style="color:#A31515;">"Giuseppe Milani"</span>,
+							items: []
+						}
+					]
+				}
+			]
+		},
+		{
+			id: 4,
+			title: <span style="color:#A31515;">"Director"</span>,
+			name: <span style="color:#A31515;">"Manlio Ferrari"</span>,
+			items: []
+		}
+	]
+};
+
+redui.objectSources.getManager = <span style="color:Blue;">function</span> (callback) {
+	<span style="color:Blue;">var</span> managersWindow = redui.createNewWindow(<span style="color:#A31515;">"ObjectSelectorTreeSelector"</span>);
+	managersWindow.bind(corporateManagement);
+
+	managersWindow.closed(<span style="color:Blue;">function</span> (target, dialogResult) {
+		<span style="color:Blue;">if</span> (dialogResult === <span style="color:#A31515;">"OK"</span>) {
+			<span style="color:Blue;">var</span> currentNode = managersWindow.managersTree.currentNode;
+			<span style="color:Blue;">if</span> (currentNode) {
+				<span style="color:Blue;">var</span> object = currentNode.bindingContext;
+			}
+			callback(object);
+		}
+	});
+
+	managersWindow.showModal();
+};
+</pre></div>
+<h2>Code</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> exampleWindow = redui.createNewWindow(<span style="color:#A31515;">"GridViewValidationExample"</span>);
+exampleWindow.bind(customerData);
+exampleWindow.show();
+</pre>

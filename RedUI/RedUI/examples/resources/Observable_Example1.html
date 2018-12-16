@@ -1,0 +1,55 @@
+﻿<h1>Computed Observable Example</h1>
+This example explains how to take advantage of knockout.js computed observable.<br>There is no hard dependency on knockout.js, but if it is used, RedUI will take advantage of it's power.<br>
+<button id="ComputedObservableExample" class="try-example-button">Try Example</button>
+<h2>UI Model</h2>
+<div style="color:Black;background-color:White;"><pre>{
+    <span style="color:#A31515;">"windows"</span>: [
+        {
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"ComputedObservableExample"</span>,
+            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"Computed Observable Example"</span>,
+            <span style="color:#A31515;">"left"</span>: 500,
+            <span style="color:#A31515;">"top"</span>: 100,
+            <span style="color:#A31515;">"width"</span>: 400,
+            <span style="color:#A31515;">"height"</span>: 400,
+            <span style="color:#A31515;">"controls"</span>: [
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"firstNameTextBox"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"textbox"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"First Name"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"firstName"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"lastNameTextBox"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"textbox"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Last Name"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"lastName"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"fullNameTextBox"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"textbox"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Full Name"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"fullName"</span>
+                }
+            ]
+        }
+    ]
+}
+</pre></div>
+<h2>Data Model</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> customerData = {
+	firstName: ko.observable(<span style="color:#A31515;">""</span>),
+	lastName: ko.observable(<span style="color:#A31515;">""</span>)
+};
+
+<span style="color:Green;">// Computed observable</span>
+customerData.fullName = ko.computed(<span style="color:Blue;">function</span> () { <span style="color:Blue;">return</span> <span style="color:Blue;">this</span>.firstName() + <span style="color:#A31515;">" "</span> + <span style="color:Blue;">this</span>.lastName(); }, customerData);
+</pre></div>
+<h2>Code</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> exampleWindow = redui.createNewWindow(<span style="color:#A31515;">"ComputedObservableExample"</span>);
+exampleWindow.bind(customerData);
+
+<span style="color:Green;">// Disable full text textbox</span>
+exampleWindow.fullNameTextBox.getElement().prop(<span style="color:#A31515;">'readonly'</span>, <span style="color:Blue;">true</span>);
+
+exampleWindow.show();
+</pre></div><br><br>

@@ -1,0 +1,9 @@
+﻿<div id="{{id}}_template" class="redui-treeviewnode-outer{{#model.cssClass}} {{model.cssClass}}{{/model.cssClass}}{{#model.isHidden}} redui-hidden{{/model.isHidden}}">
+  <div id="{{id}}_expander" class="redui-treeviewnode-expander"></div>
+  <div id="{{id}}" class="redui-treeviewnode">
+    {{#controls}}
+    {{{_toHtml}}}
+    {{/controls}}
+  </div>
+  <div id="{{id}}_innernodes" class="redui-treeviewnode-innernodes"></div>
+{{#contextMenu}}{{{_toHtml}}}{{/contextMenu}}</div>

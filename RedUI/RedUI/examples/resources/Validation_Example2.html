@@ -1,0 +1,69 @@
+﻿<h1>Validation, Maximum Length</h1>
+This example explains how to configure maximum length for text fields. <br>
+<button id="MaxLengthValidationExample" class="try-example-button">Try Example</button>
+<h2>UI Model</h2>
+<div style="color:Black;background-color:White;"><pre>{
+    <span style="color:#A31515;">"windows"</span>: [
+        {
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"MaxLengthValidationExample"</span>,
+            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"Maximum Length Validation Example"</span>,
+            <span style="color:#A31515;">"left"</span>: 500,
+            <span style="color:#A31515;">"top"</span>: 100,
+            <span style="color:#A31515;">"width"</span>: 500,
+            <span style="color:#A31515;">"height"</span>: 500,
+            <span style="color:#A31515;">"controls"</span>: [
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"firstNameTextBox"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"textbox"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"First Name"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"firstName"</span>,
+                    <b><span style="color:#A31515;">"maxlength"</span>: 7</b>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"lastNameTextBox"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"textbox"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Last Name"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"lastName"</span>,
+                    <b><span style="color:#A31515;">"maxlength"</span>: 7,
+                    <span style="color:#A31515;">"validationErrorMessage"</span>: <span style="color:#A31515;">"Last name is too long"</span></b>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"descriptionTextArea"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"textarea"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Description"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"description"</span>,
+                    <span style="color:#A31515;">"columns"</span>: 30,
+                    <span style="color:#A31515;">"rows"</span>: 10,
+                    <b><span style="color:#A31515;">"maxlength"</span>: 20</b>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"OKButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"OK"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"OK"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"CancelButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Cancel"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"Cancel"</span>
+                }
+            ]
+        }
+    ]
+}
+</pre></div>
+<h2>Data Model</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> customerData = {
+	firstName: <span style="color:#A31515;">"This name is too long"</span>,
+	lastName: <span style="color:#A31515;">"This name is too long"</span>,
+	description: <span style="color:#A31515;">"This description is too long"</span>
+};
+</pre></div>
+<h2>Code</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> exampleWindow = redui.createNewWindow(<span style="color:#A31515;">"MaxLengthValidationExample"</span>);
+exampleWindow.bind(customerData);
+exampleWindow.show();
+</pre>

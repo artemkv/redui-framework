@@ -1,0 +1,54 @@
+﻿<h1>Custom Modal Dialog Window Example</h1>
+This example explains how to create a modal dialog window with custom "Yes" and "No" buttons, show on the screen and process the result.<br>
+<button id="CustomDialogWindowExample" class="try-example-button">Try Example</button>
+<h2>UI Model</h2>
+<div style="color:Black;background-color:White;"><pre>{
+    <span style="color:#A31515;">"windows"</span>: [
+        <b>{
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"CustomDialogWindowExample"</span>,
+            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"Custom Dialog Window Example"</span>,
+            <span style="color:#A31515;">"left"</span>: 500,
+            <span style="color:#A31515;">"top"</span>: 100,
+            <span style="color:#A31515;">"width"</span>: 400,
+            <span style="color:#A31515;">"height"</span>: 300,
+            <span style="color:#A31515;">"controls"</span>: [
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"infoStaticText"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"statictext"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Confirm the action by clicking Yes or No"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"YesButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Yes"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"Yes"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"NoButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"No"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"No"</span>
+                }
+            ]
+        }</b>
+    ]
+}
+</pre></div>
+<h2>Code</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> exampleWindow = redui.createNewWindow(<span style="color:#A31515;">"CustomDialogWindowExample"</span>);
+exampleWindow.showModal();
+
+exampleWindow.closed(<span style="color:Blue;">function</span> (target, dialogResult) {
+	<span style="color:Blue;">if</span> (dialogResult === <span style="color:#A31515;">"Yes"</span>) {
+		alert(<span style="color:#A31515;">"You clicked Yes"</span>);
+	}
+	<span style="color:Blue;">if</span> (dialogResult === <span style="color:#A31515;">"No"</span>) {
+		alert(<span style="color:#A31515;">"You clicked No"</span>);
+	}
+	<span style="color:Blue;">if</span> (dialogResult === <span style="color:#A31515;">"Cancel"</span>) {
+		alert(<span style="color:#A31515;">"Closing window this way returns Cancel"</span>);
+	}
+});
+</pre>

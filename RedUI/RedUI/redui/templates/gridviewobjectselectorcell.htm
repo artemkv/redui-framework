@@ -1,0 +1,8 @@
+﻿<td id="{{id}}_template" class="redui-gridview-cell redui-gridview-column-{{model.name}} redui-valid{{#model.cssClass}} {{model.cssClass}}{{/model.cssClass}}{{#model.isHidden}} redui-hidden{{/model.isHidden}}" style="width: {{model.width}}px;">
+  <div class="redui-gridview-cell-wrapper">
+    <div class="redui-gridviewobjectselectorcell-outer">
+      <input id="{{id}}" name="{{name}}" data-name="{{name}}" class="redui-gridviewobjectselectorcell" type="text" tabindex="-1" readonly="" value="{{value}}" /><!--
+      --><button id="{{id}}_lookupbutton" class="redui-objectselector-lookupbutton redui-focusable" tabindex="0" type="button">...</button>
+    </div>
+  </div>
+{{#contextMenu}}{{{_toHtml}}}{{/contextMenu}}</td>

@@ -1,0 +1,149 @@
+﻿<h1>TreeView Control Example</h1>
+This example explains how to create a window with a TreeView control, bind to the data and show on the screen. <br>In this example, TreeViewNode contains Image and StaticText control, but it can contain any control type.<br>
+<button id="TreeViewControlExample" class="try-example-button">Try Example</button>
+<h2>UI Model</h2>
+<div style="color:Black;background-color:White;"><pre>{
+    <span style="color:#A31515;">"windows"</span>: [
+        {
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"TreeViewExample"</span>,
+            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"TreeView Example"</span>,
+            <span style="color:#A31515;">"left"</span>: 500,
+            <span style="color:#A31515;">"top"</span>: 100,
+            <span style="color:#A31515;">"width"</span>: 500,
+            <span style="color:#A31515;">"height"</span>: 400,
+            <span style="color:#A31515;">"controls"</span>: [
+                <b>{
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"managersTree"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"treeview"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"items"</span>,
+                    <span style="color:#A31515;">"nodeModel"</span>: {
+                        <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"managersTreeNode"</span>,
+                        <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"treeviewnode"</span>,
+                        <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"items"</span>,
+                        <span style="color:#A31515;">"controls"</span>: [
+                            {
+                                <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"nodeIcon"</span>,
+                                <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"image"</span>,
+                                <span style="color:#A31515;">"alternateText"</span>: <span style="color:#A31515;">"Icon"</span>,
+                                <span style="color:#A31515;">"width"</span>: 16,
+                                <span style="color:#A31515;">"height"</span>: 16,
+                                <span style="color:#A31515;">"source"</span>: <span style="color:#A31515;">"/examples/resources/user-admin.png"</span>
+                            },
+                            {
+                                <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"titleStaticText"</span>,
+                                <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"statictext"</span>,
+                                <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"title"</span>
+                            },
+                            {
+                                <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"nameStaticText"</span>,
+                                <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"statictext"</span>,
+                                <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"name"</span>
+                            }
+                        ]
+                    }
+                }</b>,
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"OKButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"OK"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"OK"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"CancelButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Cancel"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"Cancel"</span>
+                }
+            ]
+        }
+    ]
+}
+</pre></div>
+<h2>Data Model</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> corporateManagement = {
+	items: [
+		{
+			id: 1,
+			title: <span style="color:#A31515;">"Chairman"</span>,
+			name: <span style="color:#A31515;">"Gerardo Marcelo"</span>,
+			items: []
+		},
+		{
+			id: 2,
+			title: <span style="color:#A31515;">"CFO"</span>,
+			name: <span style="color:#A31515;">"Salvo Folliero"</span>,
+			items: []
+		},
+		{
+			id: 3,
+			title: <span style="color:#A31515;">"General Manager"</span>,
+			name: <span style="color:#A31515;">"Arrigo Onio"</span>,
+			items: [
+				{
+					id: 5,
+					title: <span style="color:#A31515;">"Sports Director"</span>,
+					name: <span style="color:#A31515;">"Edoardo Manna"</span>,
+					items: []
+				},
+				{
+					id: 6,
+					title: <span style="color:#A31515;">"Team Manager"</span>,
+					name: <span style="color:#A31515;">"Giulio Bellucci"</span>,
+					items: [
+						{
+							id: 7,
+							title: <span style="color:#A31515;">"Manager"</span>,
+							name: <span style="color:#A31515;">"Fiorello Lombardi"</span>,
+							items: []
+						},
+						{
+							id: 8,
+							title: <span style="color:#A31515;">"Goalkeeping Coach"</span>,
+							name: <span style="color:#A31515;">"Armando Arcuri"</span>,
+							items: []
+						},
+						{
+							id: 9,
+							title: <span style="color:#A31515;">"Assistant Manager"</span>,
+							name: <span style="color:#A31515;">"Alessio Ferri"</span>,
+							items: []
+						},
+						{
+							id: 10,
+							title: <span style="color:#A31515;">"First-team Coach"</span>,
+							name: <span style="color:#A31515;">"Giuseppe Milani"</span>,
+							items: []
+						}
+					]
+				}
+			]
+		},
+		{
+			id: 4,
+			title: <span style="color:#A31515;">"Director"</span>,
+			name: <span style="color:#A31515;">"Manlio Ferrari"</span>,
+			items: []
+		}
+	]
+};
+</pre></div>
+<h2>Code</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> exampleWindow = redui.createNewWindow(<span style="color:#A31515;">"TreeViewExample"</span>);
+exampleWindow.bind(corporateManagement);
+
+exampleWindow.closed(<span style="color:Blue;">function</span> (target, dialogResult) {
+	<span style="color:Blue;">if</span> (dialogResult === <span style="color:#A31515;">"OK"</span>) {
+		<span style="color:Blue;">var</span> currentNode = exampleWindow.managersTree.currentNode;
+		<span style="color:Blue;">if</span> (currentNode) {
+			<span style="color:Blue;">var</span> object = currentNode.bindingContext;
+			alert(<span style="color:#A31515;">"Selected node: "</span> + JSON.stringify(object));
+		} <span style="color:Blue;">else</span> {
+			alert(<span style="color:#A31515;">"Node was not selected."</span>);
+		}
+	}
+});
+
+exampleWindow.show();
+</pre>

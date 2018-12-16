@@ -1,0 +1,79 @@
+﻿Issues:
+
+Priority: High
+- Typescript is not distributed
+- Style the AnchoredContent
+- Show/Hide columns:
+	- Hidden columns should not participate in sorting
+- Events 'CurrentNodeChanged', 'CurrentRowChanged', 'NodeExpanded', 'NodeCollapsed' should not be clicked twice if 'makeCurrent'/'expand'/'collapse' called twice and there were no changes
+- Context menu
+	- Update models
+	- TreeView node doesn't trigger context menu
+- keyboard support
+	- tree view nodes / grid view rows are not focusable
+	- ribbon buttons are not clickable from keyboard
+	- pager buttons lose focus after grid is rebound
+- Localization for redui built-in labels and messages - since there is no direct dependency on Globalize.js, messages should be set, if only Globalize is defined
+- Docked window & validation: won't close if invalid, but how to know if it was closed or not?
+- Provide shortcut methods for click events
+- Improve error messages, include control names when possible
+- After removing the currently selected row from the GridView the currentRow property is not set to null
+- replace all direct even subscriptions like .click etc with bind
+- In the current implementation validation metrhod is aware of the control internal structure, so walks the inner controls on its own. Probably need to add validation handler.
+
+Examples:
+- Update custom control examples with the new templates including context menu rendering
+- ComboBox with local context
+- ObjectSelector with local context
+- Breadcrumbs + AnchoredContent
+- Create localization example (in advanced scenarios)
+	- Specifically, document that if the label is not found in the currently set culture, there is no fallback
+- Validation example - add dialog that after validation shows all validation errors
+- Validation with observables for every control type
+- Editable ObjectSelector Control Example With ListBuilder
+- Master - Detail Example
+- Cancel for Master-detail example
+
+Documentation:
+- Document: when button is dialog button and has dialogResult defined, it closes the window. If dialogResult is not defined, it doesn't, but it is still shown as a dialog button
+- Document bindingContext
+- Document: control life cycle
+- Document: storing model changes in the localStorage
+- Document what window property of the window control contains. Self reference, null?
+- ObjectSelector and empty value
+	- when property is not there, then it's an error (like for all other controls)
+	- if the property is there, then it will be used. It will be converted to string using objectValueProperty or toString(). The end result can be an empty string, but it is only used to show in UI
+	- when objectSelector is editable, then it should be bound to a string property, because every time you edit the value manually, it updates the databound object with the string
+	- when the value of the objectSelector is required, empty object will pass the validation, so you should assign null in this case
+	
+Mail client demo, TODO:
+- Contact editor:
+	- allow add/delete operations
+	- field validation in grid view
+- Contact in a mail editor - remove checkbox?
+- Contact book - when clicking search several times (no filter), first 2 rows always change
+
+Directions for later improvings in mail client demo:
+- Rich text editor, to allow markup
+
+Priority: Low
+
+- Sizing of every element when font size comes from user-defined css
+- focus escapes the modal window when clicking outside the dialog
+- readonly input controls
+- When name is not provided in the model, should be generated (what happens now, btw?)
+- When control name is the same as one of the control built-in properties, the results are unpredictable, it all breaks, because I am trying to make child control accessible by name
+- Append tree nodes in a non-blocking fashion (when data binding)
+- When window is docked, dialog buttons are not shown - should they?
+- When moved or resized, window width/height properties should return updated values
+- getDataObject on the treenode returns all subnodes. Is this really needed? Should it be controlled?
+- Investigate: Using image sprites with redui
+- Model properties: check that types are correct: arrays, numbers
+- Docked windows are not removed if the div where the window is docked into gets removed
+- List builder, when value is returned to the available options, it is added to the end, which might or might not be convenient
+- List builder, is it clear where are available options and where are selected ones?
+
+By design or won't fix:
+- GridView should look good when sized to the width of the parent div, for example, last column could expand to fill the space
+- getOptions function can be set before binding from the code, this would simplify the model and eliminate global dependencies - impossible, because of GridView - you cannot bind every row programmatically
+- Mail client demo - contacts grid is flickering when redrawing (after changing page) in ie9 - caused by skype addon, turning the phone numbers into skype controls

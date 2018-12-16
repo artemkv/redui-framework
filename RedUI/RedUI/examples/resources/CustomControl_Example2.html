@@ -1,0 +1,147 @@
+﻿<div class="wikidoc"><h1>Databound Custom Control With Custom Model Properties Example</h1>
+This example explains how to create a custom control (customslider) which uses the custom metadata properties. This custom control is based on the jQuery Slider control.<br>
+<button id="CustomModelPropertiesExample" class="try-example-button">Try Example</button>
+<h2>Template</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">&lt;</span><span style="color:#A31515;">div</span> <span style="color:Red;">id</span><span style="color:Blue;">=</span><span style="color:Blue;">"{{id}}_template"</span> <span style="color:Red;">class</span><span style="color:Blue;">=</span><span style="color:Blue;">"redui-customslider-outer redui-valid{{#model.cssClass}} {{model.cssClass}}{{/model.cssClass}}{{#model.isHidden}} redui-hidden{{/model.isHidden}}"</span><span style="color:Blue;">&gt;</span>
+  {{#model.label}}<span style="color:Blue;">&lt;</span><span style="color:#A31515;">label</span> <span style="color:Red;">for</span><span style="color:Blue;">=</span><span style="color:Blue;">"{{id}}"</span> <span style="color:Red;">class</span><span style="color:Blue;">=</span><span style="color:Blue;">"redui-customslider-label"</span><span style="color:Blue;">&gt;</span>
+    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">span</span><span style="color:Blue;">&gt;</span>{{#_localize}}{{model.label}}{{/_localize}}: {{#model.isRequired}}*{{/model.isRequired}}<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">span</span><span style="color:Blue;">&gt;</span>
+  <span style="color:Blue;">&lt;/</span><span style="color:#A31515;">label</span><span style="color:Blue;">&gt;</span>{{/model.label}}
+  <span style="color:Blue;">&lt;</span><span style="color:#A31515;">input</span> <span style="color:Red;">id</span><span style="color:Blue;">=</span><span style="color:Blue;">"{{id}}_amount"</span> <span style="color:Red;">name</span><span style="color:Blue;">=</span><span style="color:Blue;">"{{name}}"</span> <span style="color:Red;">data-name</span><span style="color:Blue;">=</span><span style="color:Blue;">"{{name}}"</span> <span style="color:Red;">type</span><span style="color:Blue;">=</span><span style="color:Blue;">"text"</span> <span style="color:Red;">style</span><span style="color:Blue;">=</span><span style="color:Blue;">"width: 32px; margin-bottom: 16px;"</span> <span style="color:Red;">readonly</span><span style="color:Blue;">=</span><span style="color:Blue;">"readonly"</span> <span style="color:Blue;">/&gt;</span>
+  <span style="color:Blue;">&lt;</span><span style="color:#A31515;">div</span> <span style="color:Red;">id</span><span style="color:Blue;">=</span><span style="color:Blue;">"{{id}}"</span> <span style="color:Red;">class</span><span style="color:Blue;">=</span><span style="color:Blue;">"redui-customslider redui-focusable"</span> <span style="color:Red;">style</span><span style="color:Blue;">=</span><span style="color:Blue;">"height:{{model.custom-length}}px;"</span><span style="color:Blue;">&gt;</span><span style="color:Blue;">&lt;/</span><span style="color:#A31515;">div</span><span style="color:Blue;">&gt;</span>
+  <span style="color:Blue;">&lt;</span><span style="color:#A31515;">div</span> <span style="color:Red;">id</span><span style="color:Blue;">=</span><span style="color:Blue;">"{{id}}_validationerrorbox"</span> <span style="color:Red;">class</span><span style="color:Blue;">=</span><span style="color:Blue;">"redui-validation-errorbox"</span><span style="color:Blue;">&gt;</span><span style="color:Blue;">&lt;/</span><span style="color:#A31515;">div</span><span style="color:Blue;">&gt;</span>
+<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">div</span><span style="color:Blue;">&gt;</span>
+</pre></div>
+<h2>UI Model</h2>
+<div style="color:Black;background-color:White;"><pre>{
+    <span style="color:#A31515;">"windows"</span>: [
+        {
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"CustomModelPropertiesExample"</span>,
+            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"Custom Model Properties Example"</span>,
+            <span style="color:#A31515;">"left"</span>: 500,
+            <span style="color:#A31515;">"top"</span>: 100,
+            <span style="color:#A31515;">"width"</span>: 500,
+            <span style="color:#A31515;">"height"</span>: 400,
+            <span style="color:#A31515;">"controls"</span>: [
+                <b>{
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"driveCustomControl"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"custom"</span>,
+                    <span style="color:#A31515;">"customType"</span>: <span style="color:#A31515;">"customslider"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Drive"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"drive"</span>,
+                    <span style="color:#A31515;">"cssClass"</span>: <span style="color:#A31515;">"vertical-slider"</span>,
+                    <span style="color:#A31515;">"custom-orientation"</span>: <span style="color:#A31515;">"vertical"</span>,
+                    <span style="color:#A31515;">"custom-length"</span>: 200,
+                    <span style="color:#A31515;">"custom-min"</span>: 0,
+                    <span style="color:#A31515;">"custom-max"</span>: 100
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"bassCustomControl"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"custom"</span>,
+                    <span style="color:#A31515;">"customType"</span>: <span style="color:#A31515;">"customslider"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Bass"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"bass"</span>,
+                    <span style="color:#A31515;">"cssClass"</span>: <span style="color:#A31515;">"vertical-slider"</span>,
+                    <span style="color:#A31515;">"custom-orientation"</span>: <span style="color:#A31515;">"vertical"</span>,
+                    <span style="color:#A31515;">"custom-length"</span>: 200,
+                    <span style="color:#A31515;">"custom-min"</span>: 0,
+                    <span style="color:#A31515;">"custom-max"</span>: 100
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"midCustomControl"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"custom"</span>,
+                    <span style="color:#A31515;">"customType"</span>: <span style="color:#A31515;">"customslider"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Mid"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"mid"</span>,
+                    <span style="color:#A31515;">"cssClass"</span>: <span style="color:#A31515;">"vertical-slider"</span>,
+                    <span style="color:#A31515;">"custom-orientation"</span>: <span style="color:#A31515;">"vertical"</span>,
+                    <span style="color:#A31515;">"custom-length"</span>: 200,
+                    <span style="color:#A31515;">"custom-min"</span>: 0,
+                    <span style="color:#A31515;">"custom-max"</span>: 100
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"trebleCustomControl"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"custom"</span>,
+                    <span style="color:#A31515;">"customType"</span>: <span style="color:#A31515;">"customslider"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Treble"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"treble"</span>,
+                    <span style="color:#A31515;">"cssClass"</span>: <span style="color:#A31515;">"vertical-slider"</span>,
+                    <span style="color:#A31515;">"custom-orientation"</span>: <span style="color:#A31515;">"vertical"</span>,
+                    <span style="color:#A31515;">"custom-length"</span>: 200,
+                    <span style="color:#A31515;">"custom-min"</span>: 0,
+                    <span style="color:#A31515;">"custom-max"</span>: 100
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"volumeCustomControl"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"custom"</span>,
+                    <span style="color:#A31515;">"customType"</span>: <span style="color:#A31515;">"customslider"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Volume"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"volume"</span>,
+                    <span style="color:#A31515;">"cssClass"</span>: <span style="color:#A31515;">"vertical-slider"</span>,
+                    <span style="color:#A31515;">"custom-orientation"</span>: <span style="color:#A31515;">"vertical"</span>,
+                    <span style="color:#A31515;">"custom-length"</span>: 200,
+                    <span style="color:#A31515;">"custom-min"</span>: 0,
+                    <span style="color:#A31515;">"custom-max"</span>: 100
+                }</b>,
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"OKButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"OK"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"OK"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"CancelButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Cancel"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"Cancel"</span>
+                }
+            ]
+        }
+    ]
+}
+</pre></div>
+<h2>Data Model</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> data = {
+	drive: 50,
+	bass: 60,
+	mid: 70,
+	treble: 80,
+	volume: 30
+};
+</pre></div>
+<h2>Code</h2>
+<div style="color:Black;background-color:White;"><pre>redui.customControlHandlers.customslider = {
+	getValue: <span style="color:Blue;">function</span> (control) {
+		<span style="color:Blue;">return</span> control.getElement().slider(<span style="color:#A31515;">"option"</span>, <span style="color:#A31515;">"value"</span>);
+	},
+	setValue: <span style="color:Blue;">function</span> (control, value) {
+		control.getElement().slider(<span style="color:#A31515;">"option"</span>, <span style="color:#A31515;">"value"</span>, value);
+		$(<span style="color:#A31515;">"#"</span> + control.id + <span style="color:#A31515;">"_amount"</span>).val(value);
+	},
+	activate: <span style="color:Blue;">function</span> (control) {
+		control.getElement().slider({
+			orientation: control.model[<span style="color:#A31515;">"custom-orientation"</span>],
+			range: <span style="color:#A31515;">"min"</span>,
+			min: control.model[<span style="color:#A31515;">"custom-min"</span>],
+			max: control.model[<span style="color:#A31515;">"custom-max"</span>],
+			slide: <span style="color:Blue;">function</span> (event, ui) {
+				$(<span style="color:#A31515;">"#"</span> + control.id + <span style="color:#A31515;">"_amount"</span>).val(ui.value);
+			},
+			change: <span style="color:Blue;">function</span> (event, ui) {
+				control.getElement().trigger(<span style="color:#A31515;">"change.redui"</span>, ui);
+			}
+		});
+	}
+};
+
+<span style="color:Blue;">var</span> exampleWindow = redui.createNewWindow(<span style="color:#A31515;">"CustomModelPropertiesExample"</span>);
+exampleWindow.bind(data);
+exampleWindow.show();
+
+exampleWindow.closed(<span style="color:Blue;">function</span> (target, dialogResult) {
+	<span style="color:Blue;">if</span> (dialogResult === <span style="color:#A31515;">"OK"</span>) {
+		alert(<span style="color:#A31515;">"Model data: "</span> + JSON.stringify(data));
+	}
+});
+</pre></div><br><br>.</div>

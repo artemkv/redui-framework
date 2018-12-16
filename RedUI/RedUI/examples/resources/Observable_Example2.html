@@ -1,0 +1,95 @@
+﻿<h1>Observable Array Example</h1>
+This example explains how to take advantage of knockout.js observable array.<br>There is no hard dependency on knockout.js, but if it is used, RedUI will take advantage of it's power.<br>
+<button id="ObservableArrayExample" class="try-example-button">Try Example</button>
+<h2>UI Model</h2>
+<div style="color:Black;background-color:White;"><pre>{
+    <span style="color:#A31515;">"windows"</span>: [
+        {
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"ObservableArrayExample"</span>,
+            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"Observable Array Example"</span>,
+            <span style="color:#A31515;">"left"</span>: 500,
+            <span style="color:#A31515;">"top"</span>: 100,
+            <span style="color:#A31515;">"width"</span>: 500,
+            <span style="color:#A31515;">"height"</span>: 600,
+            <span style="color:#A31515;">"controls"</span>: [
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"managersGrid1"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridview"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"First Grid View"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"list"</span>,
+                    <span style="color:#A31515;">"canUserAddRows"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"createNewRowValueFunction"</span>: <span style="color:#A31515;">"createNewRowValue"</span>,
+                    <span style="color:#A31515;">"columns"</span>: [
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewtextboxcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"title"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Title"</span>,
+                            <span style="color:#A31515;">"width"</span>: 170,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"title"</span>
+                        },
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewtextboxcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"name"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Name"</span>,
+                            <span style="color:#A31515;">"width"</span>: 280,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"name"</span>
+                        }
+                    ]
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"managersGrid2"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridview"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Second Grid View"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"list"</span>,
+                    <span style="color:#A31515;">"canUserAddRows"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"createNewRowValueFunction"</span>: <span style="color:#A31515;">"createNewRowValue"</span>,
+                    <span style="color:#A31515;">"columns"</span>: [
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewtextboxcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"title"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Title"</span>,
+                            <span style="color:#A31515;">"width"</span>: 170,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"title"</span>
+                        },
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewtextboxcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"name"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Name"</span>,
+                            <span style="color:#A31515;">"width"</span>: 280,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"name"</span>
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+</pre></div>
+<h2>Data Model</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> teamManagement = {
+	createNewRowValue: <span style="color:Blue;">function</span> () {
+		<span style="color:Blue;">return</span> {
+			id: 0,
+			title: ko.observable(<span style="color:#A31515;">""</span>),
+			name: ko.observable(<span style="color:#A31515;">""</span>),
+		}
+	},
+	list: ko.observableArray([
+		{
+			id: 7,
+			title: ko.observable(<span style="color:#A31515;">"Manager"</span>),
+			name: ko.observable(<span style="color:#A31515;">"Fiorello Lombardi"</span>),
+		},
+		{
+			id: 8,
+			title: ko.observable(<span style="color:#A31515;">"Goalkeeping Coach"</span>),
+			name: ko.observable(<span style="color:#A31515;">"Armando Arcuri"</span>),
+		}
+	])
+};
+</pre></div>
+<h2>Code</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> exampleWindow = redui.createNewWindow(<span style="color:#A31515;">"ObservableArrayExample"</span>);
+exampleWindow.bind(teamManagement);
+exampleWindow.show();
+</pre></div><br><br>

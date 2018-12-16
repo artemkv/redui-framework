@@ -1,0 +1,98 @@
+﻿<h1>Dynamic TreeView Control Example</h1>
+This example explains how to create a window with a TreeView control, bind to the data and dynamically add subnodes when the node is expanded.<br>
+<button id="DynamicTreeViewControlExample" class="try-example-button">Try Example</button>
+<h2>UI Model</h2>
+<div style="color:Black;background-color:White;"><pre>{
+    <span style="color:#A31515;">"windows"</span>: [
+        {
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"DynamicTreeViewExample"</span>,
+            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"Dynamic TreeView Example"</span>,
+            <span style="color:#A31515;">"left"</span>: 500,
+            <span style="color:#A31515;">"top"</span>: 100,
+            <span style="color:#A31515;">"width"</span>: 500,
+            <span style="color:#A31515;">"height"</span>: 400,
+            <span style="color:#A31515;">"controls"</span>: [
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"dynamicTree"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"treeview"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"items"</span>,
+                    <span style="color:#A31515;">"nodeModel"</span>: {
+                        <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"dynamicTreeNode"</span>,
+                        <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"treeviewnode"</span>,
+                        <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"items"</span>,
+                        <span style="color:#A31515;">"controls"</span>: [
+                            {
+                                <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"textStaticText"</span>,
+                                <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"statictext"</span>,
+                                <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"text"</span>
+                            }
+                        ]
+                    }
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"OKButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"OK"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"OK"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"CancelButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Cancel"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"Cancel"</span>
+                }
+            ]
+        }
+    ]
+}
+</pre></div>
+<h2>Data Model</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> stubNode = {
+	text: <span style="color:#A31515;">""</span>,
+	items: []
+};
+
+<span style="color:Blue;">var</span> treeRootNode = {
+	items: [
+		{
+			text: <span style="color:#A31515;">"root"</span>,
+			<span style="color:Green;">// Adding a stub subnode allows to expand the node</span>
+			items: [stubNode]
+		}
+	]
+};
+
+<span style="color:Green;">// In the real life this function would do an ajax request to the server</span>
+<span style="color:Blue;">var</span> getSubnodes = (<span style="color:Blue;">function</span> () {
+	<span style="color:Blue;">var</span> counter = 0;
+	<span style="color:Blue;">return</span> <span style="color:Blue;">function</span> () {
+		<span style="color:Blue;">return</span> [
+			{
+				text: <span style="color:#A31515;">"node"</span> + counter++,
+				items: [stubNode]
+			},
+			{
+				text: <span style="color:#A31515;">"node"</span> + counter++,
+				items: [stubNode]
+			},
+			{
+				text: <span style="color:#A31515;">"node"</span> + counter++,
+				items: [stubNode]
+			}
+		]
+	};
+})();
+</pre></div>
+<h2>Code</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> exampleWindow = redui.createNewWindow(<span style="color:#A31515;">"DynamicTreeViewExample"</span>);
+exampleWindow.bind(treeRootNode);
+exampleWindow.show();
+
+exampleWindow.dynamicTree.nodeExpanded(<span style="color:Blue;">function</span> (target, node) {
+	<span style="color:Blue;">var</span> nodeData = node.bindingContext;
+	nodeData.items = getSubnodes();
+	node.bind(nodeData);
+});
+</pre>

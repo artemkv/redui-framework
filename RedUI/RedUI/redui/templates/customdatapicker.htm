@@ -1,0 +1,7 @@
+﻿<div id="{{id}}_template" class="redui-customdatapicker-outer redui-valid{{#model.cssClass}} {{model.cssClass}}{{/model.cssClass}}{{#model.isHidden}} redui-hidden{{/model.isHidden}}">
+  {{#model.label}}<label for="{{id}}" class="redui-customdatapicker-label">
+    <span>{{#_localize}}{{model.label}}{{/_localize}}: {{#model.isRequired}}*{{/model.isRequired}}</span>
+  </label>{{/model.label}}
+  <input id="{{id}}" name="{{name}}" data-name="{{name}}" class="redui-customdatapicker redui-focusable" type="text" />
+  <div id="{{id}}_validationerrorbox" class="redui-validation-errorbox"></div>
+{{#contextMenu}}{{{_toHtml}}}{{/contextMenu}}</div>

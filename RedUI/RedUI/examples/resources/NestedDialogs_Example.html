@@ -1,0 +1,255 @@
+﻿<h1>Mutiple Level Nested Dialogs</h1>
+This example shows multiple level of nested dialogs.<br>
+<button id="NestedDialogsExample" class="try-example-button">Try Example</button>
+<h2>UI Model</h2>
+<div style="color:Black;background-color:White;"><pre>{
+    <span style="color:#A31515;">"windows"</span>: [
+        {
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"FirstLevelWindow"</span>,
+            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"Customers"</span>,
+            <span style="color:#A31515;">"left"</span>: 500,
+            <span style="color:#A31515;">"top"</span>: 100,
+            <span style="color:#A31515;">"width"</span>: 500,
+            <span style="color:#A31515;">"height"</span>: 300,
+            <span style="color:#A31515;">"controls"</span>: [
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"addNewButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Add Customer"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"customersGrid"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Customers"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridview"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"list"</span>,
+                    <span style="color:#A31515;">"canUserAddRows"</span>: <span style="color:Blue;">false</span>,
+                    <span style="color:#A31515;">"columns"</span>: [
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewtextboxcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"firstName"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"First Name"</span>,
+                            <span style="color:#A31515;">"width"</span>: 200,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"firstName"</span>
+                        },
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewtextboxcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"lastName"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Last Name"</span>,
+                            <span style="color:#A31515;">"width"</span>: 200,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"lastName"</span>
+                        }
+                    ]
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"OKButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"OK"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"OK"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"CancelButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Cancel"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"Cancel"</span>
+                }
+            ]
+        },
+        {
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"SecondLevelWindow"</span>,
+            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"New Customer"</span>,
+            <span style="color:#A31515;">"width"</span>: 600,
+            <span style="color:#A31515;">"height"</span>: 500,
+            <span style="color:#A31515;">"controls"</span>: [
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"customerFirstNameTextBox"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"textbox"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"First Name"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"firstName"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"customerLastNameTextBox"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"textbox"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Last Name"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"lastName"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"customerAgeTextBox"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"textbox"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Age"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"age"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"managerObjectSelector"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"objectselector"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Manager"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"manager"</span>,
+                    <span style="color:#A31515;">"getObjectFunction"</span>: <span style="color:#A31515;">"getManager"</span>,
+                    <span style="color:#A31515;">"objectValueProperty"</span>: <span style="color:#A31515;">"name"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"OKButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"OK"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"OK"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"CancelButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Cancel"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"Cancel"</span>
+                }
+            ]
+        },
+        {
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"ThirdLevelWindow"</span>,
+            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"Select Manager"</span>,
+            <span style="color:#A31515;">"width"</span>: 500,
+            <span style="color:#A31515;">"height"</span>: 300,
+            <span style="color:#A31515;">"controls"</span>: [
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"managersGrid"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridview"</span>,
+                    <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"list"</span>,
+                    <span style="color:#A31515;">"canUserAddRows"</span>: <span style="color:Blue;">false</span>,
+                    <span style="color:#A31515;">"columns"</span>: [
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewstatictextcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"title"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Title"</span>,
+                            <span style="color:#A31515;">"width"</span>: 150,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"title"</span>
+                        },
+                        {
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"gridviewstatictextcolumn"</span>,
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"name"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Name"</span>,
+                            <span style="color:#A31515;">"width"</span>: 250,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"name"</span>
+                        }
+                    ]
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"OKButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"OK"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"OK"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"CancelButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Cancel"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"Cancel"</span>
+                }
+            ]
+        }
+    ]
+}
+</pre></div>
+<h2>Data Model</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> customersData = {
+	list: [
+		{
+			id: 1,
+			firstName: <span style="color:#A31515;">"Mario"</span>,
+			lastName: <span style="color:#A31515;">"Pizzi"</span>,
+			age: 35,
+			manager: { id: 7, name: <span style="color:#A31515;">"Fiorello Lombardi"</span> }
+		},
+		{
+			id: 2,
+			firstName: <span style="color:#A31515;">"Jacques"</span>,
+			lastName: <span style="color:#A31515;">"Petit"</span>,
+			age: 27,
+			manager: { id: 0, name: <span style="color:#A31515;">""</span> }
+		},
+		{
+			id: 3,
+			firstName: <span style="color:#A31515;">"Koen"</span>,
+			lastName: <span style="color:#A31515;">"Van Bommel"</span>,
+			age: 54,
+			manager: { id: 0, name: <span style="color:#A31515;">""</span> }
+		}
+	]
+};
+
+<span style="color:Green;">// Options for object selector</span>
+<span style="color:Blue;">var</span> teamManagement = {
+	list: [
+		{
+			id: 7,
+			title: <span style="color:#A31515;">"Manager"</span>,
+			name: <span style="color:#A31515;">"Fiorello Lombardi"</span>,
+		},
+		{
+			id: 8,
+			title: <span style="color:#A31515;">"Goalkeeping Coach"</span>,
+			name: <span style="color:#A31515;">"Armando Arcuri"</span>,
+		},
+		{
+			id: 9,
+			title: <span style="color:#A31515;">"Assistant Manager"</span>,
+			name: <span style="color:#A31515;">"Alessio Ferri"</span>,
+		},
+		{
+			id: 10,
+			title: <span style="color:#A31515;">"First-team Coach"</span>,
+			name: <span style="color:#A31515;">"Giuseppe Milani"</span>,
+		}
+	]
+};
+
+<span style="color:Green;">// This function will be called when user clicks lookup button of the object selector</span>
+redui.objectSources.getManager = <span style="color:Blue;">function</span> (callback) {
+	<span style="color:Green;">// This window is used to select a manager</span>
+	<span style="color:Blue;">var</span> thirdLevelWindow = redui.createNewWindow(<span style="color:#A31515;">"ThirdLevelWindow"</span>);
+	thirdLevelWindow.bind(teamManagement);
+
+	thirdLevelWindow.closed(<span style="color:Blue;">function</span> (target, dialogResult) {
+		<span style="color:Blue;">if</span> (dialogResult === <span style="color:#A31515;">"OK"</span>) {
+			<span style="color:Green;">// If the row was selected,</span>
+			<span style="color:Green;">// Get the object bound to the current row</span>
+			<span style="color:Blue;">var</span> currentRow = thirdLevelWindow.managersGrid.currentRow;
+			<span style="color:Blue;">if</span> (currentRow) {
+				<span style="color:Blue;">var</span> object = currentRow.bindingContext;
+			}
+			<span style="color:Green;">// Return object to the object selector</span>
+			callback(object);
+		}
+	});
+
+	thirdLevelWindow.showModal();
+};
+</pre></div>
+<h2>Code</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> firstLevelWindow = redui.createNewWindow(<span style="color:#A31515;">"FirstLevelWindow"</span>);
+firstLevelWindow.bind(customersData);
+firstLevelWindow.show();
+
+<span style="color:Blue;">var</span> nextId = 4;
+firstLevelWindow.addNewButton.getElement().click(<span style="color:Blue;">function</span> (target) {
+	newCustomerData = {
+		id: nextId++,
+		firstName: <span style="color:#A31515;">""</span>,
+		lastName: <span style="color:#A31515;">""</span>,
+		age: 0,
+		manager: { id: 0, name: <span style="color:#A31515;">""</span> }
+	};
+
+	<span style="color:Blue;">var</span> secondLevelWindow = redui.createNewWindow(<span style="color:#A31515;">"SecondLevelWindow"</span>);
+	secondLevelWindow.bind(newCustomerData);
+	secondLevelWindow.showModal();
+
+	secondLevelWindow.closed(<span style="color:Blue;">function</span> (target, dialogResult) {
+		<span style="color:Blue;">if</span> (dialogResult === <span style="color:#A31515;">"OK"</span>) {
+			customersData.list.push(secondLevelWindow.bindingContext);
+			firstLevelWindow.bind(customersData);
+		}
+	});
+});
+</pre>

@@ -1,0 +1,6 @@
+﻿<div id="{{id}}_template" class="redui-listview-outer{{#model.cssClass}} {{model.cssClass}}{{/model.cssClass}}{{#model.isHidden}} redui-hidden{{/model.isHidden}}">
+  {{#model.label}}<label for="{{id}}" class="redui-listview-label">
+    <span>{{#_localize}}{{model.label}}{{/_localize}}:</span>
+  </label>{{/model.label}}
+  <div id="{{id}}" data-name="{{name}}" class="redui-listview"></div>
+{{#contextMenu}}{{{_toHtml}}}{{/contextMenu}}</div>

@@ -1,0 +1,7 @@
+﻿<div id="{{id}}_template" class="redui-ribbon-outer{{#model.cssClass}} {{model.cssClass}}{{/model.cssClass}}{{#model.isHidden}} redui-hidden{{/model.isHidden}}">
+  <div id="{{id}}" data-name="{{name}}" class="redui-ribbon">
+    {{#controls}}
+    {{{_toHtml}}}
+    {{/controls}}
+  </div>
+{{#contextMenu}}{{{_toHtml}}}{{/contextMenu}}</div>

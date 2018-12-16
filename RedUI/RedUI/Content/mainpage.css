@@ -1,0 +1,260 @@
+﻿*
+{
+    margin: 0;
+    padding: 0;
+}
+
+*
+{
+    font-family: helvetica, arial, sans-serif;
+}
+
+h1
+{
+    color: #ee1111;
+    font-size: 50px;
+    margin: 8px 0px 0px 8px;
+}
+
+h2
+{
+    font-size: 30px;
+    margin: 8px 0px 0px 8px;
+}
+
+h3
+{
+    font-size: 20px;
+    margin: 12px 0px 0px 8px;
+}
+
+h4
+{
+    font-size: 16px;
+    margin: 40px 0px 0px 8px;
+    clear: both;
+}
+
+body
+{
+    background: white;
+    font-size: .80em;
+    color: black;
+}
+
+.clear
+{
+    clear: both;
+}
+
+.hidden
+{
+    visibility: hidden;
+}
+
+/* Page layout */
+
+.page
+{
+    width: 960px;
+    background-color: white;
+    margin: 20px auto 0px auto;
+    border: none;
+}
+
+.header
+{
+    width: 100%;
+}
+
+.menuSeparator
+{
+    width: 100%;
+}
+
+#main
+{
+    padding: 20px;
+}
+
+/* Navigation menu */
+
+.navigationMenuContainer
+{
+    font-family: Arial;
+    width:90%;
+    float:left;
+    height: 30px;
+}
+
+.navigationMenuInner
+{
+    font-family: Arial;
+    margin: 6px 0px 6px 0px;
+}
+
+.navigationMenuInner ul
+{
+    list-style: none;
+    padding: 0px;
+    width: auto;
+}
+
+.navigationMenuInner li
+{
+    position: relative;
+    float: left;
+}
+
+.navigationMenuInner a:link, 
+.navigationMenuInner a:visited
+{
+    color: black;
+    background-color: white;
+    border: none;
+    text-decoration: none;
+    padding: 4px 16px;
+    margin: 0px 4px;
+    white-space: nowrap;
+}
+
+.navigationMenuInner a:hover,
+.navigationMenuInner a:active
+{
+    color: black;
+    background-color: white;
+    text-decoration: none;
+}
+
+/* Content */
+
+.legend
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    color: lightgray;
+    text-align: center;
+    display: block;
+}
+
+#window_model
+{
+    float: left;
+    width: 359px;
+    margin: 50px;
+}
+
+#window_from_model
+{
+    float: left;
+    width: 359px;
+    margin: 50px;
+}
+
+#declarative_model_showcase
+{
+    border: 1px dashed lightgray;
+    clear: both;
+    margin-top: 20px;
+    height: 708px;
+    width: 918px;
+}
+
+#window_model span.hoverable:hover
+{
+    box-shadow: 0 0 0px 2px #ee1111;
+    display: inline-block;
+}
+
+#window_from_model div.hoverable:hover
+{
+    -moz-box-shadow: 0 0 0px 2px #ee1111;
+    -webkit-box-shadow: 0 0 0px 2px #ee1111;
+    box-shadow: 0 0 0px 2px #ee1111;
+}
+
+#window_from_model button:hover
+{
+    -moz-box-shadow: 0 0 0px 2px #ee1111;
+    -webkit-box-shadow: 0 0 0px 2px #ee1111;
+    box-shadow: 0 0 0px 2px #ee1111;
+}
+
+.highlight
+{
+    -moz-box-shadow: 0 0 0px 2px #ee1111;
+    -webkit-box-shadow: 0 0 0px 2px #ee1111;
+    box-shadow: 0 0 0px 2px #ee1111;
+}
+
+span.highlight
+{
+    box-shadow: 0 0 0px 2px #ee1111;
+    display: inline-block;
+}
+
+#controltypes_showcase
+{
+    border: 1px dashed lightgray;
+    clear: both;
+    margin-top: 20px;
+    width: 918px;
+}
+
+#controltypes_image
+{
+    width: 800px;
+    border: 1px gray solid;
+    display: block;
+    margin: 50px auto 50px auto;
+}
+
+#programming_model_showcase
+{
+    border: 1px dashed lightgray;
+    clear: both;
+    margin-top: 20px;
+    width: 918px;
+    height: 724px;
+}
+
+#program_code
+{
+    float: left;
+    width: 359px;
+    margin: 50px;
+}
+
+#program_code_illustration
+{
+    float: left;
+    width: 359px;
+    margin: 50px;
+}
+
+#programming_model_showcase span.hoverable:hover
+{
+    box-shadow: 0 0 0px 2px #ee1111;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#model2html, #showwindow, #databind, #windowprops, #controlprops, #okclick
+{
+    width: 350px;
+    height: 600px;
+    border: 1px white solid;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#footer
+{
+    width: 800px;
+    margin: 20px auto 20px auto;
+    display: block;
+    text-align: center;
+    color: lightgray;
+}

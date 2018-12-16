@@ -1,0 +1,323 @@
+﻿*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body, html
+{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#redui_application
+{
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+    background: white;
+
+    min-width:200px;
+    min-height:200px;
+}
+
+/* Layout */
+#header
+{
+    position:absolute;
+    background: #da532c;
+}
+
+#ribbon
+{
+    position:absolute;
+    background: #F1F1F1;
+}
+
+#breadcrumbs
+{
+    position:absolute;
+    background: #F1F1F1;
+}
+
+#client_area
+{
+    position:absolute;
+    background: #F1F1F1;
+}
+
+#project_area
+{
+    position:absolute;
+    background: #F1F1F1;
+}
+
+#project_tree
+{
+    position:absolute;
+    background: white;
+}
+
+#project_tree_inner, #mailbox_grid_inner
+{
+    border-right: 1px solid #e3e3e3;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+#mailbox_grid
+{
+    position:absolute;
+    background: white;
+}
+
+#mailbox_grid_inner
+{
+    border-bottom: 1px solid #e3e3e3;
+}
+
+#details_view
+{
+    position:absolute;
+    background: white;
+}
+
+#details_view_inner
+{
+    border-bottom: 1px solid #e3e3e3;
+}
+
+#info_panel
+{
+    position:absolute;
+    background: white;
+}
+
+#footer
+{
+    position:absolute;
+    background: #da532c;
+}
+
+#header_inner, #ribbon_inner, #breadcrumbs_inner, #client_area_inner, #project_area_inner, #project_tree_inner, #mailbox_grid_inner, #details_view_inner, #info_panel_inner, #footer_inner
+{
+    position:absolute;
+
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    overflow: hidden;
+}
+
+#ribbon_inner .redui-window-clientarea-layoutpanel
+{
+    margin: 0px;
+}
+
+#ribbon_inner .redui-ribbon-outer
+{
+    margin-bottom: 0px;
+}
+
+#vertical_splitter1, #vertical_splitter2
+{
+    position:absolute;
+    background: #F1F1F1;
+    cursor: e-resize;
+}
+
+.horizontal_splitter
+{
+    position:absolute;
+    background: #F1F1F1;
+    cursor: n-resize;
+}
+
+/* End of layout */
+
+.redui-window
+{
+}
+
+#nav
+{
+    width: 20%;
+    height: 100%;
+    float: left;
+    background: white;
+}
+
+#content
+{
+    width: 45%;
+    height: 100%;
+    float: left;
+    top: 0px;
+    background: white;
+}
+
+#properties
+{
+    width: 35%;
+    height: 100%;
+    float: left;
+    top: 0px;
+    background: white;
+}
+
+.eventLogTextArea
+{
+    height: 400px;
+}
+
+.redui-demo-bold
+{
+    font-weight: bold;
+}
+
+#header_inner
+{
+    font-size: medium;
+    color: white;
+    margin: 6px;
+}
+
+h1, h2, h3, h4, h5
+{
+    margin: 16px;
+}
+
+.try-example-button
+{
+    margin: 16px;
+    width: 200px;
+    height: 40px;
+}
+
+#footer_inner
+{
+    font-size:small;
+    color: white;
+    margin: 4px;
+}
+
+.redui-customslider-label
+{
+    display: block;
+}
+
+.vertical-slider
+{
+    float: left;
+    display: inline-block;
+    width: 80px;
+}
+
+.redui-ribbon-outer.ribbon-topwindow
+{
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.redui-ribbon-outer.ribbon-contactbook
+{
+}
+
+/* Reading pane */
+
+.readingpane-subject
+{
+    font-weight: bold;
+    margin: 16px;
+}
+
+.readingpane-label
+{
+    width: 100px;
+    margin: 4px 8px;
+    font-size: small;
+    float: left;
+    clear: left;
+    font-weight: bold;
+}
+
+.readingpane-field
+{
+    margin: 4px 8px;
+    font-size: small;
+    float: left;
+ }
+
+.readingpane-text
+{
+    margin: 0px 16px 16px 16px;
+    font-size: small;
+    white-space: pre-line;
+    clear: left;
+}
+
+.newemail-field label
+{
+    width: 100px;
+    display: inline-block;
+}
+
+.newemail-field input
+{
+    width: 500px;
+}
+
+.newemail-text textarea
+{
+    width: 650px;
+    margin-top: 16px;
+    clear: left;
+    border: gray 1px solid;
+}
+
+.contacts-searchtextbox
+{
+    float: left;
+    clear: left;
+}
+
+.contacts-searchbutton button
+{
+    float: left;
+    margin: 2px 4px 8px 4px;
+    height: 28px;
+}
+
+.contacts-addcontactbutton button
+{
+    float: left;
+    clear: left;
+    margin: 2px 4px 8px 4px;
+    height: 28px;
+}
+
+.contacts-addcontacttextbox
+{
+    float: left;
+}
+
+.contacts-addcontacttextbox input
+{
+    width: 500px;
+}
+
+.contacts-space
+{
+    clear: left;
+}
+
+.ribbonbutton-smallfont span
+{
+    font-size: 12px;
+}
+
+.widetextarea textarea
+{
+	width: 650px;
+}

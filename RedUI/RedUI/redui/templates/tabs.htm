@@ -1,0 +1,16 @@
+﻿<div id="{{id}}_template" class="redui-tabs-outer{{#model.cssClass}} {{model.cssClass}}{{/model.cssClass}}{{#model.isHidden}} redui-hidden{{/model.isHidden}}">
+  <div id="{{id}}" data-name="{{name}}" class="redui-tabs">
+    <ul class="redui-tabheaders">
+      {{#tabPages}}
+      <li id="{{id}}_tabheader" class='redui-tabheader'>
+        <button id="{{id}}_tabbutton" class='redui-tabbutton'><span>{{#_localize}}{{model.title}}{{/_localize}}</span></button>
+      </li>
+      {{/tabPages}}
+    </ul>
+    <div class='redui-tabpage-container'>
+      {{#tabPages}}
+      {{{_toHtml}}}
+      {{/tabPages}}
+    </div>
+  </div>
+{{#contextMenu}}{{{_toHtml}}}{{/contextMenu}}</div>

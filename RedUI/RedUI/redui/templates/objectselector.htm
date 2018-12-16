@@ -1,0 +1,8 @@
+﻿<div id="{{id}}_template" class="redui-objectselector-outer redui-valid{{#model.cssClass}} {{model.cssClass}}{{/model.cssClass}}{{#model.isHidden}} redui-hidden{{/model.isHidden}}">
+  {{#model.label}}<label for="{{id}}" class="redui-objectselector-label">
+    <span>{{#_localize}}{{model.label}}{{/_localize}}: {{#model.isRequired}}*{{/model.isRequired}}</span>
+  </label>{{/model.label}}
+  <input id="{{id}}" name="{{name}}" data-name="{{name}}" class="redui-objectselector{{#model.isEditable}} redui-focusable{{/model.isEditable}}" type="text"{{#model.isEditable}} tabindex="0"{{/model.isEditable}}{{^model.isEditable}} tabindex="-1" readonly=""{{/model.isEditable}} /><!--
+  --><button id="{{id}}_lookupbutton" class="redui-objectselector-lookupbutton redui-focusable" tabindex="0" type="button">...</button>
+  <div id="{{id}}_validationerrorbox" class="redui-validation-errorbox"></div>
+{{#contextMenu}}{{{_toHtml}}}{{/contextMenu}}</div>

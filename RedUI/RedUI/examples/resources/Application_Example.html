@@ -1,0 +1,40 @@
+﻿<h1>RedUI Application</h1>
+This page explains the anatomy of the RedUI application.<br><br>
+<p>For more detailed documentation please refer to a <a href="https://redui.codeplex.com/" target="_blank">project page on codeplex.com</a></p><br><br>
+<div style="color:Black;background-color:White;"><pre>
+<span style="color:Blue;">&lt;!</span><span style="color:#A31515;">DOCTYPE</span> <span style="color:Red;">html</span><span style="color:Blue;">&gt;</span>
+
+<span style="color:Blue;">&lt;</span><span style="color:#A31515;">html</span><span style="color:Blue;">&gt;</span>
+<span style="color:Blue;">&lt;</span><span style="color:#A31515;">head</span><span style="color:Blue;">&gt;</span>
+    <span style="color:Blue;">&lt;</span><span style="color:#A31515;">title</span><span style="color:Blue;">&gt;</span>RedUI Demo<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">title</span><span style="color:Blue;">&gt;</span>
+
+    <span style="color:Green;">&lt;!-- Default CSS for RedUI --&gt;</span>
+    <b><span style="color:Blue;">&lt;</span><span style="color:#A31515;">link</span> <span style="color:Red;">href</span><span style="color:Blue;">=</span><span style="color:Blue;">"/Content/redui-1.0.0.css"</span> <span style="color:Red;">rel</span><span style="color:Blue;">=</span><span style="color:Blue;">"stylesheet"</span> <span style="color:Red;">type</span><span style="color:Blue;">=</span><span style="color:Blue;">"text/css"</span> <span style="color:Blue;">/&gt;</span></b>
+    <span style="color:Green;">&lt;!-- Default color scheme for RedUI --&gt;</span>
+    <b><span style="color:Blue;">&lt;</span><span style="color:#A31515;">link</span> <span style="color:Red;">href</span><span style="color:Blue;">=</span><span style="color:Blue;">"/Content/redui-1.0.0.default.css"</span> <span style="color:Red;">rel</span><span style="color:Blue;">=</span><span style="color:Blue;">"stylesheet"</span> <span style="color:Red;">type</span><span style="color:Blue;">=</span><span style="color:Blue;">"text/css"</span> <span style="color:Blue;">/&gt;</span></b>
+<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">head</span><span style="color:Blue;">&gt;</span>
+<span style="color:Blue;">&lt;</span><span style="color:#A31515;">body</span><span style="color:Blue;">&gt;</span>
+    <span style="color:Green;">&lt;!-- This DIV is a container for the RedUI application.
+        It has to have attribute id set to "redui_application".
+        Typically it should be styled to take the full size of the browser window.
+        data-templatesbaseurl atribute contains url of the folder with RedUI templates.
+        data-model attribute contains url of the model --&gt;</span>
+    <b><span style="color:Blue;">&lt;</span><span style="color:#A31515;">div</span> <span style="color:Red;">id</span><span style="color:Blue;">=</span><span style="color:Blue;">"redui_application"</span><br>        <span style="color:Red;">data-templatesbaseurl</span><span style="color:Blue;">=</span><span style="color:Blue;">"/Content/templates/"</span><br>        <span style="color:Red;">data-model</span><span style="color:Blue;">=</span><span style="color:Blue;">"/examples/model.js"</span> <span style="color:Blue;">&gt;</span><span style="color:Blue;">&lt;/</span><span style="color:#A31515;">div</span><span style="color:Blue;">&gt;</span></b>
+
+    <span style="color:Green;">&lt;!-- Dependencies (JQuery, JQueryUI and Mustache) excluded for brevity. --&gt;</span>
+
+    <span style="color:Green;">&lt;!-- RedUI framework --&gt;</span>
+    <b><span style="color:Blue;">&lt;</span><span style="color:#A31515;">script</span> <span style="color:Red;">src</span><span style="color:Blue;">=</span><span style="color:Blue;">"/Scripts/redui-1.0.0.js"</span> <span style="color:Red;">type</span><span style="color:Blue;">=</span><span style="color:Blue;">"text/javascript"</span><span style="color:Blue;">&gt;</span><span style="color:Blue;">&lt;/</span><span style="color:#A31515;">script</span><span style="color:Blue;">&gt;</span></b>
+
+<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">body</span><span style="color:Blue;">&gt;</span>
+<span style="color:Blue;">&lt;/</span><span style="color:#A31515;">html</span><span style="color:Blue;">&gt;</span>
+</pre></div>
+
+<h2>UI Model</h2>
+Content of model.js file<br><br>
+<div style="color:Black;background-color:White;"><pre>{
+    <span style="color:#A31515;">"windows"</span>: [
+        ... Here should be your UI model. See examples below for reference ...
+    ]
+}
+</pre></div>

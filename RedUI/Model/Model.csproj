@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FF059E85-7A6F-47A8-BFBA-0F73486DE4B9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Model</RootNamespace>
+    <AssemblyName>Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\ICustomControl.cs" />
+    <Compile Include="Controls\IGridViewColumnSortingInfo.cs" />
+    <Compile Include="Controls\IGridViewSortingInfo.cs" />
+    <Compile Include="Controls\IListBuilder.cs" />
+    <Compile Include="Controls\IPager.cs" />
+    <Compile Include="Controls\IObjectSelector.cs" />
+    <Compile Include="Controls\IGridViewComboBoxCell.cs" />
+    <Compile Include="Controls\IGridViewComboBoxColumn.cs" />
+    <Compile Include="Controls\IImage.cs" />
+    <Compile Include="Controls\IButton.cs" />
+    <Compile Include="Controls\ICheckBox.cs" />
+    <Compile Include="Controls\IComboBox.cs" />
+    <Compile Include="Controls\IContainerControl.cs" />
+    <Compile Include="Controls\IControl.cs" />
+    <Compile Include="Controls\IDataBoundControl.cs" />
+    <Compile Include="Controls\IGridView.cs" />
+    <Compile Include="Controls\IGridViewCell.cs" />
+    <Compile Include="Controls\IGridViewColumn.cs" />
+    <Compile Include="Controls\IGridViewRow.cs" />
+    <Compile Include="Controls\IPagerInfo.cs" />
+    <Compile Include="Controls\ISelectionOption.cs" />
+    <Compile Include="Controls\IStaticText.cs" />
+    <Compile Include="Controls\IGroupBox.cs" />
+    <Compile Include="Controls\ITextArea.cs" />
+    <Compile Include="Controls\ITextBox.cs" />
+    <Compile Include="Controls\IWindow.cs" />
+    <Compile Include="Controls\ITreeView.cs" />
+    <Compile Include="Controls\ITreeViewNode.cs" />
+    <Compile Include="Controls\IWindowDisplayOptions.cs" />
+    <Compile Include="Models\ICustomControlModel.cs" />
+    <Compile Include="Models\IListBuilderModel.cs" />
+    <Compile Include="Models\IGridViewTextBoxColumnModel.cs" />
+    <Compile Include="Models\IGridViewCheckBoxColumnModel.cs" />
+    <Compile Include="Models\IPagerModel.cs" />
+    <Compile Include="Models\IGridViewObjectSelectorColumnModel.cs" />
+    <Compile Include="Models\IObjectSelectorModel.cs" />
+    <Compile Include="Models\IGridViewComboBoxColumnModel.cs" />
+    <Compile Include="Models\IImageModel.cs" />
+    <Compile Include="Models\IButtonModel.cs" />
+    <Compile Include="Models\ICheckBoxModel.cs" />
+    <Compile Include="Models\IComboBoxModel.cs" />
+    <Compile Include="Models\IContainerControlModel.cs" />
+    <Compile Include="Models\IControlModel.cs" />
+    <Compile Include="Models\IApplicationModel.cs" />
+    <Compile Include="Models\IDataBoundControlModel.cs" />
+    <Compile Include="Models\IGridViewColumnModel.cs" />
+    <Compile Include="Models\IGridViewModel.cs" />
+    <Compile Include="Models\IStaticTextModel.cs" />
+    <Compile Include="Models\IGroupBoxModel.cs" />
+    <Compile Include="Models\ITextAreaModel.cs" />
+    <Compile Include="Models\ITextBoxModel.cs" />
+    <Compile Include="Models\ITreeViewNodeModel.cs" />
+    <Compile Include="Models\IWindowModel.cs" />
+    <Compile Include="Models\ITreeViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Controls\Diagrams\IPager.cd" />
+    <None Include="Controls\Diagrams\Controls.cd" />
+    <None Include="Controls\Diagrams\IListBuilder.cd" />
+    <None Include="Controls\Diagrams\GridView.cd" />
+    <None Include="Controls\Diagrams\GridView_all.cd" />
+    <None Include="Controls\Diagrams\IButton.cd" />
+    <None Include="Controls\Diagrams\ICheckBox.cd" />
+    <None Include="Controls\Diagrams\IComboBox.cd" />
+    <None Include="Controls\Diagrams\IGridViewColumn.cd" />
+    <None Include="Controls\Diagrams\IGridViewComboBoxColumn.cd" />
+    <None Include="Controls\Diagrams\IGroupBox.cd" />
+    <None Include="Controls\Diagrams\IImage.cd" />
+    <None Include="Controls\Diagrams\IObjectSelector.cd" />
+    <None Include="Controls\Diagrams\IStaticText.cd" />
+    <None Include="Controls\Diagrams\ITextArea.cd" />
+    <None Include="Controls\Diagrams\IWindow.cd" />
+    <None Include="Controls\Diagrams\ITextBox.cd" />
+    <None Include="Controls\Diagrams\TreeView.cd" />
+    <None Include="Models\Diagrams\ControlModels.cd" />
+    <None Include="Models\Diagrams\IListBuilderModel.cd" />
+    <None Include="Models\Diagrams\IGridViewCheckBoxColumnModel.cd" />
+    <None Include="Models\Diagrams\IGridViewTextBoxColumnModel.cd" />
+    <None Include="Models\Diagrams\GridViewModel.cd" />
+    <None Include="Models\Diagrams\IButtonModel.cd" />
+    <None Include="Models\Diagrams\ICheckBoxModel.cd" />
+    <None Include="Models\Diagrams\IComboBoxModel.cd" />
+    <None Include="Models\Diagrams\IGridViewColumnModel.cd" />
+    <None Include="Models\Diagrams\IGridViewComboBoxColumnModel.cd" />
+    <None Include="Models\Diagrams\IGridViewObjectSelectorColumnModel.cd" />
+    <None Include="Models\Diagrams\IGroupBoxModel.cd" />
+    <None Include="Models\Diagrams\IImageModel.cd" />
+    <None Include="Models\Diagrams\IObjectSelectorModel.cd" />
+    <None Include="Models\Diagrams\IPagerModel.cd" />
+    <None Include="Models\Diagrams\IStaticTextModel.cd" />
+    <None Include="Models\Diagrams\ITextAreaModel.cd" />
+    <None Include="Models\Diagrams\IWindowModel.cd" />
+    <None Include="Models\Diagrams\TextBox.cd" />
+    <None Include="Models\Diagrams\TreeViewModel.cd" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

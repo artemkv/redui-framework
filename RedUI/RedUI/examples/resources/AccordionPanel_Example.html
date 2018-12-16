@@ -1,0 +1,99 @@
+﻿<h1>AccordionPanel Control Example</h1>
+This example explains how to create a window with a AccordionPanel control, bind to the data and show on the screen.<br>
+<button id="AccordionPanelControlExample" class="try-example-button">Try Example</button>
+<h2>UI Model</h2>
+<div style="color:Black;background-color:White;"><pre>{
+    <span style="color:#A31515;">"windows"</span>: [
+        {
+            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"AccordionPanelControlExample"</span>,
+            <span style="color:#A31515;">"title"</span>: <span style="color:#A31515;">"Accordion Panel Control Example"</span>,
+            <span style="color:#A31515;">"left"</span>: 500,
+            <span style="color:#A31515;">"top"</span>: 100,
+            <span style="color:#A31515;">"width"</span>: 500,
+            <span style="color:#A31515;">"height"</span>: 400,
+            <span style="color:#A31515;">"controls"</span>: [
+                {
+                    <b><span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"generalAccordionPanel"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"accordionpanel"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"General"</span>,
+                    <span style="color:#A31515;">"controls"</span>:</b> [
+                        {
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"customerFirstNameTextBox"</span>,
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"textbox"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"First Name"</span>,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"firstName"</span>
+                        },
+                        {
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"customerLastNameTextBox"</span>,
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"textbox"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Last Name"</span>,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"lastName"</span>
+                        }
+                    ]
+                },
+                {
+                    <b><span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"addressAccordionPanel"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"accordionpanel"</span>,
+                    <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Address"</span>,
+                    <span style="color:#A31515;">"controls"</span>:</b> [
+                        {
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"streetTextBox"</span>,
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"textbox"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Street"</span>,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"address.street"</span>
+                        },
+                        {
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"zipTextBox"</span>,
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"textbox"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"Zip"</span>,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"address.zip"</span>
+                        },
+                        {
+                            <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"cityTextBox"</span>,
+                            <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"textbox"</span>,
+                            <span style="color:#A31515;">"label"</span>: <span style="color:#A31515;">"City"</span>,
+                            <span style="color:#A31515;">"bindsTo"</span>: <span style="color:#A31515;">"address.city"</span>
+                        }
+                    ]
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"OKButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"OK"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"OK"</span>
+                },
+                {
+                    <span style="color:#A31515;">"name"</span>: <span style="color:#A31515;">"CancelButton"</span>,
+                    <span style="color:#A31515;">"type"</span>: <span style="color:#A31515;">"button"</span>,
+                    <span style="color:#A31515;">"text"</span>: <span style="color:#A31515;">"Cancel"</span>,
+                    <span style="color:#A31515;">"isDialogButton"</span>: <span style="color:Blue;">true</span>,
+                    <span style="color:#A31515;">"dialogResult"</span>: <span style="color:#A31515;">"Cancel"</span>
+                }
+            ]
+        }
+    ]
+}
+</pre></div>
+<h2>Data Model</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> customerData = {
+	firstName: <span style="color:#A31515;">"Mario"</span>,
+	lastName: <span style="color:#A31515;">"Pizzi"</span>,
+	address: {
+		street: <span style="color:#A31515;">"Via Roma"</span>,
+		zip: 1000,
+		city: <span style="color:#A31515;">"Torino"</span>
+	}
+};
+</pre></div>
+<h2>Code</h2>
+<div style="color:Black;background-color:White;"><pre><span style="color:Blue;">var</span> exampleWindow = redui.createNewWindow(<span style="color:#A31515;">"AccordionPanelControlExample"</span>);
+exampleWindow.bind(customerData);
+exampleWindow.show();
+
+exampleWindow.closed(<span style="color:Blue;">function</span> (target, dialogResult) {
+	<span style="color:Blue;">if</span> (dialogResult === <span style="color:#A31515;">"OK"</span>) {
+		alert(<span style="color:#A31515;">"Model data: "</span> + JSON.stringify(customerData));
+	}
+});
+</pre></div>

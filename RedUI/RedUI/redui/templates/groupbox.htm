@@ -1,0 +1,8 @@
+﻿<div id="{{id}}_template" class="redui-groupbox-outer{{#model.cssClass}} {{model.cssClass}}{{/model.cssClass}}{{#model.isHidden}} redui-hidden{{/model.isHidden}}">
+  <fieldset id="{{id}}" name="{{name}}" data-name="{{name}}" class="redui-groupbox">
+    <legend>{{#model.label}}<span class="redui-groupbox-label">{{#_localize}}{{model.label}}{{/_localize}}</span>{{/model.label}}</legend>
+    {{#controls}}
+    {{{_toHtml}}}
+    {{/controls}}
+  </fieldset>
+{{#contextMenu}}{{{_toHtml}}}{{/contextMenu}}</div>

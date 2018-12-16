@@ -1,0 +1,6 @@
+﻿<div id="{{id}}_template" data-command="{{model.command}}" class="redui-ribbonbutton-outer redui-focusable redui-commandbound{{#model.cssClass}} {{model.cssClass}}{{/model.cssClass}}{{#model.isHidden}} redui-hidden{{/model.isHidden}}" tabindex="0">
+  <a id="{{id}}" data-name="{{name}}" class="redui-ribbonbutton">
+    <div class="redui-ribbonbutton-iconpanel"><img class="redui-ribbonbutton-icon" src="{{model.iconSource}}" /></div>
+    <div class="redui-ribbonbutton-textpanel"><span class="redui-ribbonbutton-text">{{#_localize}}{{model.text}}{{/_localize}}</span></div>
+  </a>
+{{#contextMenu}}{{{_toHtml}}}{{/contextMenu}}</div>

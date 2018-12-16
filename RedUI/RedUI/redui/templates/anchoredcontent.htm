@@ -1,0 +1,7 @@
+﻿<div id="{{id}}_template" class="redui-anchoredcontent-outer{{#model.cssClass}} {{model.cssClass}}{{/model.cssClass}}{{#model.isHidden}} redui-hidden{{/model.isHidden}}">
+  <a id="{{id}}" data-name="{{name}}" class="redui-anchoredcontent" href="{{model.href}}">
+    {{#controls}}
+    {{{_toHtml}}}
+    {{/controls}}
+  </a>
+{{#contextMenu}}{{{_toHtml}}}{{/contextMenu}}</div>

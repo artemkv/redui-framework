@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Interface Name="Model.Controls.ICheckBox">
+    <Position X="7" Y="6" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\ICheckBox.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Model.Controls.IDataBoundControl">
+    <Position X="7" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Controls\IDataBoundControl.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Model.Controls.IControl">
+    <Position X="7" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAFAAAIAAgAAAAIAgA=</HashCode>
+      <FileName>Controls\IControl.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
