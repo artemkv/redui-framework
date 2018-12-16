@@ -1,10 +1,10 @@
 # GridView Control
 
-![](GridView Control_GridView.png)
+![](GridView-Control_GridView.png)
 
 ## Model
 
-![](GridView Control_IGridViewModel.png)
+![](GridView-Control_IGridViewModel.png)
 
 **type: string** - type of the control. Use _"gridview"_ to declare a GridView control.
 
@@ -61,7 +61,7 @@
 
 ## Control
 
-![](GridView Control_IGridView.png)
+![](GridView-Control_IGridView.png)
 
 **model: IControlModel** - reference to the model.
 

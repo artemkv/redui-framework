@@ -1,10 +1,10 @@
 # GroupBox Control
 
-![](GroupBox Control_GroupBox.png)
+![](GroupBox-Control_GroupBox.png)
 
 ## Model
 
-![](GroupBox Control_IGroupBoxModel.png)
+![](GroupBox-Control_IGroupBoxModel.png)
 
 **type: string** - type of the control. Use _"groupbox"_ to declare a GroupBox control.
 
@@ -52,7 +52,7 @@
 
 ## Control
 
-![](GroupBox Control_IGroupBox.png)
+![](GroupBox-Control_IGroupBox.png)
 
 **model: IControlModel** - reference to the model.
 

@@ -1,10 +1,10 @@
 # Button Control
 
-![](Button Control_Button.png)
+![](Button-Control_Button.png)
 
 ## Model
 
-![](Button Control_IButtonModel.png)
+![](Button-Control_IButtonModel.png)
 
 **type: string** - type of the control. Use _"button"_ to declare a Button control.
 
@@ -32,7 +32,7 @@
 
 ## Control
 
-![](Button Control_IButton.png)
+![](Button-Control_IButton.png)
 
 **model: IControlModel** - reference to the model.
 

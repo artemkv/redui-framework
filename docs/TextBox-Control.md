@@ -1,10 +1,10 @@
 # TextBox Control
 
-![](TextBox Control_TextBox.png)
+![](TextBox-Control_TextBox.png)
 
 ## Model
 
-![](TextBox Control_ITextBoxModel.png)
+![](TextBox-Control_ITextBoxModel.png)
 
 **type: string** - type of the control. Use _"textbox"_ to declare a TextBox control.
 
@@ -31,7 +31,7 @@
 
 ## Control
 
-![](TextBox Control_ITextBox.png)
+![](TextBox-Control_ITextBox.png)
 
 **model: IControlModel** - reference to the model.
 

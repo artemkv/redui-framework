@@ -2,7 +2,7 @@
 
 ## Model
 
-![](Image Control_IImageModel.png)
+![](Image-Control_IImageModel.png)
 
 **type: string** - type of the control. Use _"image"_ to declare an Image control.
 
@@ -37,7 +37,7 @@
 
 ## Control
 
-![](Image Control_IImage.png)
+![](Image-Control_IImage.png)
 
 **model: IControlModel** - reference to the model.
 

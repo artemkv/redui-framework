@@ -1,10 +1,10 @@
 # CheckBox Control
 
-![](CheckBox Control_CheckBox.png)
+![](CheckBox-Control_CheckBox.png)
 
 ## Model
 
-![](CheckBox Control_ICheckBoxModel.png)
+![](CheckBox-Control_ICheckBoxModel.png)
 
 **type: string** - type of the control. Use _"checkbox"_ to declare a CheckBox control.
 
@@ -31,7 +31,7 @@
 
 ## Control
 
-![](CheckBox Control_ICheckBox.png)
+![](CheckBox-Control_ICheckBox.png)
 
 **model: IControlModel** - reference to the model.
 

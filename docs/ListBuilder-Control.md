@@ -1,10 +1,10 @@
 # ListBuilder Control
 
-![](ListBuilder Control_ListBuilder.png)
+![](ListBuilder-Control_ListBuilder.png)
 
 ## Model
 
-![](ListBuilder Control_IListBuilderModel.png)
+![](ListBuilder-Control_IListBuilderModel.png)
 
 **type: string** - type of the control. Use _"listbuilder"_ to declare a ListBuilder control.
 
@@ -38,7 +38,7 @@
 
 ## Control
 
-![](ListBuilder Control_IListBuilder.png)
+![](ListBuilder-Control_IListBuilder.png)
 
 **model: IControlModel** - reference to the model.
 

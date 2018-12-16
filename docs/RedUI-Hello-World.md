@@ -25,7 +25,7 @@ PM> Install-Package redui -Pre
 
 After the package is installed, you project structure should look like this:
 
-![](RedUI Hello World_package.png)
+![](RedUI-Hello-World_package.png)
 
 ### Create Model
 
@@ -238,10 +238,10 @@ Add a view that will be returned by one of the controllers, with the following c
 
 At this point your project should look like this:
 
-![](RedUI Hello World_demoapp.png)
+![](RedUI-Hello-World_demoapp.png)
 
 ## Results
 
 As a result, you should get your first window rendered on the page:
 
-![](RedUI Hello World_demo_window.png)
+![](RedUI-Hello-World_demo_window.png)

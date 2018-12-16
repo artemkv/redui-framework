@@ -1,10 +1,10 @@
 # GridView ObjectSelector Column
 
-![](GridView ObjectSelector Column_ObjectSelectorColumn.png)
+![](GridView-ObjectSelector-Column_ObjectSelectorColumn.png)
 
 ## Model
 
-![](GridView ObjectSelector Column_IGridViewObjectSelectorColumnModel.png)
+![](GridView-ObjectSelector-Column_IGridViewObjectSelectorColumnModel.png)
 
 **type: string** - type of the control. Use _"gridviewobjectselectorcolumn"_ to declare an ObjectSelector column.
 
@@ -42,7 +42,7 @@
 
 ## Control
 
-![](GridView ObjectSelector Column_IGridViewColumn.png)
+![](GridView-ObjectSelector-Column_IGridViewColumn.png)
 
 **model: IControlModel** - reference to the model.
 

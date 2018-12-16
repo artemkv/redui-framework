@@ -1,10 +1,10 @@
 # GridView TextBox Column
 
-![](GridView TextBox Column_TextBoxColumn.png)
+![](GridView-TextBox-Column_TextBoxColumn.png)
 
 ## Model
 
-![](GridView TextBox Column_IGridViewColumnModel.png)
+![](GridView-TextBox-Column_IGridViewColumnModel.png)
 
 **type: string** - type of the control. Use _"gridviewtextboxcolumn"_ to declare a TextBox column.
 
@@ -34,7 +34,7 @@
 
 ## Control
 
-![](GridView TextBox Column_IGridViewColumn.png)
+![](GridView-TextBox-Column_IGridViewColumn.png)
 
 **model: IControlModel** - reference to the model.
 

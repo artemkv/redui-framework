@@ -2,7 +2,7 @@
 
 ## Model
 
-![](StaticText Control_IStaticTextModel.png)
+![](StaticText-Control_IStaticTextModel.png)
 
 **type: string** - type of the control. Use _"statictext"_ to declare a StaticText control.
 
@@ -28,7 +28,7 @@
 
 ## Control
 
-![](StaticText Control_IStaticText.png)
+![](StaticText-Control_IStaticText.png)
 
 **model: IControlModel** - reference to the model.
 

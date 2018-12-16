@@ -1,10 +1,10 @@
 # Pager Control
 
-![](Pager Control_Pager.png)
+![](Pager-Control_Pager.png)
 
 ## Model
 
-![](Pager Control_IPagerModel.png)
+![](Pager-Control_IPagerModel.png)
 
 **type: string** - type of the control. Use _"textbox"_ to declare a TextBox control.
 
@@ -32,7 +32,7 @@
 
 ## Control
 
-![](Pager Control_IPager.png)
+![](Pager-Control_IPager.png)
 
 **model: IControlModel** - reference to the model.
 

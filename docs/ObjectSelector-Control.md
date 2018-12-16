@@ -1,10 +1,10 @@
 # ObjectSelector Control
 
-![](ObjectSelector Control_ObjectSelector.png)
+![](ObjectSelector-Control_ObjectSelector.png)
 
 ## Model
 
-![](ObjectSelector Control_IObjectSelectorModel.png)
+![](ObjectSelector-Control_IObjectSelectorModel.png)
 
 **type: string** - type of the control. Use _"objectselector"_ to declare an ObjectSelector control.
 
@@ -39,7 +39,7 @@
 
 ## Control
 
-![](ObjectSelector Control_IObjectSelector.png)
+![](ObjectSelector-Control_IObjectSelector.png)
 
 **model: IControlModel** - reference to the model.
 

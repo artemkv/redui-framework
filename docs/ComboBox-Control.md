@@ -1,10 +1,10 @@
 # ComboBox Control
 
-![](ComboBox Control_ComboBox.png)
+![](ComboBox-Control_ComboBox.png)
 
 ## Model
 
-![](ComboBox Control_IComboBoxModel.png)
+![](ComboBox-Control_IComboBoxModel.png)
 
 **type: string** - type of the control. Use _"combobox"_ to declare a ComboBox control.
 
@@ -38,7 +38,7 @@
 
 ## Control
 
-![](ComboBox Control_IComboBox.png)
+![](ComboBox-Control_IComboBox.png)
 
 **model: IControlModel** - reference to the model.
 

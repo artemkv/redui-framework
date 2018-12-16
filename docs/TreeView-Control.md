@@ -1,10 +1,10 @@
 # TreeView Control
 
-![](TreeView Control_TreeView.png)
+![](TreeView-Control_TreeView.png)
 
 ## Model
 
-![](TreeView Control_ITreeViewModel.png)
+![](TreeView-Control_ITreeViewModel.png)
 
 **type: string** - type of the control. Use _"gridview"_ to declare a GridView control.
 
@@ -63,7 +63,7 @@
 
 ## Control
 
-![](TreeView Control_ITreeView.png)
+![](TreeView-Control_ITreeView.png)
 
 **model: IControlModel** - reference to the model.
 

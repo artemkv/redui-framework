@@ -1,10 +1,10 @@
 # TextArea Control
 
-![](TextArea Control_TextArea.png)
+![](TextArea-Control_TextArea.png)
 
 ## Model
 
-![](TextArea Control_ITextAreaModel.png)
+![](TextArea-Control_ITextAreaModel.png)
 
 **type: string** - type of the control. Use _"textarea"_ to declare a TextArea control.
 
@@ -37,7 +37,7 @@
 
 ## Control
 
-![](TextArea Control_ITextArea.png)
+![](TextArea-Control_ITextArea.png)
 
 **model: IControlModel** - reference to the model.
 

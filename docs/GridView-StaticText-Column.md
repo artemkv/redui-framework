@@ -1,10 +1,10 @@
 # GridView StaticText Column
 
-![](GridView StaticText Column_StaticTextColumn.png)
+![](GridView-StaticText-Column_StaticTextColumn.png)
 
 ## Model
 
-![](GridView StaticText Column_IGridViewColumnModel.png)
+![](GridView-StaticText-Column_IGridViewColumnModel.png)
 
 **type: string** - type of the control. Use _"gridviewstatictextcolumn"_ to declare a StaticText column.
 
@@ -34,7 +34,7 @@
 
 ## Control
 
-![](GridView StaticText Column_IGridViewColumn.png)
+![](GridView-StaticText-Column_IGridViewColumn.png)
 
 **model: IControlModel** - reference to the model.
 
