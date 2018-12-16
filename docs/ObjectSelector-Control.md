@@ -59,7 +59,5 @@
 
 **bind(dataObject: any): void** - binds the control to the data model.
 
-[ObjectSelector Control Example With GridView](ObjectSelector-Control-Example)
-[ObjectSelector Control Example With TreeView](ObjectSelector-Control-Example-With-TreeView)
-
-.
+[ObjectSelector Control Example With GridView](ObjectSelector-Control-Example.md)
+[ObjectSelector Control Example With TreeView](ObjectSelector-Control-Example-With-TreeView.md)

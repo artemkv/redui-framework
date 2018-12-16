@@ -109,6 +109,3 @@ managersWindow.closed(function (target, dialogResult) {
 	alert("GridView data: " + JSON.stringify(managersWindow.managersGrid.bindingContext));
 });
 {code:javascript}
-
-
-.

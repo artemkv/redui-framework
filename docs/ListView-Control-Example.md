@@ -113,6 +113,3 @@ var exampleWindow = redui.createNewWindow("ListViewExample");
 exampleWindow.bind(albumsData);
 exampleWindow.show();
 {code:javascript}
-
-
-.

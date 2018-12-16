@@ -48,7 +48,4 @@
 
 **bind(dataObject: any): void** - binds the control to the data model.
 
-[StaticText Control Example](StaticText-Control-Example)
-
-
-.
+[StaticText Control Example](StaticText-Control-Example.md)

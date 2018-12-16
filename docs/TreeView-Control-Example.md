@@ -159,6 +159,3 @@ exampleWindow.closed(function (target, dialogResult) {
 
 exampleWindow.show();
 {code:javascript}
-
-
-.

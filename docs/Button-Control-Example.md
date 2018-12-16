@@ -61,6 +61,3 @@ exampleWindow.DialogButton.getElement().click(function () {
 	alert("Dialog button clicked");
 });
 {code:javascript}
-
-
-.

@@ -58,6 +58,3 @@ var exampleWindow = redui.createNewWindow("TextAreaExample");
 exampleWindow.bind(data);
 exampleWindow.show();
 {code:javascript}
-
-
-.

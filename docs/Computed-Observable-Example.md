@@ -65,6 +65,3 @@ exampleWindow.fullNameTextBox.getElement().prop('readonly', true);
 
 exampleWindow.show();
 {code:javascript}
-
-
-.

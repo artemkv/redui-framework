@@ -95,6 +95,3 @@ var exampleWindow = redui.createNewWindow("GroupBoxExample");
 exampleWindow.bind(customerData);
 exampleWindow.show();
 {code:javascript}
-
-
-.

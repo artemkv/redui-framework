@@ -60,6 +60,3 @@ var exampleWindow = redui.createNewWindow("ImageExample");
 exampleWindow.bind(userData);
 exampleWindow.show();
 {code:javascript}
-
-
-.

@@ -332,6 +332,3 @@ masterWindow.customersGrid.rowSelected(function (target, row) {
 	}
 });
 {code:javascript}
-
-
-.

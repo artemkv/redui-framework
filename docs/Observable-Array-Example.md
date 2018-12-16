@@ -105,6 +105,3 @@ var exampleWindow = redui.createNewWindow("ObservableArrayExample");
 exampleWindow.bind(teamManagement);
 exampleWindow.show();
 {code:javascript}
-
-
-.

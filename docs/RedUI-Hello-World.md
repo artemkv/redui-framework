@@ -245,6 +245,3 @@ At this point your project should look like this:
 As a result, you should get your first window rendered on the page:
 
 ![](RedUI Hello World_demo_window.png)
-
-
-.

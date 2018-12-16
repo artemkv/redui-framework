@@ -60,6 +60,3 @@
 **options: any[]()** - reference to the array with the ComboBox options.
 
 **getElement(): JQuery** - returns the HTML element that represents the control.
-
-
-.

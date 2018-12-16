@@ -271,6 +271,3 @@ var exampleWindow = redui.createNewWindow("GridViewColumnsExample");
 exampleWindow.bind(customerData);
 exampleWindow.show();
 {code:javascript}
-
-
-.

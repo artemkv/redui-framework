@@ -64,6 +64,3 @@ var exampleWindow = redui.createNewWindow("SimpleObservableExample");
 exampleWindow.bind(customerData);
 exampleWindow.show();
 {code:javascript}
-
-
-.

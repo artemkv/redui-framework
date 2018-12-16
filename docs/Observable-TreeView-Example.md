@@ -112,6 +112,3 @@ exampleWindow.myRibbon.addNewRibbonButton.getElement().click(function () {
 	counter++;
 });
 {code:javascript}
-
-
-.

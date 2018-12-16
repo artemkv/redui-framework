@@ -60,7 +60,4 @@
 
 **bind(dataObject: any): void** - binds the control to the data model.
 
-[ComboBox Control Example](ComboBox-Control-Example)
-
-
-.
+[ComboBox Control Example](ComboBox-Control-Example.md)

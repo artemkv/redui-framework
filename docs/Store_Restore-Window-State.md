@@ -144,6 +144,3 @@ var exampleWindow = redui.createNewWindow("TrackChangesExample");
 exampleWindow.bind(customerData);
 exampleWindow.show();
 {code:javascript}
-
-
-.

@@ -78,6 +78,3 @@ var exampleWindow = redui.createNewWindow("MaxLengthValidationExample");
 exampleWindow.bind(customerData);
 exampleWindow.show();
 {code:javascript}
-
-
-.

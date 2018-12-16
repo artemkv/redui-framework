@@ -99,6 +99,3 @@ exampleWindow.pager4.pageChanged(function (target, pageNo) {
 	exampleWindow.bind(pagingData);
 });
 {code:javascript}
-
-
-.

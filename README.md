@@ -7,9 +7,11 @@
 
 **_See [Live Examples](http://www.redui.net/examples/) for interactive examples._**
 
-**_See the [Release Notes](docs/Release-Notes) to check what's new._**
+**_See the [Release Notes](docs/Release-Notes.md) to check what's new._**
 
 **_Or simply download [RedUI nuget package](https://www.nuget.org/packages/redui/) and try it out!_**
+
+**[Documentation](docs/Documentation.md)**
 
 
 ![](docs/Home_demo.png)

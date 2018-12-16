@@ -114,6 +114,3 @@ exampleWindow.closed(function (target, dialogResult) {
 	}
 });
 {code:javascript}
-
-
-.

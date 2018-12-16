@@ -48,7 +48,4 @@
 
 **getElement(): JQuery** - returns the HTML element that represents the control.
 
-[Button Control Example](Button-Control-Example)
-
-
-.
+[Button Control Example](Button-Control-Example.md)

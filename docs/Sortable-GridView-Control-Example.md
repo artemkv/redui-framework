@@ -157,6 +157,3 @@ exampleWindow.managersGrid.sortingChanged(function (target, sortingInfo) {
 	exampleWindow.bind(sortedData);
 });
 {code:javascript}
-
-
-.

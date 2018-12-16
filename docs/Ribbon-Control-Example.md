@@ -225,6 +225,3 @@ var exampleWindow = redui.createNewWindow("RibbonExample");
 exampleWindow.bind(customersData);
 exampleWindow.show();
 {code:javascript}
-
-
-.

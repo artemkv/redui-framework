@@ -57,6 +57,3 @@
 **window: IWindow** - reference to the window that owns the control.
 
 **getElement(): JQuery** - returns the HTML element that represents the control.
-
-
-.

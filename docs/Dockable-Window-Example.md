@@ -68,6 +68,3 @@ exampleWindow.undockButton.getElement().click(function () {
 	exampleWindow.undock();
 });
 {code:javascript}
-
-
-.

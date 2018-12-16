@@ -280,6 +280,3 @@ var exampleWindow = redui.createNewWindow("GridViewValidationExample");
 exampleWindow.bind(customerData);
 exampleWindow.show();
 {code:javascript}
-
-
-.

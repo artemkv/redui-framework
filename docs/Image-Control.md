@@ -57,7 +57,4 @@
 
 **bind(dataObject: any): void** - binds the control to the data model.
 
-[Image Control Example](Image-Control-Example)
-
-
-.
+[Image Control Example](Image-Control-Example.md)

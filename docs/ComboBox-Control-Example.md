@@ -71,6 +71,3 @@ var exampleWindow = redui.createNewWindow("ComboBoxExample");
 exampleWindow.bind(addressData);
 exampleWindow.show();
 {code:javascript}
-
-
-.

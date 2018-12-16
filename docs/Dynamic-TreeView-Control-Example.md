@@ -107,6 +107,3 @@ exampleWindow.dynamicTree.nodeExpanded(function (target, node) {
 	node.bind(nodeData);
 });
 {code:javascript}
-
-
-.

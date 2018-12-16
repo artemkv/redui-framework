@@ -109,6 +109,3 @@ managersWindow.closed(function (target, dialogResult) {
 
 managersWindow.show();
 {code:javascript}
-
-
-.

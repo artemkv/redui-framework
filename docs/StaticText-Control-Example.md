@@ -57,6 +57,3 @@ var exampleWindow = redui.createNewWindow("StaticTextExample");
 exampleWindow.bind(info);
 exampleWindow.show();
 {code:javascript}
-
-
-.

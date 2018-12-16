@@ -68,6 +68,3 @@ var exampleWindow = redui.createNewWindow("ValidationExample");
 exampleWindow.bind(customerData);
 exampleWindow.show();
 {code:javascript}
-
-
-.

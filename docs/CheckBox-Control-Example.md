@@ -72,6 +72,3 @@ var exampleWindow = redui.createNewWindow("CheckBoxExample");
 exampleWindow.bind(animalData);
 exampleWindow.show();
 {code:javascript}
-
-
-.

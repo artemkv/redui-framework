@@ -264,6 +264,3 @@ firstLevelWindow.addNewButton.getElement().click(function (target) {
 	});
 });
 {code:javascript}
-
-
-.

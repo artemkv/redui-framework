@@ -101,9 +101,6 @@
 
 **treeView: ITreeView** - reference to the tree view.
 
-[TreeView Control Example](TreeView-Control-Example)
-[Dynamic TreeView Control Example](Dynamic-TreeView-Control-Example)
-[Editable TreeView Control Example](Editable-TreeView-Control-Example)
-
-
-.
+[TreeView Control Example](TreeView-Control-Example.md)
+[Dynamic TreeView Control Example](Dynamic-TreeView-Control-Example.md)
+[Editable TreeView Control Example](Editable-TreeView-Control-Example.md)

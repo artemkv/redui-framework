@@ -57,7 +57,4 @@
 
 **bind(dataObject: any): void** - binds the control to the data model.
 
-[TextArea Control Example](TextArea-Control-Example)
-
-
-.
+[TextArea Control Example](TextArea-Control-Example.md)

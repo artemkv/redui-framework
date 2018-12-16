@@ -240,6 +240,3 @@ var exampleWindow = redui.createNewWindow("ContextMenuExample");
 exampleWindow.bind(customersData);
 exampleWindow.show();
 {code:javascript}
-
-
-.

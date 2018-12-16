@@ -52,7 +52,4 @@
 
 **bind(dataObject: any): void** - binds the control to the data model.
 
-[Pager Control Example](Pager-Control-Example)
-
-
-.
+[Pager Control Example](Pager-Control-Example.md)

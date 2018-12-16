@@ -70,6 +70,3 @@ var exampleWindow = redui.createNewWindow("ListBuilderExample");
 exampleWindow.bind(addressData);
 exampleWindow.show();
 {code:javascript}
-
-
-.

@@ -74,7 +74,4 @@
 
 **bind(dataObject: any): void** - binds the control to the data model.
 
-[GroupBox Control Example](GroupBox-Control-Example)
-
-
-.
+[GroupBox Control Example](GroupBox-Control-Example.md)

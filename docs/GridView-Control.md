@@ -105,12 +105,9 @@
 
 **value: string** - cell initial value.
 
-[ReadOnly GridView Control Example](ReadOnly-GridView-Control-Example)
-[Editable GridView Control Example](Editable-GridView-Control-Example)
-[Editable GridView Control Example With Possibility To Add New Rows](Editable-GridView-Control-Example-With-Possibility-To-Add-New-Rows)
-[GridView Pagination Example](GridView-Pagination-Example)
-[GridView, Supported Column Types](GridView,-Supported-Column-Types)
-[Sortable GridView Control Example](Sortable-GridView-Control-Example)
-
-
-.
+[ReadOnly GridView Control Example](ReadOnly-GridView-Control-Example.md)
+[Editable GridView Control Example](Editable-GridView-Control-Example.md)
+[Editable GridView Control Example With Possibility To Add New Rows](Editable-GridView-Control-Example-With-Possibility-To-Add-New-Rows.md)
+[GridView Pagination Example](GridView-Pagination-Example.md)
+[GridView, Supported Column Types](GridView,-Supported-Column-Types.md)
+[Sortable GridView Control Example](Sortable-GridView-Control-Example.md)

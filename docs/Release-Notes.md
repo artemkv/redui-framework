@@ -179,5 +179,3 @@ redui.1.0.0-alpha0007
 * ComboBox implements GetOptionsFunction property that refers to the function from redui.otionsBag that is used to retrieve the options
 * Colors are separated from the rest of css rules
 * Simplified binding to events like {"redui_treeviewnode_expanded"} using functions like nodeExpanded
-
-.

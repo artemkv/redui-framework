@@ -129,6 +129,3 @@ myWindow.pager.pageChanged(function (target, pageNo) {
 	myWindow.bind(pagedData);
 });
 {code:javascript}
-
-
-.

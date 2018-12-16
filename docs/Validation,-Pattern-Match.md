@@ -78,6 +78,3 @@ var exampleWindow = redui.createNewWindow("PatternValidationExample");
 exampleWindow.bind(siteData);
 exampleWindow.show();
 {code:javascript}
-
-
-.

@@ -27,6 +27,3 @@ _See interactive example on [http://www.redui.net](http://www.redui.net)_
 var exampleWindow = redui.createNewWindow("SimpleWindowExample");
 exampleWindow.show();
 {code:javascript}
-
-
-.

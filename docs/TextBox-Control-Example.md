@@ -65,6 +65,3 @@ var exampleWindow = redui.createNewWindow("TextBoxExample");
 exampleWindow.bind(playerData);
 exampleWindow.show();
 {code:javascript}
-
-
-.

@@ -216,6 +216,3 @@ var exampleWindow = redui.createNewWindow("ObjectSelectorExample");
 exampleWindow.bind(playerData);
 exampleWindow.show();
 {code:javascript}
-
-
-.

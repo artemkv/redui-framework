@@ -51,7 +51,4 @@
 
 **bind(dataObject: any): void** - binds the control to the data model.
 
-[CheckBox Control Example](CheckBox-Control-Example)
-
-
-.
+[CheckBox Control Example](CheckBox-Control-Example.md)

@@ -60,7 +60,4 @@
 
 **bind(dataObject: any): void** - binds the control to the data model.
 
-[ListBuilder Control Example](ListBuilder-Control-Example)
-
-
-.
+[ListBuilder Control Example](ListBuilder-Control-Example.md)

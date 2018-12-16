@@ -90,6 +90,3 @@ var exampleWindow = redui.createNewWindow("ModelValidationExample");
 exampleWindow.bind(customerData);
 exampleWindow.show();
 {code:javascript}
-
-
-.

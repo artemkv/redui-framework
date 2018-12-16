@@ -51,8 +51,5 @@
 
 **bind(dataObject: any): void** - binds the control to the data model.
 
-[TextBox Control Example](TextBox-Control-Example)
-[TextBox Control, Override Input Type](TextBox-Control,-Override-Input-Type)
-
-
-.
+[TextBox Control Example](TextBox-Control-Example.md)
+[TextBox Control, Override Input Type](TextBox-Control,-Override-Input-Type.md)
