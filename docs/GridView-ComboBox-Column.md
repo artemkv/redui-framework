@@ -1,10 +1,10 @@
 # GridView ComboBox Column
 
-![](GridView-ComboBox Column_ComboBoxColumn.png)
+![](GridView-ComboBox-Column_ComboBoxColumn.png)
 
 ## Model
 
-![](GridView-ComboBox Column_IGridViewComboBoxColumnModel.png)
+![](GridView-ComboBox-Column_IGridViewComboBoxColumnModel.png)
 
 **type: string** - type of the control. Use _"gridviewcomboboxcolumn"_ to declare a ComboBox column.
 
