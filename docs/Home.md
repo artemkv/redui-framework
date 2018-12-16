@@ -7,12 +7,12 @@
 
 **_See [Live Examples](http://www.redui.net/examples/) for interactive examples._**
 
-**_See the [Release Notes](docs/Release-Notes) to check what's new._**
+**_See the [Release Notes](Release-Notes) to check what's new._**
 
 **_Or simply download [RedUI nuget package](https://www.nuget.org/packages/redui/) and try it out!_**
 
 
-![](docs/Home_demo.png)
+![](Home_demo.png)
 
 
 # Main features of RedUI library
@@ -48,3 +48,5 @@ The result of the UI generation from the declarative model should be predictable
 
 
 **Follow the project on twitter:** [@redui_project](https://twitter.com/redui_project)
+
+.
